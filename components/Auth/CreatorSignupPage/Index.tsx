@@ -9,7 +9,19 @@ import { apiPost, apiPostWithMultiForm } from "@/utils/endpoints/common";
 import ShowToast from "@/components/common/ShowToast";
 import { API_CREATOR_REGISTER } from "@/utils/api/APIConstant";
 import DatePicker from "react-datepicker";
-import CustomSelect from "@/components/CustomSelect";
+import {
+  countryOptions,
+  bodyTypeOptions,
+  sexualOrientationOptions,
+  ageGroupOptions,
+  eyeColorOptions,
+  hairColorOptions,
+  ethnicityOptions,
+  heightOptions,
+  styleOptions,
+  sizeOptions,
+  popularityOptions,
+} from "../../../utils/creatorOptions";
 
 const CreatorSignupPage = () => {
   const [activeTab, setActiveTab] = useState("fan");
@@ -652,23 +664,20 @@ const CreatorSignupPage = () => {
                               className="custom-select-options-list"
                               data-custom-select-options-list=""
                             >
-                              {[
-                                "India",
-                                "USA",
-                                "UK",
-                                "Canada",
-                                "Australia",
-                              ].map((item) => (
+                              {countryOptions.map((option) => (
                                 <li
-                                  key={item}
+                                  key={option.value}
                                   className="custom-select-option"
                                   onClick={(e) => {
-                                    e.stopPropagation(); // ✅ PREVENT RE-TOGGLE
-                                    formik.setFieldValue("country", item);
+                                    e.stopPropagation();
+                                    formik.setFieldValue(
+                                      "country",
+                                      option.label
+                                    ); // or option.value depending on your needs
                                     setOpenDropdown(null);
                                   }}
                                 >
-                                  <span>{item}</span>
+                                  <span>{option.label}</span>
                                 </li>
                               ))}
                             </ul>
@@ -866,21 +875,22 @@ const CreatorSignupPage = () => {
                                 className="custom-select-options-list"
                                 data-custom-select-options-list=""
                               >
-                                {["Slim", "Athletic", "Average", "Curvy"].map(
-                                  (item) => (
-                                    <li
-                                      key={item}
-                                      className="custom-select-option"
-                                      onClick={(e) => {
-                                        e.stopPropagation();
-                                        formik.setFieldValue("bodyType", item);
-                                        setOpenDropdown(null);
-                                      }}
-                                    >
-                                      <span>{item}</span>
-                                    </li>
-                                  )
-                                )}
+                                {bodyTypeOptions.map((option) => (
+                                  <li
+                                    key={option.value}
+                                    className="custom-select-option"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      formik.setFieldValue(
+                                        "bodyType",
+                                        option.label
+                                      );
+                                      setOpenDropdown(null);
+                                    }}
+                                  >
+                                    <span>{option.label}</span>
+                                  </li>
+                                ))}
                               </ul>
                             </div>
                           </div>
@@ -974,26 +984,20 @@ const CreatorSignupPage = () => {
 
                           <div className="custom-select-options-lists-container">
                             <ul className="custom-select-options-list">
-                              {[
-                                "Straight",
-                                "Bisexual",
-                                "Gay",
-                                "Lesbian",
-                                "Other",
-                              ].map((item) => (
+                              {sexualOrientationOptions.map((option) => (
                                 <li
-                                  key={item}
+                                  key={option.value}
                                   className="custom-select-option"
                                   onClick={(e) => {
                                     e.stopPropagation();
                                     formik.setFieldValue(
                                       "sexualOrientation",
-                                      item
+                                      option.label
                                     );
                                     setOpenDropdown(null);
                                   }}
                                 >
-                                  <span>{item}</span>
+                                  <span>{option.label}</span>
                                 </li>
                               ))}
                             </ul>
@@ -1164,20 +1168,18 @@ const CreatorSignupPage = () => {
                               className="custom-select-options-list"
                               data-custom-select-options-list=""
                             >
-                              {["18–25", "26–35", "36–45", "46+"].map(
-                                (item) => (
-                                  <li
-                                    key={item}
-                                    className="custom-select-option"
-                                    onClick={() => {
-                                      formik.setFieldValue("age", item);
-                                      setOpenDropdown(null);
-                                    }}
-                                  >
-                                    <span>{item}</span>
-                                  </li>
-                                )
-                              )}
+                              {ageGroupOptions.map((option) => (
+                                <li
+                                  key={option.value}
+                                  className="custom-select-option"
+                                  onClick={() => {
+                                    formik.setFieldValue("age", option.label);
+                                    setOpenDropdown(null);
+                                  }}
+                                >
+                                  <span>{option.label}</span>
+                                </li>
+                              ))}
                             </ul>
                           </div>
                         </div>
@@ -1328,20 +1330,21 @@ const CreatorSignupPage = () => {
                               className="custom-select-options-list"
                               data-custom-select-options-list=""
                             >
-                              {["Black", "Brown", "Blue", "Green", "Hazel"].map(
-                                (item) => (
-                                  <li
-                                    key={item}
-                                    className="custom-select-option"
-                                    onClick={() => {
-                                      formik.setFieldValue("eyeColor", item);
-                                      setOpenDropdown(null);
-                                    }}
-                                  >
-                                    <span>{item}</span>
-                                  </li>
-                                )
-                              )}
+                              {eyeColorOptions.map((option) => (
+                                <li
+                                  key={option.value}
+                                  className="custom-select-option"
+                                  onClick={() => {
+                                    formik.setFieldValue(
+                                      "eyeColor",
+                                      option.label
+                                    );
+                                    setOpenDropdown(null);
+                                  }}
+                                >
+                                  <span>{option.label}</span>
+                                </li>
+                              ))}
                             </ul>
                           </div>
                         </div>
@@ -1491,20 +1494,21 @@ const CreatorSignupPage = () => {
                               className="custom-select-options-list"
                               data-custom-select-options-list=""
                             >
-                              {["Black", "Brown", "Blonde", "Red", "Grey"].map(
-                                (item) => (
-                                  <li
-                                    key={item}
-                                    className="custom-select-option"
-                                    onClick={() => {
-                                      formik.setFieldValue("hairColor", item);
-                                      setOpenDropdown(null);
-                                    }}
-                                  >
-                                    <span>{item}</span>
-                                  </li>
-                                )
-                              )}
+                              {hairColorOptions.map((option) => (
+                                <li
+                                  key={option.value}
+                                  className="custom-select-option"
+                                  onClick={() => {
+                                    formik.setFieldValue(
+                                      "hairColor",
+                                      option.label
+                                    );
+                                    setOpenDropdown(null);
+                                  }}
+                                >
+                                  <span>{option.label}</span>
+                                </li>
+                              ))}
                             </ul>
                           </div>
                         </div>
@@ -1659,22 +1663,19 @@ const CreatorSignupPage = () => {
                               className="custom-select-options-list"
                               data-custom-select-options-list=""
                             >
-                              {[
-                                "Asian",
-                                "African",
-                                "European",
-                                "Latino",
-                                "Other",
-                              ].map((item) => (
+                              {ethnicityOptions.map((option) => (
                                 <li
-                                  key={item}
+                                  key={option.value}
                                   className="custom-select-option"
                                   onClick={() => {
-                                    formik.setFieldValue("ethnicity", item);
+                                    formik.setFieldValue(
+                                      "ethnicity",
+                                      option.label
+                                    );
                                     setOpenDropdown(null);
                                   }}
                                 >
-                                  <span>{item}</span>
+                                  <span>{option.label}</span>
                                 </li>
                               ))}
                             </ul>
@@ -1837,16 +1838,19 @@ const CreatorSignupPage = () => {
                               className="custom-select-options-list"
                               data-custom-select-options-list=""
                             >
-                              {["4ft–5ft", "5ft–6ft", "6ft–7ft"].map((item) => (
+                              {heightOptions.map((option) => (
                                 <li
-                                  key={item}
+                                  key={option.value}
                                   className="custom-select-option"
                                   onClick={() => {
-                                    formik.setFieldValue("height", item);
+                                    formik.setFieldValue(
+                                      "height",
+                                      option.label
+                                    );
                                     setOpenDropdown(null);
                                   }}
                                 >
-                                  <span>{item}</span>
+                                  <span>{option.label}</span>
                                 </li>
                               ))}
                             </ul>
@@ -1983,20 +1987,18 @@ const CreatorSignupPage = () => {
                               className="custom-select-options-list"
                               data-custom-select-options-list=""
                             >
-                              {["Casual", "Glam", "Sporty", "Luxury"].map(
-                                (item) => (
-                                  <li
-                                    key={item}
-                                    className="custom-select-option"
-                                    onClick={() => {
-                                      formik.setFieldValue("style", item);
-                                      setOpenDropdown(null);
-                                    }}
-                                  >
-                                    <span>{item}</span>
-                                  </li>
-                                )
-                              )}
+                              {styleOptions.map((option) => (
+                                <li
+                                  key={option.value}
+                                  className="custom-select-option"
+                                  onClick={() => {
+                                    formik.setFieldValue("style", option.label);
+                                    setOpenDropdown(null);
+                                  }}
+                                >
+                                  <span>{option.label}</span>
+                                </li>
+                              ))}
                             </ul>
                           </div>
                         </div>
@@ -2134,20 +2136,18 @@ const CreatorSignupPage = () => {
                               className="custom-select-options-list"
                               data-custom-select-options-list=""
                             >
-                              {["XS", "S", "M", "L", "XL", "XXL"].map(
-                                (item) => (
-                                  <li
-                                    key={item}
-                                    className="custom-select-option"
-                                    onClick={() => {
-                                      formik.setFieldValue("size", item);
-                                      setOpenDropdown(null);
-                                    }}
-                                  >
-                                    <span>{item}</span>
-                                  </li>
-                                )
-                              )}
+                              {sizeOptions.map((option) => (
+                                <li
+                                  key={option.value}
+                                  className="custom-select-option"
+                                  onClick={() => {
+                                    formik.setFieldValue("size", option.label);
+                                    setOpenDropdown(null);
+                                  }}
+                                >
+                                  <span>{option.label}</span>
+                                </li>
+                              ))}
                             </ul>
                           </div>
                         </div>
@@ -2266,20 +2266,21 @@ const CreatorSignupPage = () => {
                               className="custom-select-options-list"
                               data-custom-select-options-list=""
                             >
-                              {["Low", "Medium", "High", "Trending"].map(
-                                (item) => (
-                                  <li
-                                    key={item}
-                                    className="custom-select-option"
-                                    onClick={() => {
-                                      formik.setFieldValue("popularity", item);
-                                      setOpenDropdown(null);
-                                    }}
-                                  >
-                                    <span>{item}</span>
-                                  </li>
-                                )
-                              )}
+                              {popularityOptions.map((option) => (
+                                <li
+                                  key={option.value}
+                                  className="custom-select-option"
+                                  onClick={() => {
+                                    formik.setFieldValue(
+                                      "popularity",
+                                      option.label
+                                    );
+                                    setOpenDropdown(null);
+                                  }}
+                                >
+                                  <span>{option.label}</span>
+                                </li>
+                              ))}
                             </ul>
                           </div>
                         </div>
