@@ -9,7 +9,9 @@ import * as Yup from "yup";
 
 import ShowToast from "@/components/common/ShowToast";
 import { apiPost } from "@/utils/endpoints/common";
-import { API_REGISTER } from "@/utils/api/APIConstant";
+import { API_REGISTER, API_VERIFY_OTP } from "@/utils/api/APIConstant";
+import OtpModal from "@/components/OtpModal";
+import { signIn } from "next-auth/react";
 
 const signupValidationSchema = Yup.object({
   firstName: Yup.string()
@@ -57,6 +59,8 @@ const SignupPage = () => {
   const [showPass, setShowPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [otpOpen, setOtpOpen] = useState(false);
+  const [emailForOtp, setEmailForOtp] = useState("");
 
   const formik = useFormik({
     initialValues: {
@@ -80,9 +84,9 @@ const SignupPage = () => {
         });
 
         if (response?.success) {
-          ShowToast(response.message || "Registered successfully", "success");
-          resetForm();
-          // router.push("/login");
+          ShowToast("OTP sent to your email", "success");
+          setEmailForOtp(values.email);
+          setOtpOpen(true);
         } else {
           ShowToast(response?.error || "Registration failed", "error");
         }
@@ -96,6 +100,30 @@ const SignupPage = () => {
       }
     },
   });
+
+  const handleVerifyOtp = async (otp: string) => {
+    try {
+      const result = await signIn("credentials", {
+        redirect: false,
+        email: emailForOtp,
+        otp,
+      });
+
+      console.log("signIn result:", result);
+
+      if (result?.error) {
+        ShowToast("Invalid OTP", "error");
+        return;
+      }
+
+      ShowToast("Registration completed!", "success");
+      setOtpOpen(false);
+
+      window.location.href = "/dashboard";
+    } catch (error: any) {
+      ShowToast(error?.message || "Error verifying OTP", "error");
+    }
+  };
 
   const renderError = (fieldName: keyof typeof formik.values) => {
     return formik.touched[fieldName] && formik.errors[fieldName] ? (
@@ -323,12 +351,47 @@ const SignupPage = () => {
             </p>
           </div>
           <h4 className="account_login">
-            Are you a creator? <a href="#">Sign up here.</a>
+            Are you a creator? <a href="/creator">Sign up here.</a>
           </h4>
         </div>
       </div>
+      <OtpModal
+        open={otpOpen}
+        onClose={() => setOtpOpen(false)}
+        onSubmit={handleVerifyOtp}
+      />
     </div>
   );
 };
 
 export default SignupPage;
+
+
+
+
+// Name:Yash Raval
+// Project Name;moneyboy-creators,realyze
+// Date: 10/12/2025
+// ---------------------------------
+
+// Completed tasks:
+
+// moneyboy-creators:
+// Task 1: make page of otp(frontend)(Completed)
+// Task 2: add otp verification in signup page(Completed)
+// Task 3: In signup page verification complete with session generate(Completed)
+
+
+
+// realyze:
+
+// Task 1: make api for contact-us (for admin)(Completed)
+// Task 2: show contact-us detail in adminside(Completed)
+// Task 3: some changes done in blog backend(Completed)
+// Task 4: blog page dynamic userside(Completed)
+
+ 
+
+ 
+ 
+ 
