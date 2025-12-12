@@ -30,7 +30,7 @@ const BenefitsPage = () => {
                   <li>Access creators’ personal shops for special offers</li>
                   <li>Explore public profiles and trending content</li>
                 </ul>
-                <button className="premium-btn"><span>Fan Signup</span></button>
+                <a href="/signup"><button className="premium-btn"> <span>Fan Signup</span></button></a>
               </>
             )}
             {activeTab === "creator" && (
@@ -48,11 +48,11 @@ const BenefitsPage = () => {
                   <li>Collaborate with other verified creators</li>
                   <li>Full ownership of your content and total payout transparency</li>
                 </ul>
-                <button className="premium-btn"><span>Creator Signup</span></button>
+               <a href="/creator"> <button className="premium-btn"><span>Creator Signup</span></button></a>
               </>
             )}
           </div>
-          <h4 className="account_login">Have an account already? <a href="signup">Login here</a></h4>
+          <h4 className="account_login">Have an account already? <a href="#">Login here</a></h4>
         </div>
       </div>
     </div>

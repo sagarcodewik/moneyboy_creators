@@ -4,7 +4,8 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className="container footer_main">
+    <div className="bg-white">
+      <div className="container footer_main">
       <ul className="ft_links">
         <li><Link href="#">Login</Link></li>
         <li><Link href="#">Signup</Link></li>
@@ -19,6 +20,7 @@ const Footer = () => {
         <Link href="#" className="footer-logo"><Image src="/images/debit-cards-logo/master-card-logo.svg" alt="Master Logo" width={25} height={19}/></Link>
         <Link href="#" className="footer-logo"><Image src="/images/debit-cards-logo/visa-card-logo.svg" alt="Visa Logo" width={35} height={20}/></Link>
         <p>Copyright ©<Link href="#">Moneyboy.com.</Link> All rights reserved</p>
+      </div>
       </div>
     </div>
   )

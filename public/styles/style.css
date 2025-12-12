@@ -2,9 +2,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+body {
+    background: #F4F4F4;
+}
 /* Custome Class Start  */
 .bg-off-white {
     background-color: #f4f4f4;
+}
+.bg-white {
+    background: #FDFDFD;
 }
 
 .moneyboy-feed-page-container .moneyboy-feed-page-cate-buttons .page-content-type-button:hover, .moneyboy-feed-page-container .moneyboy-feed-page-cate-buttons .page-content-type-button.active {
@@ -125,6 +131,15 @@
 
     }
   }
+
+/* Custome class Start  */
+.mb-0 {
+ margin-bottom: 0px !important;
+}
+.mb-10 {
+  margin-bottom: 15px !important;
+}
+
   
 
 /* Login Page Start */
@@ -138,6 +153,9 @@
     flex-direction: row;
     align-items: stretch;
     justify-content: center;
+    &.w1440 {
+        max-width: 1440px;
+    }
     .img_wrap {
         position: relative;
         flex: 0.60;
@@ -155,24 +173,33 @@
         display: flex;
         flex-direction: column;
         align-self: center;
-        padding: 40px 60px 24px;
+        padding: 20px 40px 20px;
         overflow-y: auto;
-        height: calc(100vh - 55px);
+        max-height: calc(100vh - 55px);
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
         .logo_wrap {
-            max-width: 290px;
+            max-width: 240px;
             width: 100%;
             height: auto;
             margin: 0 auto;
         }
         .main_cont {
             width: 100%;
-            max-width: 90%;
+            max-width: 100%;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: 15px;
             .moneyboy-feed-page-cate-buttons {
+                border-radius: 18px;
                 top: 0px;
+                button {
+                  padding: 14px 0px;
+                }
             }
             .moneyboy-post__container.card {
                 border-radius: 27px;
@@ -181,27 +208,27 @@
             h3.heading {
                 text-align: center;
                 color: var(--color-text-active);
-                font-size: 48px;
-                line-height: 52px;
+                font-size: 34px;
+                line-height: 38px;
                 font-weight: 400;
                 letter-spacing: 0px;
                 font-style: normal;
                 text-transform: capitalize;
                 font-family: var(--font-family-heading);
-                margin-bottom: 10px;
+                margin-bottom: 18px;
             }
             p {
                 text-align: center;
                 color: #505050;
-                font-size: 16px;
-                line-height: 20px;
+                font-size: 12px;
+                line-height: 16px;
                 font-weight: 500;
                 letter-spacing: 0px;
                 font-style: normal;
                 font-family: var(--font-family-base);
                 margin-bottom: 10px;
                 &.fs-18 {
-                    font-size: 18px;
+                    font-size: 16px;
                     font-weight: 500;
                 }
                 a {
@@ -217,8 +244,8 @@
                     padding-inline-start: 15px;
                     color: #505050;
                     font-weight: 500;
-                    font-size: 16px;
-                    line-height: 20px;
+                    font-size: 13px;
+                    line-height: 18px;
                     letter-spacing: 0px;
                     font-style: normal;
                     font-family: var(--font-family-base);
@@ -244,14 +271,14 @@
                 display: flex;
                 z-index: 9;
                 border-radius: 16px;
-                gap: 12px;
+                gap: 8px;
                 transition: var(--transition-normal);
                 margin-bottom: 10px;
                 button {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    gap: 5px;
+                    gap: 3px;
                     border-radius: 19px;
                     padding: 16px;
                     color: #020202;
@@ -259,9 +286,10 @@
                     font-weight: 500;
                     font-style: normal;
                     width: 100%;
-                    font-size: 14px;
+                    font-size: 10px;
                     line-height: 100%;
                     text-transform: capitalize;
+                    letter-spacing: 0.5px;
                     font-family: var(--font-family-heading);
                     transition: var(--transition-fast);
                     &.google-button {
@@ -343,7 +371,7 @@
                         text-align: left;
                         color: #444444;
                         font-weight: 500;
-                        font-size: 15px;
+                        font-size: 12px;
                         line-height: 100%;
                         margin-bottom: 0px;
                     }
@@ -362,7 +390,7 @@
                     padding: 14px;
                     padding-inline-start: 35px;
                     color: #444444;
-                    font-size: 14px;
+                    font-size: 12px;
                     line-height: 100%;
                     font-weight: 500;
                     letter-spacing: 0px;
@@ -373,7 +401,7 @@
                 padding: 14px 9px;
                 background: #FFFFFF;
                 color: #444444;
-                font-size: 14px;
+                font-size: 12px;
                 line-height: 100%;
                 font-weight: 500;
                 letter-spacing: 0px;
