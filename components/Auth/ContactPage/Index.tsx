@@ -53,12 +53,7 @@ const ContactPage = () => {
             <p>Official contact: <Link href="#">support@moneyboy.com</Link></p>
             <p className="fs-18">Please don’t send sensitive data or personal content through this form.</p>
           </div>
-<<<<<<< HEAD
-          <h4 className="account_login">Are you a creator? <a href="/signup">Sign up here.</a></h4>
-          <h4 className="account_login"><a href="/signup">Help & Support</a></h4>
-=======
           <h4 className="account_login">Are you a creator? <Link href="/signup">Sign up here.</Link></h4>
->>>>>>> 555fc7a35ad80e252d8bf6fc519ef87ca090d83e
         </div>
       </div>
     </div>
