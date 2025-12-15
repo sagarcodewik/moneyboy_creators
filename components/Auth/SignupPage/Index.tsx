@@ -102,7 +102,7 @@ const SignupPage = () => {
               </div>
             </div>
             <Link href="/signup">
-              <button className="premium-btn">
+              <button className="premium-btn mb-10">
                 <span>Sign up</span>
               </button>
             </Link>
