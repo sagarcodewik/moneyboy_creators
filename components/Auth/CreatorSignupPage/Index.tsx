@@ -150,7 +150,7 @@ const CreatorSignupPage = () => {
             </div>
             <button className="premium-btn"><span>Create your account</span></button>
             <p>By signing up you agree to our <Link href="#">Terms of Service</Link> and <Link href="#">Privacy Policy</Link>, and confirm that you are at least 18 years old.</p>
-            <p className="fs-18">Have an account already? <Link href="#">Log in here.</Link></p>
+            <p className="fs-18">Have an account already? <Link href="/feed">Log in here.</Link></p>
           </div>
           <h4 className="account_login">Are you a fan? <a href="/signup">Sign up here.</a></h4>
         </div>
