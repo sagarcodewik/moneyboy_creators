@@ -1,66 +1,41 @@
 "use client";
+import ShowToast from "@/components/common/ShowToast";
+import { API_REGISTER, API_VERIFY_OTP } from "@/utils/api/APIConstant";
+import { apiPost } from "@/utils/endpoints/common";
+import { useFormik } from "formik";
 import Link from "next/link";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-
-import ShowToast from "@/components/common/ShowToast";
-import { apiPost } from "@/utils/endpoints/common";
-import { API_REGISTER, API_VERIFY_OTP } from "@/utils/api/APIConstant";
+import * as yup from "yup";
 import OtpModal from "@/components/OtpModal";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
-const signupValidationSchema = Yup.object({
-  firstName: Yup.string()
-    .required("First name is required")
-    .min(2, "First name must be at least 2 characters")
-    .max(50, "First name must be less than 50 characters"),
-
-  lastName: Yup.string()
-    .required("Last name is required")
-    .min(2, "Last name must be at least 2 characters")
-    .max(50, "Last name must be less than 50 characters"),
-
-  displayName: Yup.string()
-    .required("Display name is required")
-    .min(3, "Display name must be at least 3 characters")
-    .max(30, "Display name must be less than 30 characters"),
-
-  userName: Yup.string()
-    .required("Username is required")
-    .min(3, "Username must be at least 3 characters")
-    .max(20, "Username must be less than 20 characters")
-    .matches(
-      /^[a-zA-Z0-9_]+$/,
-      "Username can only contain letters, numbers, and underscores"
-    ),
-
-  email: Yup.string()
-    .required("Email is required")
-    .email("Invalid email address"),
-
-  password: Yup.string()
-    .required("Password is required")
+export const signupSchema = yup.object().shape({
+  firstName: yup.string().required("First name is required"),
+  lastName: yup.string().required("Last name is required"),
+  displayName: yup.string().required("Display name is required"),
+  userName: yup.string().required("Username is required"),
+  email: yup.string().email("Invalid email").required("Email is required"),
+  password: yup
+    .string()
     .min(6, "Password must be at least 6 characters")
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/,
-      "Password must contain at least one uppercase letter, one lowercase letter, and one number"
-    ),
-
-  confirmPassword: Yup.string()
-    .required("Confirm password is required")
-    .oneOf([Yup.ref("password")], "Passwords must match"),
+    .required("Password is required"),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref("password")], "Passwords do not match")
+    .required("Confirm password is required"),
 });
 
 const SignupPage = () => {
+  const [activeTab, setActiveTab] = useState("fan");
   const [showPass, setShowPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [otpOpen, setOtpOpen] = useState(false);
   const [emailForOtp, setEmailForOtp] = useState("");
+  const router = useRouter();
 
   const formik = useFormik({
     initialValues: {
@@ -72,31 +47,29 @@ const SignupPage = () => {
       password: "",
       confirmPassword: "",
     },
-    validationSchema: signupValidationSchema,
-    onSubmit: async (values, { resetForm }) => {
-      setIsSubmitting(true);
-      try {
-        const { confirmPassword, ...submitData } = values;
+    validationSchema: signupSchema,
+    onSubmit: async (values) => {
+      const payload = {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        displayName: values.displayName,
+        userName: values.userName,
+        email: values.email,
+        password: values.password,
+      };
 
-        const response = await apiPost({
-          url: API_REGISTER,
-          values: submitData,
-        });
+      const res = await apiPost({
+        url: API_REGISTER,
+        values: payload,
+      });
 
-        if (response?.success) {
-          ShowToast("OTP sent to your email", "success");
-          setEmailForOtp(values.email);
-          setOtpOpen(true);
-        } else {
-          ShowToast(response?.error || "Registration failed", "error");
-        }
-      } catch (error: any) {
-        ShowToast(
-          error?.message || "An error occurred during registration",
-          "error"
-        );
-      } finally {
-        setIsSubmitting(false);
+      if (res?.success) {
+        ShowToast(res.message, "success");
+        setEmailForOtp(values.email);
+        formik.resetForm();
+        setOtpOpen(true);
+      } else {
+        ShowToast(res?.message || "Registration failed", "error");
       }
     },
   });
@@ -119,49 +92,35 @@ const SignupPage = () => {
       ShowToast("Registration completed!", "success");
       setOtpOpen(false);
 
-      window.location.href = "/dashboard";
+      router.push("/dashboard");
     } catch (error: any) {
       ShowToast(error?.message || "Error verifying OTP", "error");
     }
   };
 
-  const renderError = (fieldName: keyof typeof formik.values) => {
-    return formik.touched[fieldName] && formik.errors[fieldName] ? (
-      <div
-        className="error-message"
-        style={{ color: "red", fontSize: "12px", marginTop: "4px" }}
-      >
-        {formik.errors[fieldName]}
-      </div>
-    ) : null;
-  };
-
   return (
-    <div className="login_wrap">
+    <div className="container login_wrap">
       <div className="img_wrap">
         <img src="/images/loginflowimg.png" className="login_imgwrap" />
       </div>
       <div className="moneyboy-feed-page-container cont_wrap">
         <div className="main_cont">
-          <img src="/images/logo/moneyboy-logo.png" className="logo_wrap" />
+          <img src="/images/logo.svg" className="logo_wrap" />
           <div className="moneyboy-post__container card">
             <h3 className="heading">Fan Sign up</h3>
             <p>Sign up to interact with your idols!</p>
             <div className="loginbtn_wrap">
-              <button
-                type="button"
-                className="google-button active-down-effect"
-              >
-                <FcGoogle size={22} /> Sign up with Google
+              <button className="google-button active-down-effect ">
+                <FcGoogle size={18} /> Sign up with Google
               </button>
-              <button type="button" className="x-button active-down-effect">
-                <FaXTwitter size={22} /> Sign up with X
+              <button className="x-button active-down-effect">
+                <FaXTwitter size={18} /> Sign up with X
               </button>
             </div>
             <div className="or-divider">
               <span>Or</span>
             </div>
-            <form onSubmit={formik.handleSubmit} noValidate>
+            <form onSubmit={formik.handleSubmit}>
               <div className="form_grid">
                 <div>
                   <div className="label-input">
@@ -170,19 +129,18 @@ const SignupPage = () => {
                     </div>
                     <input
                       type="text"
-                      placeholder="First Name *"
                       name="firstName"
                       value={formik.values.firstName}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      className={
-                        formik.touched.firstName && formik.errors.firstName
-                          ? "error"
-                          : ""
-                      }
+                      placeholder="First Name *"
                     />
                   </div>
-                  {renderError("firstName")}
+                  {formik.touched.firstName && formik.errors.firstName && (
+                    <span className="error-message">
+                      {formik.errors.firstName}
+                    </span>
+                  )}
                 </div>
                 <div>
                   <div className="label-input">
@@ -191,155 +149,141 @@ const SignupPage = () => {
                     </div>
                     <input
                       type="text"
-                      placeholder="Last name *"
                       name="lastName"
+                      placeholder="Last name *"
                       value={formik.values.lastName}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      className={
-                        formik.touched.lastName && formik.errors.lastName
-                          ? "error"
-                          : ""
-                      }
                     />
                   </div>
-                  {renderError("lastName")}
+                  {formik.touched.lastName && formik.errors.lastName && (
+                    <span className="error-message">
+                      {formik.errors.lastName}
+                    </span>
+                  )}
                 </div>
-                <div className="one">
-                  <div className="label-input">
+
+                <div>
+                  <div className="label-input one">
                     <div className="input-placeholder-icon">
                       <i className="icons user2 svg-icon"></i>
                     </div>
                     <input
                       type="text"
-                      placeholder="Display name *"
                       name="displayName"
+                      placeholder="Display name *"
                       value={formik.values.displayName}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      className={
-                        formik.touched.displayName && formik.errors.displayName
-                          ? "error"
-                          : ""
-                      }
                     />
                   </div>
-                  {renderError("displayName")}
+                  {formik.touched.displayName && formik.errors.displayName && (
+                    <span className="error-message">
+                      {formik.errors.displayName}
+                    </span>
+                  )}
                 </div>
-                <div className="one">
-                  <div className="label-input">
+
+                <div>
+                  <div className="label-input one">
                     <div className="input-placeholder-icon">
                       <i className="icons profile-check svg-icon"></i>
                     </div>
                     <input
                       type="text"
-                      placeholder="User name *"
                       name="userName"
+                      placeholder="User name *"
                       value={formik.values.userName}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      className={
-                        formik.touched.userName && formik.errors.userName
-                          ? "error"
-                          : ""
-                      }
                     />
                   </div>
-                  {renderError("userName")}
-                </div>
-                <div className="one">
-                  <div className="label-input">
-                    <div className="input-placeholder-icon">
-                      <i className="icons message svg-icon"></i>
-                    </div>
-                    <input
-                      type="email"
-                      placeholder="Email Address *"
-                      name="email"
-                      value={formik.values.email}
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      className={
-                        formik.touched.email && formik.errors.email
-                          ? "error"
-                          : ""
-                      }
-                    />
-                  </div>
-                  {renderError("email")}
-                </div>
-                <div className="one">
-                  <div className="label-input password">
-                    <div className="input-placeholder-icon">
-                      <i className="icons lock svg-icon"></i>
-                    </div>
-                    <input
-                      type={showPass ? "text" : "password"}
-                      placeholder="Password *"
-                      name="password"
-                      value={formik.values.password}
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      className={
-                        formik.touched.password && formik.errors.password
-                          ? "error"
-                          : ""
-                      }
-                    />
-                    <span
-                      onClick={() => setShowPass((prev) => !prev)}
-                      className="input-placeholder-icon eye-icon"
-                    >
-                      {showPass ? (
-                        <i className="icons eye svg-icon"></i>
-                      ) : (
-                        <i className="icons eye-slash svg-icon"></i>
-                      )}
+                  {formik.touched.userName && formik.errors.userName && (
+                    <span className="error-message">
+                      {formik.errors.userName}
                     </span>
-                  </div>
-                  {renderError("password")}
+                  )}
                 </div>
-                <div className="one">
-                  <div className="label-input password">
-                    <div className="input-placeholder-icon">
-                      <i className="icons lock svg-icon"></i>
-                    </div>
-                    <input
-                      type={showConfirmPass ? "text" : "password"}
-                      placeholder="Confirm password *"
-                      name="confirmPassword"
-                      value={formik.values.confirmPassword}
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      className={
-                        formik.touched.confirmPassword &&
-                        formik.errors.confirmPassword
-                          ? "error"
-                          : ""
-                      }
-                    />
-                    <span
-                      onClick={() => setShowConfirmPass((prev) => !prev)}
-                      className="input-placeholder-icon eye-icon"
-                    >
-                      {showConfirmPass ? (
-                        <i className="icons eye svg-icon"></i>
-                      ) : (
-                        <i className="icons eye-slash svg-icon"></i>
-                      )}
+                <div className="label-input one">
+                  <div className="input-placeholder-icon">
+                    <i className="icons message svg-icon"></i>
+                  </div>
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="Email Address *"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                </div>
+                {formik.touched.email && formik.errors.email && (
+                  <span className="error-message">{formik.errors.email}</span>
+                )}
+                <div className="label-input password one">
+                  <div className="input-placeholder-icon">
+                    <i className="icons lock svg-icon"></i>
+                  </div>
+                  <input
+                    type={showPass ? "text" : "password"}
+                    name="password"
+                    placeholder="Password *"
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                  <span
+                    onClick={() => setShowPass(!showPass)}
+                    className="input-placeholder-icon eye-icon"
+                  >
+                    {showPass ? (
+                      <i className="icons eye svg-icon"></i>
+                    ) : (
+                      <i className="icons eye-slash svg-icon"></i>
+                    )}
+                  </span>
+                </div>
+                {formik.touched.password && formik.errors.password && (
+                  <span className="error-message">
+                    {formik.errors.password}
+                  </span>
+                )}
+                <div className="label-input password one">
+                  <div className="input-placeholder-icon">
+                    <i className="icons lock svg-icon"></i>
+                  </div>
+                  <input
+                    type={showConfirmPass ? "text" : "password"}
+                    name="confirmPassword"
+                    placeholder="Confirm password *"
+                    value={formik.values.confirmPassword}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                  <span
+                    onClick={() => setShowConfirmPass(!showConfirmPass)}
+                    className="input-placeholder-icon eye-icon"
+                  >
+                    {showConfirmPass ? (
+                      <i className="icons eye svg-icon"></i>
+                    ) : (
+                      <i className="icons eye-slash svg-icon"></i>
+                    )}
+                  </span>
+                </div>
+                {formik.touched.confirmPassword &&
+                  formik.errors.confirmPassword && (
+                    <span className="error-message">
+                      {formik.errors.confirmPassword}
                     </span>
-                  </div>
-                  {renderError("confirmPassword")}
-                </div>
+                  )}
               </div>
-              <button
-                type="submit"
-                className="premium-btn"
-                disabled={isSubmitting}
-              >
-                <span>{isSubmitting ? "Signing up..." : "Sign up"}</span>
+
+              <button className="premium-btn mb-10">
+                <span>Sign up</span>
               </button>
             </form>
+
             <p>
               By signing up you agree to our{" "}
               <Link href="#">Terms of Service</Link> and{" "}
