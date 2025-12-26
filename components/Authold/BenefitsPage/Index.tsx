@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { useState } from "react";
 
 const BenefitsPage = () => {
@@ -31,7 +30,7 @@ const BenefitsPage = () => {
                   <li>Access creators’ personal shops for special offers</li>
                   <li>Explore public profiles and trending content</li>
                 </ul>
-                <Link href="/signup"><button className="premium-btn"><span>Fan Signup</span></button></Link>
+                <a href="/signup"><button className="premium-btn"> <span>Fan Signup</span></button></a>
               </>
             )}
             {activeTab === "creator" && (
@@ -49,11 +48,11 @@ const BenefitsPage = () => {
                   <li>Collaborate with other verified creators</li>
                   <li>Full ownership of your content and total payout transparency</li>
                 </ul>
-                <Link href="/creator"><button className="premium-btn"><span>Creator Signup</span></button></Link>
+               <a href="/creator"> <button className="premium-btn"><span>Creator Signup</span></button></a>
               </>
             )}
           </div>
-          <h4 className="account_login">Have an account already? <Link href="signup">Login here</Link></h4>
+          <h4 className="account_login">Have an account already? <a href="#">Login here</a></h4>
         </div>
       </div>
     </div>

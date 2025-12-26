@@ -8,6 +8,7 @@ import "../public/styles/main-responsive.css";
 import "../public/styles/pages/discover-page/responsive.css";
 import "../public/styles/icons.css";
 import "../public/styles/style.css";
+import Footer from "@/components/Layouts/Footer";
 
 export const metadata: Metadata = {
   title: "Moneyboy Creators",
@@ -54,6 +55,7 @@ export default function RootLayout({children,}: {children: React.ReactNode;}) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${jakarta.variable} ${calSans.variable} antialiased`}>
         {children}
+        <Footer/>
       </body>
     </html>
   );
