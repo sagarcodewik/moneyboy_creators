@@ -1,11 +1,10 @@
 "use client";
 import ShowToast from "@/components/common/ShowToast";
-import { API_REGISTER, API_VERIFY_OTP } from "@/utils/api/APIConstant";
+import { API_REGISTER } from "@/utils/api/APIConstant";
 import { apiPost } from "@/utils/endpoints/common";
 import { useFormik } from "formik";
 import Link from "next/link";
 import { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import * as yup from "yup";
