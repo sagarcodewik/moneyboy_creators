@@ -1,335 +1,137 @@
-// import CredentialsProvider from "next-auth/providers/credentials";
-// import type { NextAuthOptions } from "next-auth";
-// import { encrypt } from "./encryption.service";
-// import { apiPost } from "../utils/endpoints/common";
-// import { API_LOGIN } from "../utils/api/APIConstant";
-
-// export const authOptions: NextAuthOptions = {
-//   providers: [
-//     CredentialsProvider({
-//       name: "Credentials",
-//       credentials: {
-//         email: { label: "Email", type: "email" },
-//         password: { label: "Password", type: "password" },
-//       },
-//       async authorize(credentials) {
-//         console.log("🔹 authorize called with credentials:", credentials);
-//         try {
-//           const res = await apiPost({
-//             url: API_LOGIN,
-//             values: {
-//               email: credentials?.email,
-//               password: credentials?.password,
-//             },
-//           });
-
-//           console.log("🔹 API response:", res);
-
-//           if (!res?.success || !res?.data?.token) {
-//             console.log("❌ Login failed or token missing");
-//             return null;
-//           }
-
-//           const u = res.data;
-//           console.log("🔹 User extracted:", u);
-
-//           return {
-//             id: String(u._id ?? u.id ?? ""),
-//             email: u.email,
-//             name: `${u.firstName ?? ""} ${u.lastName ?? ""}`.trim(),
-//             token: u.token,
-//           };
-//         } catch (err) {
-//           console.log("❌ authorize error:", err);
-//           return null;
-//         }
-//       },
-//     }),
-//   ],
-//   session: { strategy: "jwt" },
-//   callbacks: {
-//     async jwt({ token, user }) {
-//       console.log("🔹 jwt callback called with token:", token, "user:", user);
-//       if (user) {
-//         token.accessToken = (user as any).token;
-//         token.role = (user as any).role ?? 0;
-//         token.user = {
-//           id: (user as any).id,
-//           email: (user as any).email,
-//           name: (user as any).name,
-//         };
-//       }
-//       console.log("🔹 jwt token after modification:", token);
-//       return token;
-//     },
-
-//     async session({ session, token }: { session: any; token: any }) {
-//       console.log("🔹 session callback called (session access) with session:", session, "token:", token);
-
-//       const sensitiveData = {
-//         token: token.accessToken,
-//         user: token.user,
-//         isAuthenticated: !!token.accessToken,
-//       };
-//       const encrypted = encrypt(JSON.stringify(sensitiveData));
-//       session.encrypted = encrypted;
-
-//       // Remove old fields
-//       delete session.user;
-//       delete session.isAuthenticated;
-
-//       console.log("🔹 Final session object returned:", session);
-//       return session;
-//     },
-//   },
-//   pages: {
-//     signIn: "/login",
-//   },
-//   secret: process.env.NEXTAUTH_SECRET,
-// };
-
-
-// import CredentialsProvider from "next-auth/providers/credentials";
-// import GoogleProvider from "next-auth/providers/google";
-// import type { NextAuthOptions } from "next-auth";
-// import { encrypt } from "./encryption.service";
-// import { apiPost } from "../utils/endpoints/common";
-// import { API_LOGIN } from "../utils/api/APIConstant";
-
-
-// export const authOptions: NextAuthOptions = {
-//   providers: [
-
-//     CredentialsProvider({
-//       name: "Credentials",
-//       credentials: {
-//         email: { label: "Email", type: "email" },
-//         password: { label: "Password", type: "password" },
-//       },
-//       async authorize(credentials) {
-//         console.log("🔹 authorize called with credentials:", credentials);
-//         try {
-//           const res = await apiPost({
-//             url: API_LOGIN,
-//             values: {
-//               email: credentials?.email,
-//               password: credentials?.password,
-//             },
-//           });
-
-//           console.log("🔹 API response:", res);
-
-//           if (!res?.success || !res?.data?.token) {
-//             console.log("❌ Login failed or token missing");
-//             return null;
-//           }
-
-//           const u = res.data;
-//           console.log("🔹 User extracted:", u);
-
-//           return {
-//             id: String(u._id ?? u.id ?? ""),
-//             email: u.email,
-//             name: `${u.firstName ?? ""} ${u.lastName ?? ""}`.trim(),
-//             token: u.token,
-//           };
-//         } catch (err) {
-//           console.log("❌ authorize error:", err);
-//           return null;
-//         }
-//       },
-//     }),
-    
-//     GoogleProvider({
-//       clientId: process.env.GOOGLE_CLIENT_ID!,
-//       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-//     }),
-//   ],
-
-//   session: { strategy: "jwt" },
-
-//   callbacks: {
-//     // ⬇️ Handle new user creation when signing in with Google
-//     async signIn({ account, profile }) {
-//       if (account?.provider === "google" && profile?.email) {
-//         console.log("🟢 Google SignIn:", profile.email);
-//         try {
-         
-//         } catch (err) {
-//           console.error("❌ Google signIn error:", err);
-//         }
-//       }
-//       return true;
-//     },
-
-//     async jwt({ token, user, account }) {
-//       console.log("🔹 jwt callback called with token:", token, "user:", user);
-
-//       // 🟣 For Credentials login
-//       if (user && (user as any).token) {
-//         token.accessToken = (user as any).token;
-//         token.user = {
-//           id: (user as any).id,
-//           email: (user as any).email,
-//           name: (user as any).name,
-//         };
-//       }
-
-//       // 🟢 For Google login
-//       if (account?.provider === "google" && user) {
-//         token.user = {
-//           id: token.sub,
-//           email: (user as any).email ?? token.email,
-//           name: (user as any).name ?? token.name,
-//         };
-//         token.accessToken = account.access_token;
-//       }
-
-//       console.log("🔹 jwt token after modification:", token);
-//       return token;
-//     },
-
-//     async session({ session, token }: { session: any; token: any }) {
-//       console.log("🔹 session callback called with session:", session, "token:", token);
-
-//       const sensitiveData = {
-//         token: token.accessToken,
-//         user: token.user,
-//         isAuthenticated: !!token.accessToken || !!token.user,
-//       };
-
-//       const encrypted = encrypt(JSON.stringify(sensitiveData));
-//       session.encrypted = encrypted;
-//       delete session.user;
-//       delete session.isAuthenticated;
-
-//       console.log("🔹 Final session object returned:", session);
-//       return session;
-//     },
-//   },
-
-//   pages: {
-//     signIn: "/login", 
-//   },
-
-//   secret: process.env.NEXTAUTH_SECRET,
-// };
-
+import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import GoogleProvider from "next-auth/providers/google";
-import type { NextAuthOptions } from "next-auth";
-import { encrypt } from "./encryption.service";
 import { apiPost } from "@/utils/endpoints/common";
-import { API_LOGIN } from "@/utils/api/APIConstant";
-
+import { encrypt } from "./encryption.service";
+import {
+  API_VERIFY_OTP,
+  API_LOGIN,
+} from "@/utils/api/APIConstant";
 
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        id: { label: "ID", type: "text" },
-        email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" },
-        token: { label: "Token", type: "text" },
-        name: { label: "Name", type: "text" },
+        email: { label: "Email", type: "text" },
+        otp: { label: "OTP", type: "text" },
+        password: { label: "Password", type: "password" }, 
       },
+
       async authorize(credentials) {
-        console.log("🔹 authorize called with credentials:", credentials);
-        try {
-          // 🟣 Normal login (email + password)
-          if (credentials?.email && credentials?.password) {
-            const res = await apiPost({
-              url: API_LOGIN,
-              values: {
-                email: credentials.email,
-                password: credentials.password,
-              },
-            });
+        console.log("Authorize called with:", credentials);
 
-            if (!res?.success || !res?.data?.token) return null;
-
-            const u = res.data;
-            return {
-              id: String(u._id ?? u.id ?? ""),
-              email: u.email,
-              name: `${u.firstName ?? ""} ${u.lastName ?? ""}`.trim(),
-              token: u.token,
-            };
-          }
-
-          // 🟢 Social login (token from backend)
-          if (credentials?.email && credentials?.token) {
-            return {
-              id: String(credentials.id ?? ""),
-              email: credentials.email,
-              name: credentials.name ?? "",
-              token: credentials.token, // ✅ backend token
-            };
-          }
-
-          return null;
-        } catch (err) {
-          console.log("❌ authorize error:", err);
-          return null;
+        if (!credentials?.email) {
+          throw new Error("email_required");
         }
-      },
-    }),
 
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+        let res: any;
+
+        if (credentials.password) {
+          res = await apiPost({
+            url: API_LOGIN,
+            values: {
+              email: credentials.email,
+              password: credentials.password,
+            },
+          });
+        }
+
+        else if (credentials.otp) {
+          res = await apiPost({
+            url: API_VERIFY_OTP,
+            values: {
+              email: credentials.email,
+              otp: credentials.otp,
+            },
+          });
+        } else {
+          throw new Error("credentials_missing");
+        }
+
+        console.log("Authorize API response:", res);
+
+        if (!res?.success) {
+          throw new Error(res?.message || "authentication_failed");
+        }
+
+        if (!res.token) {
+          console.log("OTP verified but token not returned");
+          return { stage: "otp_verified", ...res };
+        }
+
+        const userData = {
+          id: res.user._id,
+          email: res.user.email,
+          firstName: res.user.firstName,
+          lastName: res.user.lastName,
+          role: res.user.role,
+          accessToken: res.token,
+        };
+
+        console.log("Authorize returning userData:", userData);
+        return userData;
+      },
     }),
   ],
 
   session: { strategy: "jwt" },
 
+  pages: {
+    signIn: "/",
+    error: "/",
+  },
+
+  secret: process.env.NEXTAUTH_SECRET,
+
   callbacks: {
-    async jwt({ token, user }) {
-      console.log("🔹 jwt callback — user:", user);
+    async jwt({ token, user }: { token: any; user: any }) {
+      console.log("JWT callback called. Token before:", token, "User:", user);
 
-      // ✅ First login: attach backend token
-      if (user && (user as any).token) {
-        token.accessToken = (user as any).token;
-        token.user = {
-          id: (user as any).id,
-          email: (user as any).email,
-          name: (user as any).name,
-        };
+      if (user) {
+        token.sub = user.id;
+        token.user = user;
+        token.accessToken = user.accessToken;
       }
 
-      // ✅ Persist user info between refreshes
-      if (!user && token?.user) {
-        token.user = token.user;
-      }
-
+      console.log("JWT callback returning token:", token);
       return token;
     },
 
     async session({ session, token }: { session: any; token: any }) {
+      console.log(
+        "Session callback called. Session before:",
+        session,
+        "Token:",
+        token
+      );
 
-      const sensitiveData = {
-        token: token.accessToken,
-        user: token.user,
-        isAuthenticated: !!token.accessToken,
-      };
+      if (token?.user) {
+        session.user = token.user;
+        session.isAuthenticated = true;
+      } else {
+        session.user = null;
+        session.isAuthenticated = false;
+      }
 
-      session.encrypted = encrypt(JSON.stringify(sensitiveData));
+      if (token?.accessToken) {
+        const sensitiveData = {
+          token: token.accessToken,
+          user: token.user,
+          isAuthenticated: true,
+        };
 
-      // remove NextAuth’s default user object for safety
-      delete session.user;
-      delete session.isAuthenticated;
+        try {
+          session.encrypted = encrypt(JSON.stringify(sensitiveData));
+          delete session.user;
+          delete session.isAuthenticated;
+          return session;
+        } catch (err) {
+          console.error("Failed to encrypt session data:", err);
+        }
+      }
 
+      console.log("Session callback returning session:", session);
       return session;
     },
   },
-
-  pages: {
-    signIn: "/login",
-  },
-
-  secret: process.env.NEXTAUTH_SECRET,
 };
-
-
-

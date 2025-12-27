@@ -1,7 +1,25 @@
 "use client";
-import React from 'react'
+import { getDecryptedSession } from '@/libs/getDecryptedSession';
+import React, { useEffect, useState } from 'react'
+
+
+
 
 const Dashboard = () => {
+
+    const [session, setSession] = useState(null);
+
+
+      const getData = async ()=>{
+  const get = await getDecryptedSession()
+
+     console.log(get ,"get-=-------------------------------")
+  return get
+  }
+
+  useEffect(() => {
+   getData()
+  }, [])
   return (
     <div className="moneyboy-2x-1x-layout-container">
       <div className="discovery-page-container">

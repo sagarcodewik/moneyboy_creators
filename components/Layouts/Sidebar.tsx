@@ -1,7 +1,66 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Link from 'next/link';
+import { usePathname ,useRouter} from 'next/navigation';
 
 const Sidebar: React.FC = () => {
+  const [activePage, setActivePage] = useState<string>("discover");
+  
+const pathname = usePathname();
+const router = useRouter();
+
+ useEffect(() => {
+    const pathToPageMap: Record<string, string> = {
+      "/dashboard": "discover",
+      "/feed": "feed",
+      "/like": "likes",
+      "/wishlist": "wishlist",
+      "/#": "subscriptions",
+      "/purchasedmedia": "purchasedmedia",
+      "/store": "store",
+    };
+    
+    // Check if current path is in map
+    const currentPage = Object.keys(pathToPageMap).find(path => 
+      pathname === path || pathname.startsWith(`${path}/`)
+    );
+    
+    if (currentPage) {
+      setActivePage(pathToPageMap[currentPage]);
+    }
+  }, [pathname]);
+
+  const handleNavClick = (page: string, href: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    setActivePage(page);
+    router.push(href);
+  };
+
+  const handleMobileNavClick = (page: string, href: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    setActivePage(page);
+    router.push(href);
+  };
+
+
+  // const navItems = [
+  //   { id: "feed", label: "Feed", icon: "feed" },
+  //   { id: "discover", label: "Discover", icon: "discover" },
+  //   { id: "likes", label: "Likes", icon: "likes" },
+  //   { id: "wishlist", label: "Wishlist", icon: "wishlist" },
+  //   { id: "subscriptions", label: "Subscriptions", icon: "subscriptions" },
+  //   { id: "purchased", label: "Purchased Media", icon: "purchased" },
+  //   { id: "store", label: "Store", icon: "store" }
+  // ];
+
+  // const mobileNavItems = [
+  //   { id: "feed", label: "Home", icon: "home" },
+  //   { id: "search", label: "Search", icon: "search" },
+  //   { id: "discover", label: "Discover", icon: "discover" },
+  //   { id: "subscriptions", label: "Subscriptions", icon: "subscriptions" },
+  //   { id: "messages", label: "Messages", icon: "messages" }
+  // ];
+
   return (
     <div className="moneyboy-global-sidebar-wrapper" id="leftSidebar">
       <aside className="global-sidebar-container">
@@ -211,9 +270,15 @@ const Sidebar: React.FC = () => {
         <div className="sidebar-navigation-container card">
           <nav className="sidbar-navigation">
             <ul>
-              {/* Navigation Button */}
+              {/* Navigation Button - Feed */}
               <li>
-                <a href="#" className="active-down-effect">
+                <Link 
+                  href="/feed" 
+                  className={`active-down-effect ${activePage === "feed" ? "active" : ""}`}
+                  onClick={(e) => handleNavClick("feed", "/feed", e)}
+
+                >
+                  
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -239,12 +304,17 @@ const Sidebar: React.FC = () => {
                     </svg>
                     <span>Feed</span>
                   </div>
-                </a>
+                </Link>
               </li>
 
-              {/* Navigation Button */}
+              {/* Navigation Button - Discover */}
               <li>
-                <a href="#" className="active-down-effect active">
+                <Link 
+                  href="/dashboard" 
+                  className={`active-down-effect ${activePage === "discover" ? "active" : ""}`}
+                  onClick={(e) => handleNavClick("discover", "/dashboard", e)}
+
+                >
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -270,12 +340,17 @@ const Sidebar: React.FC = () => {
                     </svg>
                     <span>Discover</span>
                   </div>
-                </a>
+                </Link>
               </li>
 
-              {/* Navigation Button */}
+              {/* Navigation Button - Likes */}
               <li>
-                <a href="#" className="active-down-effect">
+                <Link 
+                  href="/like" 
+                  className={`active-down-effect ${activePage === "likes" ? "active" : ""}`}
+                  onClick={(e) => handleNavClick("likes", "/like", e)}
+
+                >
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -294,12 +369,17 @@ const Sidebar: React.FC = () => {
                     </svg>
                     <span>Likes</span>
                   </div>
-                </a>
+                </Link>
               </li>
 
-              {/* Navigation Button */}
+              {/* Navigation Button - Wishlist */}
               <li>
-                <a href="#" className="active-down-effect">
+                <Link 
+                  href="/wishlist" 
+                  className={`active-down-effect ${activePage === "wishlist" ? "active" : ""}`}
+                  onClick={(e) => handleNavClick("wishlist", "/wishlist", e)}
+
+                >
                   <div>
                     <svg
                       className="wishlist-icon"
@@ -333,12 +413,17 @@ const Sidebar: React.FC = () => {
                     </svg>
                     <span>Wishlist</span>
                   </div>
-                </a>
+                </Link>
               </li>
 
-              {/* Navigation Button */}
+              {/* Navigation Button - Subscriptions */}
               <li>
-                <a href="#" className="active-down-effect">
+                <Link 
+                  href="#" 
+                  className={`active-down-effect ${activePage === "subscriptions" ? "active" : ""}`}
+               onClick={(e) => handleNavClick("subscriptions", "/#", e)}
+
+                >
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -386,12 +471,17 @@ const Sidebar: React.FC = () => {
                     </svg>
                     <span>Subscriptions</span>
                   </div>
-                </a>
+                </Link>
               </li>
 
-              {/* Navigation Button */}
+              {/* Navigation Button - Purchased Media */}
               <li>
-                <a href="#" className="active-down-effect">
+                <Link 
+                  href="/purchasemedia" 
+                  className={`active-down-effect ${activePage === "purchased" ? "active" : ""}`}
+                 onClick={(e) => handleNavClick("purchased", "/purchasedmedia", e)}
+
+                >
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -421,12 +511,17 @@ const Sidebar: React.FC = () => {
                     </svg>
                     <span>Purchased Media</span>
                   </div>
-                </a>
+                </Link>
               </li>
 
-              {/* Navigation Button */}
+              {/* Navigation Button - Store */}
               <li>
-                <a href="#" className="active-down-effect">
+                <Link 
+                  href="/store" 
+                  className={`active-down-effect ${activePage === "store" ? "active" : ""}`}
+                  onClick={(e) => handleNavClick("store", "/store", e)}
+
+                >
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -473,7 +568,7 @@ const Sidebar: React.FC = () => {
                     </svg>
                     <span>Store</span>
                   </div>
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -511,24 +606,24 @@ const Sidebar: React.FC = () => {
             </nav>
             {/* Footer Payment Card logos */}
             <div className="footer-logos">
-              <a href="#" className="footer-logo">
+              <Link href="#" className="footer-logo">
                 <img
                   src="/images/debit-cards-logo/dmca-logo.svg"
                   alt="DMCA Logo"
                 />
-              </a>
-              <a href="#" className="footer-logo">
+              </Link>
+              <Link href="#" className="footer-logo">
                 <img
                   src="/images/debit-cards-logo/master-card-logo.svg"
                   alt="Master Logo"
                 />
-              </a>
-              <a href="#" className="footer-logo">
+              </Link>
+              <Link href="#" className="footer-logo">
                 <img
                   src="/images/debit-cards-logo/visa-card-logo.svg"
                   alt="Visa Logo"
                 />
-              </a>
+              </Link>
             </div>
           </footer>
         </div>
