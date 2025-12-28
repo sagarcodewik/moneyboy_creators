@@ -28,7 +28,6 @@ const CreatorSignupPage = () => {
       confirmPassword: "",
       gender: "",
       dob: null as Date | null,
-
       country: "",
       city: "",
       bio: "",
