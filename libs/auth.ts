@@ -93,13 +93,6 @@ export const authOptions: NextAuthOptions = {
     },
 
     async session({ session, token }: { session: any; token: any }) {
-      console.log(
-        "Session callback called. Session before:",
-        session,
-        "Token:",
-        token
-      );
-
       if (token?.user) {
         session.user = token.user;
         session.isAuthenticated = true;
