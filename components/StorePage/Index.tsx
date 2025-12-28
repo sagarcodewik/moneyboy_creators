@@ -17,10 +17,10 @@ const StorePage = () => {
                       </div>
                       <button className="cate-back-btn active-down-effect">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M9.57 5.92999L3.5 12L9.57 18.07" stroke="none" stroke-width="2.5"
-                            stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
-                          <path d="M20.4999 12H3.66992" stroke="none" stroke-width="2.5" stroke-miterlimit="10"
-                            stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M9.57 5.92999L3.5 12L9.57 18.07" stroke="none" strokeWidth="2.5"
+                            strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"></path>
+                          <path d="M20.4999 12H3.66992" stroke="none" strokeWidth="2.5" strokeMiterlimit="10"
+                            strokeLinecap="round" strokeLinejoin="round"></path>
                         </svg>
                       </button>
                       <div className="store-page-header-content-wrapper">
@@ -108,8 +108,8 @@ const StorePage = () => {
                                   <defs>
                                     <linearGradient id="paint0_linear_792_43" x1="21.4759" y1="1.25" x2="-7.14787"
                                       y2="8.22874" gradientUnits="userSpaceOnUse">
-                                      <stop stop-color="#FECE26" />
-                                      <stop offset="1" stop-color="#E5741F" />
+                                      <stop stopColor="#FECE26" />
+                                      <stop offset="1" stopColor="#E5741F" />
                                     </linearGradient>
                                   </defs>
                                 </svg>
@@ -123,8 +123,8 @@ const StorePage = () => {
                                   <defs>
                                     <linearGradient id="paint0_linear_792_51" x1="2.52411" y1="1.25" x2="31.1479"
                                       y2="8.22874" gradientUnits="userSpaceOnUse">
-                                      <stop stop-color="#FECE26" />
-                                      <stop offset="1" stop-color="#E5741F" />
+                                      <stop stopColor="#FECE26" />
+                                      <stop offset="1" stopColor="#E5741F" />
                                     </linearGradient>
                                   </defs>
                                 </svg>
@@ -153,16 +153,16 @@ const StorePage = () => {
                                                 height="32" viewBox="0 0 32 32" fill="none">
                                                 <path
                                                   d="M22.4266 2.66669H9.57327C6.73327 2.66669 4.42661 4.98669 4.42661 7.81335V26.6C4.42661 29 6.14661 30.0134 8.25327 28.8534L14.7599 25.24C15.4533 24.8534 16.5733 24.8534 17.2533 25.24L23.7599 28.8534C25.8666 30.0267 27.5866 29.0134 27.5866 26.6V7.81335C27.5733 4.98669 25.2666 2.66669 22.4266 2.66669Z"
-                                                  stroke="none" stroke-width="2" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="none" strokeWidth="2" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M22.4266 2.66669H9.57327C6.73327 2.66669 4.42661 4.98669 4.42661 7.81335V26.6C4.42661 29 6.14661 30.0134 8.25327 28.8534L14.7599 25.24C15.4533 24.8534 16.5733 24.8534 17.2533 25.24L23.7599 28.8534C25.8666 30.0267 27.5866 29.0134 27.5866 26.6V7.81335C27.5733 4.98669 25.2666 2.66669 22.4266 2.66669Z"
-                                                  stroke="none" stroke-width="2" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="none" strokeWidth="2" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M12.3333 12.0667C14.7067 12.9334 17.2933 12.9334 19.6667 12.0667"
-                                                  stroke="none" stroke-width="2" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="none" strokeWidth="2" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
 
                                               <span>13</span>
@@ -181,8 +181,8 @@ const StorePage = () => {
                                               <defs>
                                                 <linearGradient id="paint0_linear_745_155" x1="1.99456" y1="0.916991"
                                                   x2="26.1808" y2="6.81415" gradientUnits="userSpaceOnUse">
-                                                  <stop stop-color="#FECE26" />
-                                                  <stop offset="1" stop-color="#E5741F" />
+                                                  <stop stopColor="#FECE26" />
+                                                  <stop offset="1" stopColor="#E5741F" />
                                                 </linearGradient>
                                               </defs>
                                             </svg>
@@ -211,16 +211,16 @@ const StorePage = () => {
                                                 height="32" viewBox="0 0 32 32" fill="none">
                                                 <path
                                                   d="M22.4266 2.66669H9.57327C6.73327 2.66669 4.42661 4.98669 4.42661 7.81335V26.6C4.42661 29 6.14661 30.0134 8.25327 28.8534L14.7599 25.24C15.4533 24.8534 16.5733 24.8534 17.2533 25.24L23.7599 28.8534C25.8666 30.0267 27.5866 29.0134 27.5866 26.6V7.81335C27.5733 4.98669 25.2666 2.66669 22.4266 2.66669Z"
-                                                  stroke="none" stroke-width="2" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="none" strokeWidth="2" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M22.4266 2.66669H9.57327C6.73327 2.66669 4.42661 4.98669 4.42661 7.81335V26.6C4.42661 29 6.14661 30.0134 8.25327 28.8534L14.7599 25.24C15.4533 24.8534 16.5733 24.8534 17.2533 25.24L23.7599 28.8534C25.8666 30.0267 27.5866 29.0134 27.5866 26.6V7.81335C27.5733 4.98669 25.2666 2.66669 22.4266 2.66669Z"
-                                                  stroke="none" stroke-width="2" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="none" strokeWidth="2" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M12.3333 12.0667C14.7067 12.9334 17.2933 12.9334 19.6667 12.0667"
-                                                  stroke="none" stroke-width="2" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="none" strokeWidth="2" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
 
                                               <span>13</span>
@@ -235,27 +235,27 @@ const StorePage = () => {
                                               viewBox="0 0 20 20" fill="none">
                                               <path
                                                 d="M13.9173 15.8167H6.08399C5.73399 15.8167 5.34232 15.5417 5.22565 15.2083L1.77565 5.55834C1.28399 4.17501 1.85899 3.75001 3.04232 4.60001L6.29232 6.92501C6.83399 7.30001 7.45065 7.10834 7.68399 6.50001L9.15065 2.59167C9.61732 1.34167 10.3923 1.34167 10.859 2.59167L12.3257 6.50001C12.559 7.10834 13.1757 7.30001 13.709 6.92501L16.759 4.75001C18.059 3.81667 18.684 4.29168 18.1507 5.80001L14.784 15.225C14.659 15.5417 14.2673 15.8167 13.9173 15.8167Z"
-                                                stroke="url(#paint0_linear_745_209)" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                stroke="url(#paint0_linear_745_209)" strokeWidth="1.5"
+                                                strokeLinecap="round" strokeLinejoin="round" />
                                               <path d="M5.41602 18.3333H14.5827" stroke="url(#paint1_linear_745_209)"
-                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                               <path d="M7.91602 11.6667H12.0827" stroke="url(#paint2_linear_745_209)"
-                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                               <defs>
                                                 <linearGradient id="paint0_linear_745_209" x1="9.9704" y1="1.65417"
                                                   x2="9.9704" y2="15.8167" gradientUnits="userSpaceOnUse">
-                                                  <stop stop-color="#FFCD84" />
-                                                  <stop offset="1" stop-color="#FEA10A" />
+                                                  <stop stopColor="#FFCD84" />
+                                                  <stop offset="1" stopColor="#FEA10A" />
                                                 </linearGradient>
                                                 <linearGradient id="paint1_linear_745_209" x1="9.99935" y1="18.3333"
                                                   x2="9.99935" y2="19.3333" gradientUnits="userSpaceOnUse">
-                                                  <stop stop-color="#FFCD84" />
-                                                  <stop offset="1" stop-color="#FEA10A" />
+                                                  <stop stopColor="#FFCD84" />
+                                                  <stop offset="1" stopColor="#FEA10A" />
                                                 </linearGradient>
                                                 <linearGradient id="paint2_linear_745_209" x1="9.99935" y1="11.6667"
                                                   x2="9.99935" y2="12.6667" gradientUnits="userSpaceOnUse">
-                                                  <stop stop-color="#FFCD84" />
-                                                  <stop offset="1" stop-color="#FEA10A" />
+                                                  <stop stopColor="#FFCD84" />
+                                                  <stop offset="1" stopColor="#FEA10A" />
                                                 </linearGradient>
                                               </defs>
                                             </svg>
@@ -284,16 +284,16 @@ const StorePage = () => {
                                                 viewBox="0 0 32 32" fill="none">
                                                 <path
                                                   d="M22.4266 2.66669H9.57327C6.73327 2.66669 4.42661 4.98669 4.42661 7.81335V26.6C4.42661 29 6.14661 30.0134 8.25327 28.8534L14.7599 25.24C15.4533 24.8534 16.5733 24.8534 17.2533 25.24L23.7599 28.8534C25.8666 30.0267 27.5866 29.0134 27.5866 26.6V7.81335C27.5733 4.98669 25.2666 2.66669 22.4266 2.66669Z"
-                                                  stroke="none" stroke-width="2" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="none" strokeWidth="2" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M22.4266 2.66669H9.57327C6.73327 2.66669 4.42661 4.98669 4.42661 7.81335V26.6C4.42661 29 6.14661 30.0134 8.25327 28.8534L14.7599 25.24C15.4533 24.8534 16.5733 24.8534 17.2533 25.24L23.7599 28.8534C25.8666 30.0267 27.5866 29.0134 27.5866 26.6V7.81335C27.5733 4.98669 25.2666 2.66669 22.4266 2.66669Z"
-                                                  stroke="none" stroke-width="2" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="none" strokeWidth="2" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M12.3333 12.0667C14.7067 12.9334 17.2933 12.9334 19.6667 12.0667"
-                                                  stroke="none" stroke-width="2" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="none" strokeWidth="2" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
 
                                               <span>13</span>
@@ -312,8 +312,8 @@ const StorePage = () => {
                                               <defs>
                                                 <linearGradient id="paint0_linear_745_155" x1="1.99456" y1="0.916991"
                                                   x2="26.1808" y2="6.81415" gradientUnits="userSpaceOnUse">
-                                                  <stop stop-color="#FECE26" />
-                                                  <stop offset="1" stop-color="#E5741F" />
+                                                  <stop stopColor="#FECE26" />
+                                                  <stop offset="1" stopColor="#E5741F" />
                                                 </linearGradient>
                                               </defs>
                                             </svg>
@@ -349,8 +349,8 @@ const StorePage = () => {
                                 <defs>
                                   <linearGradient id="paint0_linear_745_155" x1="1.99456" y1="0.916991" x2="26.1808"
                                     y2="6.81415" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#FECE26"></stop>
-                                    <stop offset="1" stop-color="#E5741F"></stop>
+                                    <stop stopColor="#FECE26"></stop>
+                                    <stop offset="1" stopColor="#E5741F"></stop>
                                   </linearGradient>
                                 </defs>
                               </svg>
@@ -386,14 +386,14 @@ const StorePage = () => {
                                           viewBox="0 0 24 24" fill="none">
                                           <path
                                             d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
-                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                           <path
                                             d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
-                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                          <path d="M14 5H20" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                          <path d="M14 8H17" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
+                                            strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                          <path d="M14 5H20" strokeWidth="1.5" strokeLinecap="round"
+                                            strokeLinejoin="round" />
+                                          <path d="M14 8H17" strokeWidth="1.5" strokeLinecap="round"
+                                            strokeLinejoin="round" />
                                         </svg>
                                       </div>
 
@@ -407,16 +407,16 @@ const StorePage = () => {
                                           viewBox="0 0 24 25" fill="none">
                                           <path
                                             d="M12.53 20.92H6.21C3.05 20.92 2 18.82 2 16.71V8.29002C2 5.13002 3.05 4.08002 6.21 4.08002H12.53C15.69 4.08002 16.74 5.13002 16.74 8.29002V16.71C16.74 19.87 15.68 20.92 12.53 20.92Z"
-                                            stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
+                                            stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                            strokeLinejoin="round" />
                                           <path
                                             d="M19.5202 17.6L16.7402 15.65V9.34001L19.5202 7.39001C20.8802 6.44001 22.0002 7.02001 22.0002 8.69001V16.31C22.0002 17.98 20.8802 18.56 19.5202 17.6Z"
-                                            stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
+                                            stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                            strokeLinejoin="round" />
                                           <path
                                             d="M11.5 11.5C12.3284 11.5 13 10.8284 13 10C13 9.17157 12.3284 8.5 11.5 8.5C10.6716 8.5 10 9.17157 10 10C10 10.8284 10.6716 11.5 11.5 11.5Z"
-                                            stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
+                                            stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                            strokeLinejoin="round" />
                                         </svg>
                                         <span>Videos</span>
                                       </button>
@@ -425,16 +425,16 @@ const StorePage = () => {
                                           viewBox="0 0 25 25" fill="none">
                                           <path
                                             d="M9.5 22.5H15.5C20.5 22.5 22.5 20.5 22.5 15.5V9.5C22.5 4.5 20.5 2.5 15.5 2.5H9.5C4.5 2.5 2.5 4.5 2.5 9.5V15.5C2.5 20.5 4.5 22.5 9.5 22.5Z"
-                                            stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
+                                            stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                            strokeLinejoin="round" />
                                           <path
                                             d="M9.5 10.5C10.6046 10.5 11.5 9.60457 11.5 8.5C11.5 7.39543 10.6046 6.5 9.5 6.5C8.39543 6.5 7.5 7.39543 7.5 8.5C7.5 9.60457 8.39543 10.5 9.5 10.5Z"
-                                            stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
+                                            stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                            strokeLinejoin="round" />
                                           <path
                                             d="M3.16992 19.45L8.09992 16.14C8.88992 15.61 10.0299 15.67 10.7399 16.28L11.0699 16.57C11.8499 17.24 13.1099 17.24 13.8899 16.57L18.0499 13C18.8299 12.33 20.0899 12.33 20.8699 13L22.4999 14.4"
-                                            stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
+                                            stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                            strokeLinejoin="round" />
                                         </svg>
                                         <span>Photos</span>
                                       </button>
@@ -456,8 +456,8 @@ const StorePage = () => {
                                               viewBox="0 0 25 24" fill="none">
                                               <path
                                                 d="M20.4201 8.95L13.9001 15.47C13.1301 16.24 11.8701 16.24 11.1001 15.47L4.58008 8.95"
-                                                stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                strokeLinecap="round" strokeLinejoin="round" />
                                             </svg>
                                           </div>
                                         </div>
@@ -507,10 +507,10 @@ const StorePage = () => {
                                           viewBox="0 0 24 24" fill="none">
                                           <path
                                             d="M19.9 13.5H4.1C2.6 13.5 2 14.14 2 15.73V19.77C2 21.36 2.6 22 4.1 22H19.9C21.4 22 22 21.36 22 19.77V15.73C22 14.14 21.4 13.5 19.9 13.5Z"
-                                            stroke="none" stroke-linecap="round" stroke-linejoin="round" />
+                                            stroke="none" strokeLinecap="round" strokeLinejoin="round" />
                                           <path
                                             d="M19.9 2H4.1C2.6 2 2 2.64 2 4.23V8.27C2 9.86 2.6 10.5 4.1 10.5H19.9C21.4 10.5 22 9.86 22 8.27V4.23C22 2.64 21.4 2 19.9 2Z"
-                                            stroke="none" stroke-linecap="round" stroke-linejoin="round" />
+                                            stroke="none" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                       </button>
                                     </div>
@@ -534,15 +534,15 @@ const StorePage = () => {
                                                 viewBox="0 0 24 24" fill="none">
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path d="M9.25 9.04999C11.03 9.69999 12.97 9.69999 14.75 9.04999"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
                                               <span> 13 </span>
                                             </div>
@@ -565,8 +565,8 @@ const StorePage = () => {
                                             <defs>
                                               <linearGradient id="paint0_linear_745_155" x1="1.99456" y1="0.916991"
                                                 x2="26.1808" y2="6.81415" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FECE26"></stop>
-                                                <stop offset="1" stop-color="#E5741F"></stop>
+                                                <stop stopColor="#FECE26"></stop>
+                                                <stop offset="1" stopColor="#E5741F"></stop>
                                               </linearGradient>
                                             </defs>
                                           </svg>
@@ -587,15 +587,15 @@ const StorePage = () => {
                                                 viewBox="0 0 24 24" fill="none">
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path d="M9.25 9.04999C11.03 9.69999 12.97 9.69999 14.75 9.04999"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
                                               <span> 13 </span>
                                             </div>
@@ -614,27 +614,27 @@ const StorePage = () => {
                                             viewBox="0 0 20 20" fill="none">
                                             <path
                                               d="M13.9173 15.8167H6.08399C5.73399 15.8167 5.34232 15.5417 5.22565 15.2083L1.77565 5.55834C1.28399 4.17501 1.85899 3.75001 3.04232 4.60001L6.29232 6.92501C6.83399 7.30001 7.45065 7.10834 7.68399 6.50001L9.15065 2.59167C9.61732 1.34167 10.3923 1.34167 10.859 2.59167L12.3257 6.50001C12.559 7.10834 13.1757 7.30001 13.709 6.92501L16.759 4.75001C18.059 3.81667 18.684 4.29168 18.1507 5.80001L14.784 15.225C14.659 15.5417 14.2673 15.8167 13.9173 15.8167Z"
-                                              stroke="url(#paint0_linear_745_209)" stroke-width="1.5"
-                                              stroke-linecap="round" stroke-linejoin="round"></path>
+                                              stroke="url(#paint0_linear_745_209)" strokeWidth="1.5"
+                                              strokeLinecap="round" strokeLinejoin="round"></path>
                                             <path d="M5.41602 18.3333H14.5827" stroke="url(#paint1_linear_745_209)"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                             <path d="M7.91602 11.6667H12.0827" stroke="url(#paint2_linear_745_209)"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                             <defs>
                                               <linearGradient id="paint0_linear_745_209" x1="9.9704" y1="1.65417"
                                                 x2="9.9704" y2="15.8167" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                               <linearGradient id="paint1_linear_745_209" x1="9.99935" y1="18.3333"
                                                 x2="9.99935" y2="19.3333" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                               <linearGradient id="paint2_linear_745_209" x1="9.99935" y1="11.6667"
                                                 x2="9.99935" y2="12.6667" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                             </defs>
                                           </svg>
@@ -655,15 +655,15 @@ const StorePage = () => {
                                                 viewBox="0 0 24 24" fill="none">
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path d="M9.25 9.04999C11.03 9.69999 12.97 9.69999 14.75 9.04999"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
                                               <span> 13 </span>
                                             </div>
@@ -686,8 +686,8 @@ const StorePage = () => {
                                             <defs>
                                               <linearGradient id="paint0_linear_745_155" x1="1.99456" y1="0.916991"
                                                 x2="26.1808" y2="6.81415" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FECE26"></stop>
-                                                <stop offset="1" stop-color="#E5741F"></stop>
+                                                <stop stopColor="#FECE26"></stop>
+                                                <stop offset="1" stopColor="#E5741F"></stop>
                                               </linearGradient>
                                             </defs>
                                           </svg>
@@ -708,15 +708,15 @@ const StorePage = () => {
                                                 viewBox="0 0 24 24" fill="none">
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path d="M9.25 9.04999C11.03 9.69999 12.97 9.69999 14.75 9.04999"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
                                               <span> 13 </span>
                                             </div>
@@ -735,27 +735,27 @@ const StorePage = () => {
                                             viewBox="0 0 20 20" fill="none">
                                             <path
                                               d="M13.9173 15.8167H6.08399C5.73399 15.8167 5.34232 15.5417 5.22565 15.2083L1.77565 5.55834C1.28399 4.17501 1.85899 3.75001 3.04232 4.60001L6.29232 6.92501C6.83399 7.30001 7.45065 7.10834 7.68399 6.50001L9.15065 2.59167C9.61732 1.34167 10.3923 1.34167 10.859 2.59167L12.3257 6.50001C12.559 7.10834 13.1757 7.30001 13.709 6.92501L16.759 4.75001C18.059 3.81667 18.684 4.29168 18.1507 5.80001L14.784 15.225C14.659 15.5417 14.2673 15.8167 13.9173 15.8167Z"
-                                              stroke="url(#paint0_linear_745_209)" stroke-width="1.5"
-                                              stroke-linecap="round" stroke-linejoin="round"></path>
+                                              stroke="url(#paint0_linear_745_209)" strokeWidth="1.5"
+                                              strokeLinecap="round" strokeLinejoin="round"></path>
                                             <path d="M5.41602 18.3333H14.5827" stroke="url(#paint1_linear_745_209)"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                             <path d="M7.91602 11.6667H12.0827" stroke="url(#paint2_linear_745_209)"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                             <defs>
                                               <linearGradient id="paint0_linear_745_209" x1="9.9704" y1="1.65417"
                                                 x2="9.9704" y2="15.8167" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                               <linearGradient id="paint1_linear_745_209" x1="9.99935" y1="18.3333"
                                                 x2="9.99935" y2="19.3333" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                               <linearGradient id="paint2_linear_745_209" x1="9.99935" y1="11.6667"
                                                 x2="9.99935" y2="12.6667" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                             </defs>
                                           </svg>
@@ -776,15 +776,15 @@ const StorePage = () => {
                                                 viewBox="0 0 24 24" fill="none">
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path d="M9.25 9.04999C11.03 9.69999 12.97 9.69999 14.75 9.04999"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
                                               <span> 13 </span>
                                             </div>
@@ -807,8 +807,8 @@ const StorePage = () => {
                                             <defs>
                                               <linearGradient id="paint0_linear_745_155" x1="1.99456" y1="0.916991"
                                                 x2="26.1808" y2="6.81415" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FECE26"></stop>
-                                                <stop offset="1" stop-color="#E5741F"></stop>
+                                                <stop stopColor="#FECE26"></stop>
+                                                <stop offset="1" stopColor="#E5741F"></stop>
                                               </linearGradient>
                                             </defs>
                                           </svg>
@@ -829,15 +829,15 @@ const StorePage = () => {
                                                 viewBox="0 0 24 24" fill="none">
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path d="M9.25 9.04999C11.03 9.69999 12.97 9.69999 14.75 9.04999"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
                                               <span> 13 </span>
                                             </div>
@@ -856,27 +856,27 @@ const StorePage = () => {
                                             viewBox="0 0 20 20" fill="none">
                                             <path
                                               d="M13.9173 15.8167H6.08399C5.73399 15.8167 5.34232 15.5417 5.22565 15.2083L1.77565 5.55834C1.28399 4.17501 1.85899 3.75001 3.04232 4.60001L6.29232 6.92501C6.83399 7.30001 7.45065 7.10834 7.68399 6.50001L9.15065 2.59167C9.61732 1.34167 10.3923 1.34167 10.859 2.59167L12.3257 6.50001C12.559 7.10834 13.1757 7.30001 13.709 6.92501L16.759 4.75001C18.059 3.81667 18.684 4.29168 18.1507 5.80001L14.784 15.225C14.659 15.5417 14.2673 15.8167 13.9173 15.8167Z"
-                                              stroke="url(#paint0_linear_745_209)" stroke-width="1.5"
-                                              stroke-linecap="round" stroke-linejoin="round"></path>
+                                              stroke="url(#paint0_linear_745_209)" strokeWidth="1.5"
+                                              strokeLinecap="round" strokeLinejoin="round"></path>
                                             <path d="M5.41602 18.3333H14.5827" stroke="url(#paint1_linear_745_209)"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                             <path d="M7.91602 11.6667H12.0827" stroke="url(#paint2_linear_745_209)"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                             <defs>
                                               <linearGradient id="paint0_linear_745_209" x1="9.9704" y1="1.65417"
                                                 x2="9.9704" y2="15.8167" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                               <linearGradient id="paint1_linear_745_209" x1="9.99935" y1="18.3333"
                                                 x2="9.99935" y2="19.3333" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                               <linearGradient id="paint2_linear_745_209" x1="9.99935" y1="11.6667"
                                                 x2="9.99935" y2="12.6667" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                             </defs>
                                           </svg>
@@ -897,15 +897,15 @@ const StorePage = () => {
                                                 viewBox="0 0 24 24" fill="none">
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path d="M9.25 9.04999C11.03 9.69999 12.97 9.69999 14.75 9.04999"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
                                               <span> 13 </span>
                                             </div>
@@ -928,8 +928,8 @@ const StorePage = () => {
                                             <defs>
                                               <linearGradient id="paint0_linear_745_155" x1="1.99456" y1="0.916991"
                                                 x2="26.1808" y2="6.81415" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FECE26"></stop>
-                                                <stop offset="1" stop-color="#E5741F"></stop>
+                                                <stop stopColor="#FECE26"></stop>
+                                                <stop offset="1" stopColor="#E5741F"></stop>
                                               </linearGradient>
                                             </defs>
                                           </svg>
@@ -950,15 +950,15 @@ const StorePage = () => {
                                                 viewBox="0 0 24 24" fill="none">
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path d="M9.25 9.04999C11.03 9.69999 12.97 9.69999 14.75 9.04999"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
                                               <span> 13 </span>
                                             </div>
@@ -977,27 +977,27 @@ const StorePage = () => {
                                             viewBox="0 0 20 20" fill="none">
                                             <path
                                               d="M13.9173 15.8167H6.08399C5.73399 15.8167 5.34232 15.5417 5.22565 15.2083L1.77565 5.55834C1.28399 4.17501 1.85899 3.75001 3.04232 4.60001L6.29232 6.92501C6.83399 7.30001 7.45065 7.10834 7.68399 6.50001L9.15065 2.59167C9.61732 1.34167 10.3923 1.34167 10.859 2.59167L12.3257 6.50001C12.559 7.10834 13.1757 7.30001 13.709 6.92501L16.759 4.75001C18.059 3.81667 18.684 4.29168 18.1507 5.80001L14.784 15.225C14.659 15.5417 14.2673 15.8167 13.9173 15.8167Z"
-                                              stroke="url(#paint0_linear_745_209)" stroke-width="1.5"
-                                              stroke-linecap="round" stroke-linejoin="round"></path>
+                                              stroke="url(#paint0_linear_745_209)" strokeWidth="1.5"
+                                              strokeLinecap="round" strokeLinejoin="round"></path>
                                             <path d="M5.41602 18.3333H14.5827" stroke="url(#paint1_linear_745_209)"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                             <path d="M7.91602 11.6667H12.0827" stroke="url(#paint2_linear_745_209)"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                             <defs>
                                               <linearGradient id="paint0_linear_745_209" x1="9.9704" y1="1.65417"
                                                 x2="9.9704" y2="15.8167" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                               <linearGradient id="paint1_linear_745_209" x1="9.99935" y1="18.3333"
                                                 x2="9.99935" y2="19.3333" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                               <linearGradient id="paint2_linear_745_209" x1="9.99935" y1="11.6667"
                                                 x2="9.99935" y2="12.6667" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                             </defs>
                                           </svg>
@@ -1023,15 +1023,15 @@ const StorePage = () => {
                                                 viewBox="0 0 24 24" fill="none">
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path d="M9.25 9.04999C11.03 9.69999 12.97 9.69999 14.75 9.04999"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
                                               <span> 13 </span>
                                             </div>
@@ -1054,8 +1054,8 @@ const StorePage = () => {
                                             <defs>
                                               <linearGradient id="paint0_linear_745_155" x1="1.99456" y1="0.916991"
                                                 x2="26.1808" y2="6.81415" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FECE26"></stop>
-                                                <stop offset="1" stop-color="#E5741F"></stop>
+                                                <stop stopColor="#FECE26"></stop>
+                                                <stop offset="1" stopColor="#E5741F"></stop>
                                               </linearGradient>
                                             </defs>
                                           </svg>
@@ -1076,15 +1076,15 @@ const StorePage = () => {
                                                 viewBox="0 0 24 24" fill="none">
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path d="M9.25 9.04999C11.03 9.69999 12.97 9.69999 14.75 9.04999"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
                                               <span> 13 </span>
                                             </div>
@@ -1103,27 +1103,27 @@ const StorePage = () => {
                                             viewBox="0 0 20 20" fill="none">
                                             <path
                                               d="M13.9173 15.8167H6.08399C5.73399 15.8167 5.34232 15.5417 5.22565 15.2083L1.77565 5.55834C1.28399 4.17501 1.85899 3.75001 3.04232 4.60001L6.29232 6.92501C6.83399 7.30001 7.45065 7.10834 7.68399 6.50001L9.15065 2.59167C9.61732 1.34167 10.3923 1.34167 10.859 2.59167L12.3257 6.50001C12.559 7.10834 13.1757 7.30001 13.709 6.92501L16.759 4.75001C18.059 3.81667 18.684 4.29168 18.1507 5.80001L14.784 15.225C14.659 15.5417 14.2673 15.8167 13.9173 15.8167Z"
-                                              stroke="url(#paint0_linear_745_209)" stroke-width="1.5"
-                                              stroke-linecap="round" stroke-linejoin="round"></path>
+                                              stroke="url(#paint0_linear_745_209)" strokeWidth="1.5"
+                                              strokeLinecap="round" strokeLinejoin="round"></path>
                                             <path d="M5.41602 18.3333H14.5827" stroke="url(#paint1_linear_745_209)"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                             <path d="M7.91602 11.6667H12.0827" stroke="url(#paint2_linear_745_209)"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                             <defs>
                                               <linearGradient id="paint0_linear_745_209" x1="9.9704" y1="1.65417"
                                                 x2="9.9704" y2="15.8167" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                               <linearGradient id="paint1_linear_745_209" x1="9.99935" y1="18.3333"
                                                 x2="9.99935" y2="19.3333" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                               <linearGradient id="paint2_linear_745_209" x1="9.99935" y1="11.6667"
                                                 x2="9.99935" y2="12.6667" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                             </defs>
                                           </svg>
@@ -1144,15 +1144,15 @@ const StorePage = () => {
                                                 viewBox="0 0 24 24" fill="none">
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path d="M9.25 9.04999C11.03 9.69999 12.97 9.69999 14.75 9.04999"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
                                               <span> 13 </span>
                                             </div>
@@ -1175,8 +1175,8 @@ const StorePage = () => {
                                             <defs>
                                               <linearGradient id="paint0_linear_745_155" x1="1.99456" y1="0.916991"
                                                 x2="26.1808" y2="6.81415" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FECE26"></stop>
-                                                <stop offset="1" stop-color="#E5741F"></stop>
+                                                <stop stopColor="#FECE26"></stop>
+                                                <stop offset="1" stopColor="#E5741F"></stop>
                                               </linearGradient>
                                             </defs>
                                           </svg>
@@ -1197,15 +1197,15 @@ const StorePage = () => {
                                                 viewBox="0 0 24 24" fill="none">
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path d="M9.25 9.04999C11.03 9.69999 12.97 9.69999 14.75 9.04999"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
                                               <span> 13 </span>
                                             </div>
@@ -1224,27 +1224,27 @@ const StorePage = () => {
                                             viewBox="0 0 20 20" fill="none">
                                             <path
                                               d="M13.9173 15.8167H6.08399C5.73399 15.8167 5.34232 15.5417 5.22565 15.2083L1.77565 5.55834C1.28399 4.17501 1.85899 3.75001 3.04232 4.60001L6.29232 6.92501C6.83399 7.30001 7.45065 7.10834 7.68399 6.50001L9.15065 2.59167C9.61732 1.34167 10.3923 1.34167 10.859 2.59167L12.3257 6.50001C12.559 7.10834 13.1757 7.30001 13.709 6.92501L16.759 4.75001C18.059 3.81667 18.684 4.29168 18.1507 5.80001L14.784 15.225C14.659 15.5417 14.2673 15.8167 13.9173 15.8167Z"
-                                              stroke="url(#paint0_linear_745_209)" stroke-width="1.5"
-                                              stroke-linecap="round" stroke-linejoin="round"></path>
+                                              stroke="url(#paint0_linear_745_209)" strokeWidth="1.5"
+                                              strokeLinecap="round" strokeLinejoin="round"></path>
                                             <path d="M5.41602 18.3333H14.5827" stroke="url(#paint1_linear_745_209)"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                             <path d="M7.91602 11.6667H12.0827" stroke="url(#paint2_linear_745_209)"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                             <defs>
                                               <linearGradient id="paint0_linear_745_209" x1="9.9704" y1="1.65417"
                                                 x2="9.9704" y2="15.8167" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                               <linearGradient id="paint1_linear_745_209" x1="9.99935" y1="18.3333"
                                                 x2="9.99935" y2="19.3333" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                               <linearGradient id="paint2_linear_745_209" x1="9.99935" y1="11.6667"
                                                 x2="9.99935" y2="12.6667" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                             </defs>
                                           </svg>
@@ -1265,15 +1265,15 @@ const StorePage = () => {
                                                 viewBox="0 0 24 24" fill="none">
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path d="M9.25 9.04999C11.03 9.69999 12.97 9.69999 14.75 9.04999"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
                                               <span> 13 </span>
                                             </div>
@@ -1296,8 +1296,8 @@ const StorePage = () => {
                                             <defs>
                                               <linearGradient id="paint0_linear_745_155" x1="1.99456" y1="0.916991"
                                                 x2="26.1808" y2="6.81415" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FECE26"></stop>
-                                                <stop offset="1" stop-color="#E5741F"></stop>
+                                                <stop stopColor="#FECE26"></stop>
+                                                <stop offset="1" stopColor="#E5741F"></stop>
                                               </linearGradient>
                                             </defs>
                                           </svg>
@@ -1318,15 +1318,15 @@ const StorePage = () => {
                                                 viewBox="0 0 24 24" fill="none">
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path d="M9.25 9.04999C11.03 9.69999 12.97 9.69999 14.75 9.04999"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
                                               <span> 13 </span>
                                             </div>
@@ -1345,27 +1345,27 @@ const StorePage = () => {
                                             viewBox="0 0 20 20" fill="none">
                                             <path
                                               d="M13.9173 15.8167H6.08399C5.73399 15.8167 5.34232 15.5417 5.22565 15.2083L1.77565 5.55834C1.28399 4.17501 1.85899 3.75001 3.04232 4.60001L6.29232 6.92501C6.83399 7.30001 7.45065 7.10834 7.68399 6.50001L9.15065 2.59167C9.61732 1.34167 10.3923 1.34167 10.859 2.59167L12.3257 6.50001C12.559 7.10834 13.1757 7.30001 13.709 6.92501L16.759 4.75001C18.059 3.81667 18.684 4.29168 18.1507 5.80001L14.784 15.225C14.659 15.5417 14.2673 15.8167 13.9173 15.8167Z"
-                                              stroke="url(#paint0_linear_745_209)" stroke-width="1.5"
-                                              stroke-linecap="round" stroke-linejoin="round"></path>
+                                              stroke="url(#paint0_linear_745_209)" strokeWidth="1.5"
+                                              strokeLinecap="round" strokeLinejoin="round"></path>
                                             <path d="M5.41602 18.3333H14.5827" stroke="url(#paint1_linear_745_209)"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                             <path d="M7.91602 11.6667H12.0827" stroke="url(#paint2_linear_745_209)"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                             <defs>
                                               <linearGradient id="paint0_linear_745_209" x1="9.9704" y1="1.65417"
                                                 x2="9.9704" y2="15.8167" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                               <linearGradient id="paint1_linear_745_209" x1="9.99935" y1="18.3333"
                                                 x2="9.99935" y2="19.3333" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                               <linearGradient id="paint2_linear_745_209" x1="9.99935" y1="11.6667"
                                                 x2="9.99935" y2="12.6667" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                             </defs>
                                           </svg>
@@ -1386,15 +1386,15 @@ const StorePage = () => {
                                                 viewBox="0 0 24 24" fill="none">
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path d="M9.25 9.04999C11.03 9.69999 12.97 9.69999 14.75 9.04999"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
                                               <span> 13 </span>
                                             </div>
@@ -1417,8 +1417,8 @@ const StorePage = () => {
                                             <defs>
                                               <linearGradient id="paint0_linear_745_155" x1="1.99456" y1="0.916991"
                                                 x2="26.1808" y2="6.81415" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FECE26"></stop>
-                                                <stop offset="1" stop-color="#E5741F"></stop>
+                                                <stop stopColor="#FECE26"></stop>
+                                                <stop offset="1" stopColor="#E5741F"></stop>
                                               </linearGradient>
                                             </defs>
                                           </svg>
@@ -1439,15 +1439,15 @@ const StorePage = () => {
                                                 viewBox="0 0 24 24" fill="none">
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path
                                                   d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                                 <path d="M9.25 9.04999C11.03 9.69999 12.97 9.69999 14.75 9.04999"
-                                                  stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
+                                                  stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                                  strokeLinejoin="round"></path>
                                               </svg>
                                               <span> 13 </span>
                                             </div>
@@ -1466,27 +1466,27 @@ const StorePage = () => {
                                             viewBox="0 0 20 20" fill="none">
                                             <path
                                               d="M13.9173 15.8167H6.08399C5.73399 15.8167 5.34232 15.5417 5.22565 15.2083L1.77565 5.55834C1.28399 4.17501 1.85899 3.75001 3.04232 4.60001L6.29232 6.92501C6.83399 7.30001 7.45065 7.10834 7.68399 6.50001L9.15065 2.59167C9.61732 1.34167 10.3923 1.34167 10.859 2.59167L12.3257 6.50001C12.559 7.10834 13.1757 7.30001 13.709 6.92501L16.759 4.75001C18.059 3.81667 18.684 4.29168 18.1507 5.80001L14.784 15.225C14.659 15.5417 14.2673 15.8167 13.9173 15.8167Z"
-                                              stroke="url(#paint0_linear_745_209)" stroke-width="1.5"
-                                              stroke-linecap="round" stroke-linejoin="round"></path>
+                                              stroke="url(#paint0_linear_745_209)" strokeWidth="1.5"
+                                              strokeLinecap="round" strokeLinejoin="round"></path>
                                             <path d="M5.41602 18.3333H14.5827" stroke="url(#paint1_linear_745_209)"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                             <path d="M7.91602 11.6667H12.0827" stroke="url(#paint2_linear_745_209)"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                             <defs>
                                               <linearGradient id="paint0_linear_745_209" x1="9.9704" y1="1.65417"
                                                 x2="9.9704" y2="15.8167" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                               <linearGradient id="paint1_linear_745_209" x1="9.99935" y1="18.3333"
                                                 x2="9.99935" y2="19.3333" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                               <linearGradient id="paint2_linear_745_209" x1="9.99935" y1="11.6667"
                                                 x2="9.99935" y2="12.6667" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="#FFCD84"></stop>
-                                                <stop offset="1" stop-color="#FEA10A"></stop>
+                                                <stop stopColor="#FFCD84"></stop>
+                                                <stop offset="1" stopColor="#FEA10A"></stop>
                                               </linearGradient>
                                             </defs>
                                           </svg>

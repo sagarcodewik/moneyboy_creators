@@ -112,7 +112,7 @@ const WishlistPage = () => {
                                           d="M20.4201 8.95L13.9001 15.47C13.1301 16.24 11.8701 16.24 11.1001 15.47L4.58008 8.95"
                                           stroke="none"
                                           strokeWidth="1.5"
-                                          stroke-miterlimit="10"
+                                          strokeMiterlimit="10"
                                           strokeLinecap="round"
                                           strokeLinejoin="round"
                                         />
@@ -736,7 +736,7 @@ const WishlistPage = () => {
                                         d="M20.4201 8.95L13.9001 15.47C13.1301 16.24 11.8701 16.24 11.1001 15.47L4.58008 8.95"
                                         stroke="none"
                                         strokeWidth="1.5"
-                                        stroke-miterlimit="10"
+                                        strokeMiterlimit="10"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                       />
@@ -1740,7 +1740,7 @@ const WishlistPage = () => {
                           d="M12 22.5C6.47715 22.5 2 18.0228 2 12.5C2 6.97715 6.47715 2.5 12 2.5C17.5228 2.5 22 6.97715 22 12.5C22 18.0228 17.5228 22.5 12 22.5Z"
                           stroke="none"
                           strokeWidth="1.5"
-                          stroke-miterlimit="10"
+                          strokeMiterlimit="10"
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
@@ -1766,7 +1766,7 @@ const WishlistPage = () => {
                           d="M12 22.5C17.5228 22.5 22 18.0228 22 12.5C22 6.97715 17.5228 2.5 12 2.5C6.47715 2.5 2 6.97715 2 12.5C2 18.0228 6.47715 22.5 12 22.5Z"
                           stroke="none"
                           strokeWidth="1.5"
-                          stroke-miterlimit="10"
+                          strokeMiterlimit="10"
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
