@@ -13,30 +13,12 @@ const defaultAxios = axios.create({ baseURL: APIBaseUrl });
 defaultAxios.interceptors.request.use(
   async (config: InternalAxiosRequestConfig) => {
     const session: any = await getDecryptedSession();
- console.log("===========",getDecryptedSession)
     if (session?.token) {
       if (!config.headers) {
         config.headers = new AxiosHeaders();
       }
       config.headers["authorization"] = `Bearer ${session?.token}`;
     }
-
-    if (typeof window !== "undefined") {
-      const hostname = window.location.hostname;
-      const parts = hostname.split(".");
-      let subdomain: string | null = null;
-      if (hostname.endsWith("localhost")) {
-        subdomain = parts.length > 1 ? parts[0] : null;
-      } else if (hostname.endsWith("arcalisnews.com")) {
-        subdomain = parts.length > 2 ? parts.slice(0, -2).join(".") : null;
-      }
-      if (subdomain) {
-        config.headers["x-tenant"] = subdomain;
-      }
-      config.headers["x-forwarded-host"] = window.location.host;
-      config.headers["origin"] = window.location.origin;
-    }
-
     return config;
   }
 );

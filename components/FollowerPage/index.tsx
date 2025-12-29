@@ -14,10 +14,10 @@ const FollowersFollowingpage = () => {
                   <div className="moneyboy-feed-page-cate-buttons card" id="posts-tabs-btn-card">
                     <button className="cate-back-btn active-down-effect">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M9.57 5.92999L3.5 12L9.57 18.07" stroke="none" stroke-width="2.5"
-                          stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M20.4999 12H3.66992" stroke="none" stroke-width="2.5" stroke-miterlimit="10"
-                          stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M9.57 5.92999L3.5 12L9.57 18.07" stroke="none" strokeWidth="2.5"
+                          strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M20.4999 12H3.66992" stroke="none" strokeWidth="2.5" strokeMiterlimit="10"
+                          strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </button>
                     <button className="page-content-type-button active-down-effect" data-multi-tabs-switch-btndata__active
@@ -43,14 +43,14 @@ const FollowersFollowingpage = () => {
                                     <svg className="svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                       viewBox="0 0 24 24" fill="none">
                                       <path d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
-                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                       <path
                                         d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
-                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                      <path d="M14 5H20" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                      <path d="M14 8H17" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
+                                        strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                      <path d="M14 5H20" strokeWidth="1.5" strokeLinecap="round"
+                                        strokeLinejoin="round" />
+                                      <path d="M14 8H17" strokeWidth="1.5" strokeLinecap="round"
+                                        strokeLinejoin="round" />
                                     </svg>
                                   </div>
 
@@ -73,8 +73,8 @@ const FollowersFollowingpage = () => {
                                           viewBox="0 0 25 24" fill="none">
                                           <path
                                             d="M20.4201 8.95L13.9001 15.47C13.1301 16.24 11.8701 16.24 11.1001 15.47L4.58008 8.95"
-                                            stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                            stroke-linecap="round" stroke-linejoin="round" />
+                                            stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                            strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                       </div>
                                     </div>
@@ -146,13 +146,13 @@ const FollowersFollowingpage = () => {
                                             viewBox="0 0 24 25" fill="none">
                                             <path
                                               d="M5 10.5C3.9 10.5 3 11.4 3 12.5C3 13.6 3.9 14.5 5 14.5C6.1 14.5 7 13.6 7 12.5C7 11.4 6.1 10.5 5 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                             <path
                                               d="M19 10.5C17.9 10.5 17 11.4 17 12.5C17 13.6 17.9 14.5 19 14.5C20.1 14.5 21 13.6 21 12.5C21 11.4 20.1 10.5 19 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                             <path
                                               d="M12 10.5C10.9 10.5 10 11.4 10 12.5C10 13.6 10.9 14.5 12 14.5C13.1 14.5 14 13.6 14 12.5C14 11.4 13.1 10.5 12 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                           </svg>
                                         </button>
 
@@ -165,13 +165,13 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M16.4405 8.90002C20.0405 9.21002 21.5105 11.06 21.5105 15.11V15.24C21.5105 19.71 19.7205 21.5 15.2505 21.5H8.74047C4.27047 21.5 2.48047 19.71 2.48047 15.24V15.11C2.48047 11.09 3.93047 9.24002 7.47047 8.91002"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
-                                                    <path d="M12 15V3.62" stroke="none" stroke-width="1.5"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
+                                                    <path d="M12 15V3.62" stroke="none" strokeWidth="1.5"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M15.3484 5.85L11.9984 2.5L8.64844 5.85" stroke="none"
-                                                      stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -184,20 +184,20 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M15 8.36997V7.40997C15 4.42997 12.93 3.28997 10.41 4.86997L7.49 6.69997C7.17 6.88997 6.8 6.99997 6.43 6.99997H5C3 6.99997 2 7.99997 2 9.99997V14C2 16 3 17 5 17H7"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M10.4102 19.13C12.9302 20.71 15.0002 19.56 15.0002 16.59V12.95"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M18.81 9.41998C19.71 11.57 19.44 14.08 18 16" stroke="none"
-                                                      stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M21.1481 7.79999C22.6181 11.29 22.1781 15.37 19.8281 18.5"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
-                                                    <path d="M22 2L2 22" stroke="none" stroke-width="1.5"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
+                                                    <path d="M22 2L2 22" stroke="none" strokeWidth="1.5"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span> Mute </span>
@@ -208,22 +208,22 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M3.41016 22C3.41016 18.13 7.26015 15 12.0002 15C12.9602 15 13.8902 15.13 14.7602 15.37"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M22 18C22 18.32 21.96 18.63 21.88 18.93C21.79 19.33 21.63 19.72 21.42 20.06C20.73 21.22 19.46 22 18 22C16.97 22 16.04 21.61 15.34 20.97C15.04 20.71 14.78 20.4 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.92 14.43 15.93 15.13 15.21C15.86 14.46 16.88 14 18 14C19.18 14 20.25 14.51 20.97 15.33C21.61 16.04 22 16.98 22 18Z"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M19.0319 16.94L16.9219 19.05" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M16.9414 16.96L19.0614 19.07" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -236,19 +236,19 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M3.41016 22C3.41016 18.13 7.26015 15 12.0002 15C12.9602 15 13.8902 15.13 14.7602 15.37"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M22 18C22 18.32 21.96 18.63 21.88 18.93C21.79 19.33 21.63 19.72 21.42 20.06C20.73 21.22 19.46 22 18 22C16.97 22 16.04 21.61 15.34 20.97C15.04 20.71 14.78 20.4 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.92 14.43 15.93 15.13 15.21C15.86 14.46 16.88 14 18 14C19.18 14 20.25 14.51 20.97 15.33C21.61 16.04 22 16.98 22 18Z"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M20.5 15.5001L15.5 20.5001" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -259,13 +259,13 @@ const FollowersFollowingpage = () => {
                                                 <div className="icon report-icon">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none">
-                                                    <path d="M5.14844 2V22" stroke="none" stroke-width="1.5"
-                                                      stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                    <path d="M5.14844 2V22" stroke="none" strokeWidth="1.5"
+                                                      strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M5.14844 4H16.3484C19.0484 4 19.6484 5.5 17.7484 7.4L16.5484 8.6C15.7484 9.4 15.7484 10.7 16.5484 11.4L17.7484 12.6C19.6484 14.5 18.9484 16 16.3484 16H5.14844"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -324,13 +324,13 @@ const FollowersFollowingpage = () => {
                                             viewBox="0 0 24 25" fill="none">
                                             <path
                                               d="M5 10.5C3.9 10.5 3 11.4 3 12.5C3 13.6 3.9 14.5 5 14.5C6.1 14.5 7 13.6 7 12.5C7 11.4 6.1 10.5 5 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                             <path
                                               d="M19 10.5C17.9 10.5 17 11.4 17 12.5C17 13.6 17.9 14.5 19 14.5C20.1 14.5 21 13.6 21 12.5C21 11.4 20.1 10.5 19 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                             <path
                                               d="M12 10.5C10.9 10.5 10 11.4 10 12.5C10 13.6 10.9 14.5 12 14.5C13.1 14.5 14 13.6 14 12.5C14 11.4 13.1 10.5 12 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                           </svg>
                                         </button>
 
@@ -343,13 +343,13 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M16.4405 8.90002C20.0405 9.21002 21.5105 11.06 21.5105 15.11V15.24C21.5105 19.71 19.7205 21.5 15.2505 21.5H8.74047C4.27047 21.5 2.48047 19.71 2.48047 15.24V15.11C2.48047 11.09 3.93047 9.24002 7.47047 8.91002"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
-                                                    <path d="M12 15V3.62" stroke="none" stroke-width="1.5"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
+                                                    <path d="M12 15V3.62" stroke="none" strokeWidth="1.5"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M15.3484 5.85L11.9984 2.5L8.64844 5.85" stroke="none"
-                                                      stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -362,20 +362,20 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M15 8.36997V7.40997C15 4.42997 12.93 3.28997 10.41 4.86997L7.49 6.69997C7.17 6.88997 6.8 6.99997 6.43 6.99997H5C3 6.99997 2 7.99997 2 9.99997V14C2 16 3 17 5 17H7"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M10.4102 19.13C12.9302 20.71 15.0002 19.56 15.0002 16.59V12.95"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M18.81 9.41998C19.71 11.57 19.44 14.08 18 16" stroke="none"
-                                                      stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M21.1481 7.79999C22.6181 11.29 22.1781 15.37 19.8281 18.5"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
-                                                    <path d="M22 2L2 22" stroke="none" stroke-width="1.5"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
+                                                    <path d="M22 2L2 22" stroke="none" strokeWidth="1.5"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span> Mute </span>
@@ -386,22 +386,22 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M3.41016 22C3.41016 18.13 7.26015 15 12.0002 15C12.9602 15 13.8902 15.13 14.7602 15.37"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M22 18C22 18.32 21.96 18.63 21.88 18.93C21.79 19.33 21.63 19.72 21.42 20.06C20.73 21.22 19.46 22 18 22C16.97 22 16.04 21.61 15.34 20.97C15.04 20.71 14.78 20.4 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.92 14.43 15.93 15.13 15.21C15.86 14.46 16.88 14 18 14C19.18 14 20.25 14.51 20.97 15.33C21.61 16.04 22 16.98 22 18Z"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M19.0319 16.94L16.9219 19.05" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M16.9414 16.96L19.0614 19.07" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -414,19 +414,19 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M3.41016 22C3.41016 18.13 7.26015 15 12.0002 15C12.9602 15 13.8902 15.13 14.7602 15.37"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M22 18C22 18.32 21.96 18.63 21.88 18.93C21.79 19.33 21.63 19.72 21.42 20.06C20.73 21.22 19.46 22 18 22C16.97 22 16.04 21.61 15.34 20.97C15.04 20.71 14.78 20.4 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.92 14.43 15.93 15.13 15.21C15.86 14.46 16.88 14 18 14C19.18 14 20.25 14.51 20.97 15.33C21.61 16.04 22 16.98 22 18Z"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M20.5 15.5001L15.5 20.5001" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -437,13 +437,13 @@ const FollowersFollowingpage = () => {
                                                 <div className="icon report-icon">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none">
-                                                    <path d="M5.14844 2V22" stroke="none" stroke-width="1.5"
-                                                      stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                    <path d="M5.14844 2V22" stroke="none" strokeWidth="1.5"
+                                                      strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M5.14844 4H16.3484C19.0484 4 19.6484 5.5 17.7484 7.4L16.5484 8.6C15.7484 9.4 15.7484 10.7 16.5484 11.4L17.7484 12.6C19.6484 14.5 18.9484 16 16.3484 16H5.14844"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -498,13 +498,13 @@ const FollowersFollowingpage = () => {
                                             viewBox="0 0 24 25" fill="none">
                                             <path
                                               d="M5 10.5C3.9 10.5 3 11.4 3 12.5C3 13.6 3.9 14.5 5 14.5C6.1 14.5 7 13.6 7 12.5C7 11.4 6.1 10.5 5 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                             <path
                                               d="M19 10.5C17.9 10.5 17 11.4 17 12.5C17 13.6 17.9 14.5 19 14.5C20.1 14.5 21 13.6 21 12.5C21 11.4 20.1 10.5 19 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                             <path
                                               d="M12 10.5C10.9 10.5 10 11.4 10 12.5C10 13.6 10.9 14.5 12 14.5C13.1 14.5 14 13.6 14 12.5C14 11.4 13.1 10.5 12 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                           </svg>
                                         </button>
 
@@ -517,13 +517,13 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M16.4405 8.90002C20.0405 9.21002 21.5105 11.06 21.5105 15.11V15.24C21.5105 19.71 19.7205 21.5 15.2505 21.5H8.74047C4.27047 21.5 2.48047 19.71 2.48047 15.24V15.11C2.48047 11.09 3.93047 9.24002 7.47047 8.91002"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
-                                                    <path d="M12 15V3.62" stroke="none" stroke-width="1.5"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
+                                                    <path d="M12 15V3.62" stroke="none" strokeWidth="1.5"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M15.3484 5.85L11.9984 2.5L8.64844 5.85" stroke="none"
-                                                      stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -536,20 +536,20 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M15 8.36997V7.40997C15 4.42997 12.93 3.28997 10.41 4.86997L7.49 6.69997C7.17 6.88997 6.8 6.99997 6.43 6.99997H5C3 6.99997 2 7.99997 2 9.99997V14C2 16 3 17 5 17H7"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M10.4102 19.13C12.9302 20.71 15.0002 19.56 15.0002 16.59V12.95"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M18.81 9.41998C19.71 11.57 19.44 14.08 18 16" stroke="none"
-                                                      stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M21.1481 7.79999C22.6181 11.29 22.1781 15.37 19.8281 18.5"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
-                                                    <path d="M22 2L2 22" stroke="none" stroke-width="1.5"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
+                                                    <path d="M22 2L2 22" stroke="none" strokeWidth="1.5"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span> Mute </span>
@@ -560,22 +560,22 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M3.41016 22C3.41016 18.13 7.26015 15 12.0002 15C12.9602 15 13.8902 15.13 14.7602 15.37"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M22 18C22 18.32 21.96 18.63 21.88 18.93C21.79 19.33 21.63 19.72 21.42 20.06C20.73 21.22 19.46 22 18 22C16.97 22 16.04 21.61 15.34 20.97C15.04 20.71 14.78 20.4 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.92 14.43 15.93 15.13 15.21C15.86 14.46 16.88 14 18 14C19.18 14 20.25 14.51 20.97 15.33C21.61 16.04 22 16.98 22 18Z"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M19.0319 16.94L16.9219 19.05" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M16.9414 16.96L19.0614 19.07" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -588,19 +588,19 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M3.41016 22C3.41016 18.13 7.26015 15 12.0002 15C12.9602 15 13.8902 15.13 14.7602 15.37"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M22 18C22 18.32 21.96 18.63 21.88 18.93C21.79 19.33 21.63 19.72 21.42 20.06C20.73 21.22 19.46 22 18 22C16.97 22 16.04 21.61 15.34 20.97C15.04 20.71 14.78 20.4 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.92 14.43 15.93 15.13 15.21C15.86 14.46 16.88 14 18 14C19.18 14 20.25 14.51 20.97 15.33C21.61 16.04 22 16.98 22 18Z"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M20.5 15.5001L15.5 20.5001" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -611,13 +611,13 @@ const FollowersFollowingpage = () => {
                                                 <div className="icon report-icon">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none">
-                                                    <path d="M5.14844 2V22" stroke="none" stroke-width="1.5"
-                                                      stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                    <path d="M5.14844 2V22" stroke="none" strokeWidth="1.5"
+                                                      strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M5.14844 4H16.3484C19.0484 4 19.6484 5.5 17.7484 7.4L16.5484 8.6C15.7484 9.4 15.7484 10.7 16.5484 11.4L17.7484 12.6C19.6484 14.5 18.9484 16 16.3484 16H5.14844"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -678,13 +678,13 @@ const FollowersFollowingpage = () => {
                                             viewBox="0 0 24 25" fill="none">
                                             <path
                                               d="M5 10.5C3.9 10.5 3 11.4 3 12.5C3 13.6 3.9 14.5 5 14.5C6.1 14.5 7 13.6 7 12.5C7 11.4 6.1 10.5 5 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                             <path
                                               d="M19 10.5C17.9 10.5 17 11.4 17 12.5C17 13.6 17.9 14.5 19 14.5C20.1 14.5 21 13.6 21 12.5C21 11.4 20.1 10.5 19 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                             <path
                                               d="M12 10.5C10.9 10.5 10 11.4 10 12.5C10 13.6 10.9 14.5 12 14.5C13.1 14.5 14 13.6 14 12.5C14 11.4 13.1 10.5 12 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                           </svg>
                                         </button>
 
@@ -697,13 +697,13 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M16.4405 8.90002C20.0405 9.21002 21.5105 11.06 21.5105 15.11V15.24C21.5105 19.71 19.7205 21.5 15.2505 21.5H8.74047C4.27047 21.5 2.48047 19.71 2.48047 15.24V15.11C2.48047 11.09 3.93047 9.24002 7.47047 8.91002"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
-                                                    <path d="M12 15V3.62" stroke="none" stroke-width="1.5"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
+                                                    <path d="M12 15V3.62" stroke="none" strokeWidth="1.5"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M15.3484 5.85L11.9984 2.5L8.64844 5.85" stroke="none"
-                                                      stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -716,20 +716,20 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M15 8.36997V7.40997C15 4.42997 12.93 3.28997 10.41 4.86997L7.49 6.69997C7.17 6.88997 6.8 6.99997 6.43 6.99997H5C3 6.99997 2 7.99997 2 9.99997V14C2 16 3 17 5 17H7"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M10.4102 19.13C12.9302 20.71 15.0002 19.56 15.0002 16.59V12.95"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M18.81 9.41998C19.71 11.57 19.44 14.08 18 16" stroke="none"
-                                                      stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M21.1481 7.79999C22.6181 11.29 22.1781 15.37 19.8281 18.5"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
-                                                    <path d="M22 2L2 22" stroke="none" stroke-width="1.5"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
+                                                    <path d="M22 2L2 22" stroke="none" strokeWidth="1.5"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span> Mute </span>
@@ -740,22 +740,22 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M3.41016 22C3.41016 18.13 7.26015 15 12.0002 15C12.9602 15 13.8902 15.13 14.7602 15.37"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M22 18C22 18.32 21.96 18.63 21.88 18.93C21.79 19.33 21.63 19.72 21.42 20.06C20.73 21.22 19.46 22 18 22C16.97 22 16.04 21.61 15.34 20.97C15.04 20.71 14.78 20.4 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.92 14.43 15.93 15.13 15.21C15.86 14.46 16.88 14 18 14C19.18 14 20.25 14.51 20.97 15.33C21.61 16.04 22 16.98 22 18Z"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M19.0319 16.94L16.9219 19.05" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M16.9414 16.96L19.0614 19.07" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -768,19 +768,19 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M3.41016 22C3.41016 18.13 7.26015 15 12.0002 15C12.9602 15 13.8902 15.13 14.7602 15.37"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M22 18C22 18.32 21.96 18.63 21.88 18.93C21.79 19.33 21.63 19.72 21.42 20.06C20.73 21.22 19.46 22 18 22C16.97 22 16.04 21.61 15.34 20.97C15.04 20.71 14.78 20.4 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.92 14.43 15.93 15.13 15.21C15.86 14.46 16.88 14 18 14C19.18 14 20.25 14.51 20.97 15.33C21.61 16.04 22 16.98 22 18Z"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M20.5 15.5001L15.5 20.5001" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -791,13 +791,13 @@ const FollowersFollowingpage = () => {
                                                 <div className="icon report-icon">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none">
-                                                    <path d="M5.14844 2V22" stroke="none" stroke-width="1.5"
-                                                      stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                    <path d="M5.14844 2V22" stroke="none" strokeWidth="1.5"
+                                                      strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M5.14844 4H16.3484C19.0484 4 19.6484 5.5 17.7484 7.4L16.5484 8.6C15.7484 9.4 15.7484 10.7 16.5484 11.4L17.7484 12.6C19.6484 14.5 18.9484 16 16.3484 16H5.14844"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -848,13 +848,13 @@ const FollowersFollowingpage = () => {
                                             viewBox="0 0 24 25" fill="none">
                                             <path
                                               d="M5 10.5C3.9 10.5 3 11.4 3 12.5C3 13.6 3.9 14.5 5 14.5C6.1 14.5 7 13.6 7 12.5C7 11.4 6.1 10.5 5 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                             <path
                                               d="M19 10.5C17.9 10.5 17 11.4 17 12.5C17 13.6 17.9 14.5 19 14.5C20.1 14.5 21 13.6 21 12.5C21 11.4 20.1 10.5 19 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                             <path
                                               d="M12 10.5C10.9 10.5 10 11.4 10 12.5C10 13.6 10.9 14.5 12 14.5C13.1 14.5 14 13.6 14 12.5C14 11.4 13.1 10.5 12 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                           </svg>
                                         </button>
 
@@ -867,13 +867,13 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M16.4405 8.90002C20.0405 9.21002 21.5105 11.06 21.5105 15.11V15.24C21.5105 19.71 19.7205 21.5 15.2505 21.5H8.74047C4.27047 21.5 2.48047 19.71 2.48047 15.24V15.11C2.48047 11.09 3.93047 9.24002 7.47047 8.91002"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
-                                                    <path d="M12 15V3.62" stroke="none" stroke-width="1.5"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
+                                                    <path d="M12 15V3.62" stroke="none" strokeWidth="1.5"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M15.3484 5.85L11.9984 2.5L8.64844 5.85" stroke="none"
-                                                      stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -886,20 +886,20 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M15 8.36997V7.40997C15 4.42997 12.93 3.28997 10.41 4.86997L7.49 6.69997C7.17 6.88997 6.8 6.99997 6.43 6.99997H5C3 6.99997 2 7.99997 2 9.99997V14C2 16 3 17 5 17H7"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M10.4102 19.13C12.9302 20.71 15.0002 19.56 15.0002 16.59V12.95"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M18.81 9.41998C19.71 11.57 19.44 14.08 18 16" stroke="none"
-                                                      stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M21.1481 7.79999C22.6181 11.29 22.1781 15.37 19.8281 18.5"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
-                                                    <path d="M22 2L2 22" stroke="none" stroke-width="1.5"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
+                                                    <path d="M22 2L2 22" stroke="none" strokeWidth="1.5"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span> Mute </span>
@@ -910,22 +910,22 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M3.41016 22C3.41016 18.13 7.26015 15 12.0002 15C12.9602 15 13.8902 15.13 14.7602 15.37"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M22 18C22 18.32 21.96 18.63 21.88 18.93C21.79 19.33 21.63 19.72 21.42 20.06C20.73 21.22 19.46 22 18 22C16.97 22 16.04 21.61 15.34 20.97C15.04 20.71 14.78 20.4 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.92 14.43 15.93 15.13 15.21C15.86 14.46 16.88 14 18 14C19.18 14 20.25 14.51 20.97 15.33C21.61 16.04 22 16.98 22 18Z"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M19.0319 16.94L16.9219 19.05" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M16.9414 16.96L19.0614 19.07" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -938,19 +938,19 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M3.41016 22C3.41016 18.13 7.26015 15 12.0002 15C12.9602 15 13.8902 15.13 14.7602 15.37"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M22 18C22 18.32 21.96 18.63 21.88 18.93C21.79 19.33 21.63 19.72 21.42 20.06C20.73 21.22 19.46 22 18 22C16.97 22 16.04 21.61 15.34 20.97C15.04 20.71 14.78 20.4 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.92 14.43 15.93 15.13 15.21C15.86 14.46 16.88 14 18 14C19.18 14 20.25 14.51 20.97 15.33C21.61 16.04 22 16.98 22 18Z"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M20.5 15.5001L15.5 20.5001" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -961,13 +961,13 @@ const FollowersFollowingpage = () => {
                                                 <div className="icon report-icon">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none">
-                                                    <path d="M5.14844 2V22" stroke="none" stroke-width="1.5"
-                                                      stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                    <path d="M5.14844 2V22" stroke="none" strokeWidth="1.5"
+                                                      strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M5.14844 4H16.3484C19.0484 4 19.6484 5.5 17.7484 7.4L16.5484 8.6C15.7484 9.4 15.7484 10.7 16.5484 11.4L17.7484 12.6C19.6484 14.5 18.9484 16 16.3484 16H5.14844"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -1022,13 +1022,13 @@ const FollowersFollowingpage = () => {
                                             viewBox="0 0 24 25" fill="none">
                                             <path
                                               d="M5 10.5C3.9 10.5 3 11.4 3 12.5C3 13.6 3.9 14.5 5 14.5C6.1 14.5 7 13.6 7 12.5C7 11.4 6.1 10.5 5 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                             <path
                                               d="M19 10.5C17.9 10.5 17 11.4 17 12.5C17 13.6 17.9 14.5 19 14.5C20.1 14.5 21 13.6 21 12.5C21 11.4 20.1 10.5 19 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                             <path
                                               d="M12 10.5C10.9 10.5 10 11.4 10 12.5C10 13.6 10.9 14.5 12 14.5C13.1 14.5 14 13.6 14 12.5C14 11.4 13.1 10.5 12 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                           </svg>
                                         </button>
 
@@ -1041,13 +1041,13 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M16.4405 8.90002C20.0405 9.21002 21.5105 11.06 21.5105 15.11V15.24C21.5105 19.71 19.7205 21.5 15.2505 21.5H8.74047C4.27047 21.5 2.48047 19.71 2.48047 15.24V15.11C2.48047 11.09 3.93047 9.24002 7.47047 8.91002"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
-                                                    <path d="M12 15V3.62" stroke="none" stroke-width="1.5"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
+                                                    <path d="M12 15V3.62" stroke="none" strokeWidth="1.5"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M15.3484 5.85L11.9984 2.5L8.64844 5.85" stroke="none"
-                                                      stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -1060,20 +1060,20 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M15 8.36997V7.40997C15 4.42997 12.93 3.28997 10.41 4.86997L7.49 6.69997C7.17 6.88997 6.8 6.99997 6.43 6.99997H5C3 6.99997 2 7.99997 2 9.99997V14C2 16 3 17 5 17H7"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M10.4102 19.13C12.9302 20.71 15.0002 19.56 15.0002 16.59V12.95"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M18.81 9.41998C19.71 11.57 19.44 14.08 18 16" stroke="none"
-                                                      stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M21.1481 7.79999C22.6181 11.29 22.1781 15.37 19.8281 18.5"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
-                                                    <path d="M22 2L2 22" stroke="none" stroke-width="1.5"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
+                                                    <path d="M22 2L2 22" stroke="none" strokeWidth="1.5"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span> Mute </span>
@@ -1084,22 +1084,22 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M3.41016 22C3.41016 18.13 7.26015 15 12.0002 15C12.9602 15 13.8902 15.13 14.7602 15.37"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M22 18C22 18.32 21.96 18.63 21.88 18.93C21.79 19.33 21.63 19.72 21.42 20.06C20.73 21.22 19.46 22 18 22C16.97 22 16.04 21.61 15.34 20.97C15.04 20.71 14.78 20.4 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.92 14.43 15.93 15.13 15.21C15.86 14.46 16.88 14 18 14C19.18 14 20.25 14.51 20.97 15.33C21.61 16.04 22 16.98 22 18Z"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M19.0319 16.94L16.9219 19.05" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M16.9414 16.96L19.0614 19.07" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -1112,19 +1112,19 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M3.41016 22C3.41016 18.13 7.26015 15 12.0002 15C12.9602 15 13.8902 15.13 14.7602 15.37"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M22 18C22 18.32 21.96 18.63 21.88 18.93C21.79 19.33 21.63 19.72 21.42 20.06C20.73 21.22 19.46 22 18 22C16.97 22 16.04 21.61 15.34 20.97C15.04 20.71 14.78 20.4 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.92 14.43 15.93 15.13 15.21C15.86 14.46 16.88 14 18 14C19.18 14 20.25 14.51 20.97 15.33C21.61 16.04 22 16.98 22 18Z"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M20.5 15.5001L15.5 20.5001" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -1135,13 +1135,13 @@ const FollowersFollowingpage = () => {
                                                 <div className="icon report-icon">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none">
-                                                    <path d="M5.14844 2V22" stroke="none" stroke-width="1.5"
-                                                      stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                    <path d="M5.14844 2V22" stroke="none" strokeWidth="1.5"
+                                                      strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M5.14844 4H16.3484C19.0484 4 19.6484 5.5 17.7484 7.4L16.5484 8.6C15.7484 9.4 15.7484 10.7 16.5484 11.4L17.7484 12.6C19.6484 14.5 18.9484 16 16.3484 16H5.14844"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -1192,13 +1192,13 @@ const FollowersFollowingpage = () => {
                                             viewBox="0 0 24 25" fill="none">
                                             <path
                                               d="M5 10.5C3.9 10.5 3 11.4 3 12.5C3 13.6 3.9 14.5 5 14.5C6.1 14.5 7 13.6 7 12.5C7 11.4 6.1 10.5 5 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                             <path
                                               d="M19 10.5C17.9 10.5 17 11.4 17 12.5C17 13.6 17.9 14.5 19 14.5C20.1 14.5 21 13.6 21 12.5C21 11.4 20.1 10.5 19 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                             <path
                                               d="M12 10.5C10.9 10.5 10 11.4 10 12.5C10 13.6 10.9 14.5 12 14.5C13.1 14.5 14 13.6 14 12.5C14 11.4 13.1 10.5 12 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                           </svg>
                                         </button>
 
@@ -1211,13 +1211,13 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M16.4405 8.90002C20.0405 9.21002 21.5105 11.06 21.5105 15.11V15.24C21.5105 19.71 19.7205 21.5 15.2505 21.5H8.74047C4.27047 21.5 2.48047 19.71 2.48047 15.24V15.11C2.48047 11.09 3.93047 9.24002 7.47047 8.91002"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
-                                                    <path d="M12 15V3.62" stroke="none" stroke-width="1.5"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
+                                                    <path d="M12 15V3.62" stroke="none" strokeWidth="1.5"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M15.3484 5.85L11.9984 2.5L8.64844 5.85" stroke="none"
-                                                      stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -1230,20 +1230,20 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M15 8.36997V7.40997C15 4.42997 12.93 3.28997 10.41 4.86997L7.49 6.69997C7.17 6.88997 6.8 6.99997 6.43 6.99997H5C3 6.99997 2 7.99997 2 9.99997V14C2 16 3 17 5 17H7"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M10.4102 19.13C12.9302 20.71 15.0002 19.56 15.0002 16.59V12.95"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M18.81 9.41998C19.71 11.57 19.44 14.08 18 16" stroke="none"
-                                                      stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M21.1481 7.79999C22.6181 11.29 22.1781 15.37 19.8281 18.5"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
-                                                    <path d="M22 2L2 22" stroke="none" stroke-width="1.5"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
+                                                    <path d="M22 2L2 22" stroke="none" strokeWidth="1.5"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span> Mute </span>
@@ -1254,22 +1254,22 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M3.41016 22C3.41016 18.13 7.26015 15 12.0002 15C12.9602 15 13.8902 15.13 14.7602 15.37"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M22 18C22 18.32 21.96 18.63 21.88 18.93C21.79 19.33 21.63 19.72 21.42 20.06C20.73 21.22 19.46 22 18 22C16.97 22 16.04 21.61 15.34 20.97C15.04 20.71 14.78 20.4 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.92 14.43 15.93 15.13 15.21C15.86 14.46 16.88 14 18 14C19.18 14 20.25 14.51 20.97 15.33C21.61 16.04 22 16.98 22 18Z"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M19.0319 16.94L16.9219 19.05" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M16.9414 16.96L19.0614 19.07" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -1282,19 +1282,19 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M3.41016 22C3.41016 18.13 7.26015 15 12.0002 15C12.9602 15 13.8902 15.13 14.7602 15.37"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M22 18C22 18.32 21.96 18.63 21.88 18.93C21.79 19.33 21.63 19.72 21.42 20.06C20.73 21.22 19.46 22 18 22C16.97 22 16.04 21.61 15.34 20.97C15.04 20.71 14.78 20.4 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.92 14.43 15.93 15.13 15.21C15.86 14.46 16.88 14 18 14C19.18 14 20.25 14.51 20.97 15.33C21.61 16.04 22 16.98 22 18Z"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M20.5 15.5001L15.5 20.5001" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -1305,13 +1305,13 @@ const FollowersFollowingpage = () => {
                                                 <div className="icon report-icon">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none">
-                                                    <path d="M5.14844 2V22" stroke="none" stroke-width="1.5"
-                                                      stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                    <path d="M5.14844 2V22" stroke="none" strokeWidth="1.5"
+                                                      strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M5.14844 4H16.3484C19.0484 4 19.6484 5.5 17.7484 7.4L16.5484 8.6C15.7484 9.4 15.7484 10.7 16.5484 11.4L17.7484 12.6C19.6484 14.5 18.9484 16 16.3484 16H5.14844"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -1372,13 +1372,13 @@ const FollowersFollowingpage = () => {
                                             viewBox="0 0 24 25" fill="none">
                                             <path
                                               d="M5 10.5C3.9 10.5 3 11.4 3 12.5C3 13.6 3.9 14.5 5 14.5C6.1 14.5 7 13.6 7 12.5C7 11.4 6.1 10.5 5 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                             <path
                                               d="M19 10.5C17.9 10.5 17 11.4 17 12.5C17 13.6 17.9 14.5 19 14.5C20.1 14.5 21 13.6 21 12.5C21 11.4 20.1 10.5 19 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                             <path
                                               d="M12 10.5C10.9 10.5 10 11.4 10 12.5C10 13.6 10.9 14.5 12 14.5C13.1 14.5 14 13.6 14 12.5C14 11.4 13.1 10.5 12 10.5Z"
-                                              stroke="none" stroke-width="1.5"></path>
+                                              stroke="none" strokeWidth="1.5"></path>
                                           </svg>
                                         </button>
 
@@ -1391,13 +1391,13 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M16.4405 8.90002C20.0405 9.21002 21.5105 11.06 21.5105 15.11V15.24C21.5105 19.71 19.7205 21.5 15.2505 21.5H8.74047C4.27047 21.5 2.48047 19.71 2.48047 15.24V15.11C2.48047 11.09 3.93047 9.24002 7.47047 8.91002"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
-                                                    <path d="M12 15V3.62" stroke="none" stroke-width="1.5"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
+                                                    <path d="M12 15V3.62" stroke="none" strokeWidth="1.5"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M15.3484 5.85L11.9984 2.5L8.64844 5.85" stroke="none"
-                                                      stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -1410,20 +1410,20 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M15 8.36997V7.40997C15 4.42997 12.93 3.28997 10.41 4.86997L7.49 6.69997C7.17 6.88997 6.8 6.99997 6.43 6.99997H5C3 6.99997 2 7.99997 2 9.99997V14C2 16 3 17 5 17H7"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M10.4102 19.13C12.9302 20.71 15.0002 19.56 15.0002 16.59V12.95"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M18.81 9.41998C19.71 11.57 19.44 14.08 18 16" stroke="none"
-                                                      stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M21.1481 7.79999C22.6181 11.29 22.1781 15.37 19.8281 18.5"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
-                                                    <path d="M22 2L2 22" stroke="none" stroke-width="1.5"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
+                                                    <path d="M22 2L2 22" stroke="none" strokeWidth="1.5"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span> Mute </span>
@@ -1434,22 +1434,22 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M3.41016 22C3.41016 18.13 7.26015 15 12.0002 15C12.9602 15 13.8902 15.13 14.7602 15.37"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M22 18C22 18.32 21.96 18.63 21.88 18.93C21.79 19.33 21.63 19.72 21.42 20.06C20.73 21.22 19.46 22 18 22C16.97 22 16.04 21.61 15.34 20.97C15.04 20.71 14.78 20.4 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.92 14.43 15.93 15.13 15.21C15.86 14.46 16.88 14 18 14C19.18 14 20.25 14.51 20.97 15.33C21.61 16.04 22 16.98 22 18Z"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M19.0319 16.94L16.9219 19.05" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path d="M16.9414 16.96L19.0614 19.07" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -1462,19 +1462,19 @@ const FollowersFollowingpage = () => {
                                                     viewBox="0 0 24 24" fill="none">
                                                     <path
                                                       d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M3.41016 22C3.41016 18.13 7.26015 15 12.0002 15C12.9602 15 13.8902 15.13 14.7602 15.37"
-                                                      stroke="none" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M22 18C22 18.32 21.96 18.63 21.88 18.93C21.79 19.33 21.63 19.72 21.42 20.06C20.73 21.22 19.46 22 18 22C16.97 22 16.04 21.61 15.34 20.97C15.04 20.71 14.78 20.4 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.92 14.43 15.93 15.13 15.21C15.86 14.46 16.88 14 18 14C19.18 14 20.25 14.51 20.97 15.33C21.61 16.04 22 16.98 22 18Z"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M20.5 15.5001L15.5 20.5001" stroke="none"
-                                                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                      strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -1485,13 +1485,13 @@ const FollowersFollowingpage = () => {
                                                 <div className="icon report-icon">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none">
-                                                    <path d="M5.14844 2V22" stroke="none" stroke-width="1.5"
-                                                      stroke-miterlimit="10" stroke-linecap="round"
-                                                      stroke-linejoin="round" />
+                                                    <path d="M5.14844 2V22" stroke="none" strokeWidth="1.5"
+                                                      strokeMiterlimit="10" strokeLinecap="round"
+                                                      strokeLinejoin="round" />
                                                     <path
                                                       d="M5.14844 4H16.3484C19.0484 4 19.6484 5.5 17.7484 7.4L16.5484 8.6C15.7484 9.4 15.7484 10.7 16.5484 11.4L17.7484 12.6C19.6484 14.5 18.9484 16 16.3484 16H5.14844"
-                                                      stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                                      stroke-linecap="round" stroke-linejoin="round" />
+                                                      stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                                   </svg>
                                                 </div>
                                                 <span>
@@ -1525,14 +1525,14 @@ const FollowersFollowingpage = () => {
                                     <svg className="svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                       viewBox="0 0 24 24" fill="none">
                                       <path d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
-                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                       <path
                                         d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
-                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                      <path d="M14 5H20" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                      <path d="M14 8H17" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
+                                        strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                      <path d="M14 5H20" strokeWidth="1.5" strokeLinecap="round"
+                                        strokeLinejoin="round" />
+                                      <path d="M14 8H17" strokeWidth="1.5" strokeLinecap="round"
+                                        strokeLinejoin="round" />
                                     </svg>
                                   </div>
 
@@ -1555,8 +1555,8 @@ const FollowersFollowingpage = () => {
                                           viewBox="0 0 25 24" fill="none">
                                           <path
                                             d="M20.4201 8.95L13.9001 15.47C13.1301 16.24 11.8701 16.24 11.1001 15.47L4.58008 8.95"
-                                            stroke="none" stroke-width="1.5" stroke-miterlimit="10"
-                                            stroke-linecap="round" stroke-linejoin="round" />
+                                            stroke="none" strokeWidth="1.5" strokeMiterlimit="10"
+                                            strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                       </div>
                                     </div>
@@ -1920,7 +1920,7 @@ const FollowersFollowingpage = () => {
                             fill="none">
                             <path
                               d="M22 12.5C22 18.02 17.52 22.5 12 22.5C6.48 22.5 3.11 16.94 3.11 16.94M3.11 16.94H7.63M3.11 16.94V21.94M2 12.5C2 6.98 6.44 2.5 12 2.5C18.67 2.5 22 8.06 22 8.06M22 8.06V3.06M22 8.06H17.56"
-                              stroke="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                              stroke="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                           </svg>
                         </button>
 
@@ -1929,10 +1929,10 @@ const FollowersFollowingpage = () => {
                             fill="none">
                             <path
                               d="M12 22.5C6.47715 22.5 2 18.0228 2 12.5C2 6.97715 6.47715 2.5 12 2.5C17.5228 2.5 22 6.97715 22 12.5C22 18.0228 17.5228 22.5 12 22.5Z"
-                              stroke="none" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                              stroke-linejoin="round"></path>
-                            <path d="M13.26 16.03L9.74001 12.5L13.26 8.97" stroke="none" stroke-width="1.5"
-                              stroke-linecap="round" stroke-linejoin="round"></path>
+                              stroke="none" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                              strokeLinejoin="round"></path>
+                            <path d="M13.26 16.03L9.74001 12.5L13.26 8.97" stroke="none" strokeWidth="1.5"
+                              strokeLinecap="round" strokeLinejoin="round"></path>
                           </svg>
                         </button>
 
@@ -1941,10 +1941,10 @@ const FollowersFollowingpage = () => {
                             fill="none">
                             <path
                               d="M12 22.5C17.5228 22.5 22 18.0228 22 12.5C22 6.97715 17.5228 2.5 12 2.5C6.47715 2.5 2 6.97715 2 12.5C2 18.0228 6.47715 22.5 12 22.5Z"
-                              stroke="none" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                              stroke-linejoin="round"></path>
-                            <path d="M10.74 16.03L14.26 12.5L10.74 8.97" stroke="none" stroke-width="1.5"
-                              stroke-linecap="round" stroke-linejoin="round"></path>
+                              stroke="none" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                              strokeLinejoin="round"></path>
+                            <path d="M10.74 16.03L14.26 12.5L10.74 8.97" stroke="none" strokeWidth="1.5"
+                              strokeLinecap="round" strokeLinejoin="round"></path>
                           </svg>
                         </button>
                       </div>
@@ -2156,7 +2156,7 @@ const FollowersFollowingpage = () => {
                             fill="none">
                             <path
                               d="M22 12.5C22 18.02 17.52 22.5 12 22.5C6.48 22.5 3.11 16.94 3.11 16.94M3.11 16.94H7.63M3.11 16.94V21.94M2 12.5C2 6.98 6.44 2.5 12 2.5C18.67 2.5 22 8.06 22 8.06M22 8.06V3.06M22 8.06H17.56"
-                              stroke="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                              stroke="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         </button>
 
@@ -2165,10 +2165,10 @@ const FollowersFollowingpage = () => {
                             fill="none">
                             <path
                               d="M12 22.5C6.47715 22.5 2 18.0228 2 12.5C2 6.97715 6.47715 2.5 12 2.5C17.5228 2.5 22 6.97715 22 12.5C22 18.0228 17.5228 22.5 12 22.5Z"
-                              stroke="none" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                            <path d="M13.26 16.03L9.74001 12.5L13.26 8.97" stroke="none" stroke-width="1.5"
-                              stroke-linecap="round" stroke-linejoin="round" />
+                              stroke="none" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                              strokeLinejoin="round" />
+                            <path d="M13.26 16.03L9.74001 12.5L13.26 8.97" stroke="none" strokeWidth="1.5"
+                              strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         </button>
 
@@ -2177,10 +2177,10 @@ const FollowersFollowingpage = () => {
                             fill="none">
                             <path
                               d="M12 22.5C17.5228 22.5 22 18.0228 22 12.5C22 6.97715 17.5228 2.5 12 2.5C6.47715 2.5 2 6.97715 2 12.5C2 18.0228 6.47715 22.5 12 22.5Z"
-                              stroke="none" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                              stroke-linejoin="round" />
-                            <path d="M10.74 16.03L14.26 12.5L10.74 8.97" stroke="none" stroke-width="1.5"
-                              stroke-linecap="round" stroke-linejoin="round" />
+                              stroke="none" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                              strokeLinejoin="round" />
+                            <path d="M10.74 16.03L14.26 12.5L10.74 8.97" stroke="none" strokeWidth="1.5"
+                              strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         </button>
                       </div>
@@ -2222,8 +2222,8 @@ const FollowersFollowingpage = () => {
                                       fill="none">
                                       <path
                                         d="M10.5166 17.8417C10.2333 17.9417 9.76663 17.9417 9.48329 17.8417C7.06663 17.0167 1.66663 13.575 1.66663 7.74166C1.66663 5.16666 3.74163 3.08333 6.29996 3.08333C7.81663 3.08333 9.15829 3.81666 9.99996 4.95C10.8416 3.81666 12.1916 3.08333 13.7 3.08333C16.2583 3.08333 18.3333 5.16666 18.3333 7.74166C18.3333 13.575 12.9333 17.0167 10.5166 17.8417Z"
-                                        stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
+                                        stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                        strokeLinejoin="round" />
                                     </svg>
                                   </button>
                                 </div>
@@ -2274,8 +2274,8 @@ const FollowersFollowingpage = () => {
                                       fill="none">
                                       <path
                                         d="M10.5166 17.8417C10.2333 17.9417 9.76663 17.9417 9.48329 17.8417C7.06663 17.0167 1.66663 13.575 1.66663 7.74166C1.66663 5.16666 3.74163 3.08333 6.29996 3.08333C7.81663 3.08333 9.15829 3.81666 9.99996 4.95C10.8416 3.81666 12.1916 3.08333 13.7 3.08333C16.2583 3.08333 18.3333 5.16666 18.3333 7.74166C18.3333 13.575 12.9333 17.0167 10.5166 17.8417Z"
-                                        stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
+                                        stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                        strokeLinejoin="round" />
                                     </svg>
                                   </button>
                                 </div>
@@ -2326,8 +2326,8 @@ const FollowersFollowingpage = () => {
                                       fill="none">
                                       <path
                                         d="M10.5166 17.8417C10.2333 17.9417 9.76663 17.9417 9.48329 17.8417C7.06663 17.0167 1.66663 13.575 1.66663 7.74166C1.66663 5.16666 3.74163 3.08333 6.29996 3.08333C7.81663 3.08333 9.15829 3.81666 9.99996 4.95C10.8416 3.81666 12.1916 3.08333 13.7 3.08333C16.2583 3.08333 18.3333 5.16666 18.3333 7.74166C18.3333 13.575 12.9333 17.0167 10.5166 17.8417Z"
-                                        stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
+                                        stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                        strokeLinejoin="round" />
                                     </svg>
                                   </button>
                                 </div>
@@ -2378,8 +2378,8 @@ const FollowersFollowingpage = () => {
                                       fill="none">
                                       <path
                                         d="M10.5166 17.8417C10.2333 17.9417 9.76663 17.9417 9.48329 17.8417C7.06663 17.0167 1.66663 13.575 1.66663 7.74166C1.66663 5.16666 3.74163 3.08333 6.29996 3.08333C7.81663 3.08333 9.15829 3.81666 9.99996 4.95C10.8416 3.81666 12.1916 3.08333 13.7 3.08333C16.2583 3.08333 18.3333 5.16666 18.3333 7.74166C18.3333 13.575 12.9333 17.0167 10.5166 17.8417Z"
-                                        stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
+                                        stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                        strokeLinejoin="round" />
                                     </svg>
                                   </button>
                                 </div>
@@ -2430,8 +2430,8 @@ const FollowersFollowingpage = () => {
                                       fill="none">
                                       <path
                                         d="M10.5166 17.8417C10.2333 17.9417 9.76663 17.9417 9.48329 17.8417C7.06663 17.0167 1.66663 13.575 1.66663 7.74166C1.66663 5.16666 3.74163 3.08333 6.29996 3.08333C7.81663 3.08333 9.15829 3.81666 9.99996 4.95C10.8416 3.81666 12.1916 3.08333 13.7 3.08333C16.2583 3.08333 18.3333 5.16666 18.3333 7.74166C18.3333 13.575 12.9333 17.0167 10.5166 17.8417Z"
-                                        stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
+                                        stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                        strokeLinejoin="round" />
                                     </svg>
                                   </button>
                                 </div>
@@ -2482,8 +2482,8 @@ const FollowersFollowingpage = () => {
                                       fill="none">
                                       <path
                                         d="M10.5166 17.8417C10.2333 17.9417 9.76663 17.9417 9.48329 17.8417C7.06663 17.0167 1.66663 13.575 1.66663 7.74166C1.66663 5.16666 3.74163 3.08333 6.29996 3.08333C7.81663 3.08333 9.15829 3.81666 9.99996 4.95C10.8416 3.81666 12.1916 3.08333 13.7 3.08333C16.2583 3.08333 18.3333 5.16666 18.3333 7.74166C18.3333 13.575 12.9333 17.0167 10.5166 17.8417Z"
-                                        stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
+                                        stroke="white" strokeWidth="1.5" strokeLinecap="round"
+                                        strokeLinejoin="round" />
                                     </svg>
                                   </button>
                                 </div>

@@ -1,22 +1,28 @@
 "use client";
 import ShowToast from "@/components/common/ShowToast";
+import OtpModal from "@/components/OtpModal";
 import { API_REGISTER } from "@/utils/api/APIConstant";
 import { apiPost } from "@/utils/endpoints/common";
 import { useFormik } from "formik";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaXTwitter } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import * as yup from "yup";
-import OtpModal from "@/components/OtpModal";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 
 export const signupSchema = yup.object().shape({
   firstName: yup.string().required("First name is required"),
   lastName: yup.string().required("Last name is required"),
   displayName: yup.string().required("Display name is required"),
-  userName: yup.string().required("Username is required"),
+  userName: yup
+    .string()
+    .matches(
+      /^[A-Za-z0-9]{5,20}$/,
+      "Username must be 5-20 characters long, letters A-Z, and numbers 0-9 only, no spaces."
+    )
+    .required("Username is required"),
   email: yup.string().email("Invalid email").required("Email is required"),
   password: yup
     .string()
@@ -29,11 +35,11 @@ export const signupSchema = yup.object().shape({
 });
 
 const SignupPage = () => {
-  const [activeTab, setActiveTab] = useState("fan");
   const [showPass, setShowPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
   const [otpOpen, setOtpOpen] = useState(false);
   const [emailForOtp, setEmailForOtp] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const formik = useFormik({
@@ -48,52 +54,58 @@ const SignupPage = () => {
     },
     validationSchema: signupSchema,
     onSubmit: async (values) => {
-      const payload = {
-        firstName: values.firstName,
-        lastName: values.lastName,
-        displayName: values.displayName,
-        userName: values.userName,
-        email: values.email,
-        password: values.password,
-      };
+      try {
+        setLoading(true);
+        const payload = {
+          firstName: values.firstName,
+          lastName: values.lastName,
+          displayName: values.displayName,
+          userName: values.userName,
+          email: values.email,
+          password: values.password,
+        };
 
-      const res = await apiPost({
-        url: API_REGISTER,
-        values: payload,
-      });
+        const res = await apiPost({
+          url: API_REGISTER,
+          values: payload,
+        });
 
-      if (res?.success) {
-        ShowToast(res.message, "success");
-        setEmailForOtp(values.email);
-        formik.resetForm();
-        setOtpOpen(true);
-      } else {
-        ShowToast(res?.message || "Registration failed", "error");
+        if (res?.success) {
+          ShowToast(res.message, "success");
+          setEmailForOtp(values.email);
+          formik.resetForm();
+          setOtpOpen(true);
+        } else {
+          ShowToast(res?.message || "Registration failed", "error");
+        }
+      } catch (err: any) {
+        ShowToast(err?.error || "Registration failed", "error");
+      } finally {
+        setLoading(false);
       }
     },
   });
 
-  const handleVerifyOtp = async (otp: string) => {
+  const verifyOtp = async (otp: string) => {
     try {
-      const result = await signIn("credentials", {
+      const res = await signIn("credentials", {
         redirect: false,
         email: emailForOtp,
         otp,
       });
 
-      console.log("signIn result:", result);
-
-      if (result?.error) {
-        ShowToast("Invalid OTP", "error");
+      if (res?.error) {
+        ShowToast(res.error, "error");
         return;
       }
 
-      ShowToast("Registration completed!", "success");
+      ShowToast("OTP verified successfully", "success");
       setOtpOpen(false);
 
+      // redirect to feed
       router.push("/dashboard");
-    } catch (error: any) {
-      ShowToast(error?.message || "Error verifying OTP", "error");
+    } catch (err: any) {
+      ShowToast(err?.message || "OTP verification failed", "error");
     }
   };
 
@@ -278,8 +290,12 @@ const SignupPage = () => {
                   )}
               </div>
 
-              <button className="premium-btn mb-10">
-                <span>Sign up</span>
+              <button className="premium-btn mb-10" disabled={loading}>
+                {loading ? (
+                  <span className="loader"></span>
+                ) : (
+                  <span>Sign up</span>
+                )}
               </button>
             </form>
 
@@ -294,15 +310,18 @@ const SignupPage = () => {
             </p>
           </div>
           <h4 className="account_login">
-            Are you a creator? <a href="/creator">Sign up here.</a>
+            Are you a creator? <Link href="/creator">Sign up here.</Link>
           </h4>
         </div>
       </div>
-      <OtpModal
-        open={otpOpen}
-        onClose={() => setOtpOpen(false)}
-        onSubmit={handleVerifyOtp}
-      />
+      {emailForOtp && otpOpen && (
+        <OtpModal
+          open={otpOpen}
+          onClose={() => setOtpOpen(false)}
+          email={emailForOtp}
+          onSubmit={verifyOtp}
+        />
+      )}
     </div>
   );
 };

@@ -4,11 +4,12 @@ import { useRef, useState } from "react";
 type OtpModalProps = {
   open: boolean;
   onClose: () => void;
-  onSubmit: (otp: string) => void;
+ onSubmit: (otp: string) => void; 
+  email?: string; 
 };
 
 const OTP_LENGTH = 6;
-const OtpModal = ({ open, onClose, onSubmit }: OtpModalProps) => {
+const OtpModal = ({ open, onClose, onSubmit,email }: OtpModalProps) => {
   const [otp, setOtp] = useState<string[]>(Array(OTP_LENGTH).fill(""));
   const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
   if (!open) return null;
