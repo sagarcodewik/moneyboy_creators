@@ -6,14 +6,14 @@ import { useDecryptedSession } from "@/libs/useDecryptedSession";
 import { signOut } from "next-auth/react";
 
 const Sidebar: React.FC = () => {
-  const [activePage, setActivePage] = useState<string>("discover");
+  const [activePage, setActivePage] = useState<string>("feed");
   const { session } = useDecryptedSession();
   const pathname = usePathname();
   const router = useRouter();
 
   useEffect(() => {
     const pathToPageMap: Record<string, string> = {
-      "/dashboard": "discover",
+      "/discover": "discover",
       "/feed": "feed",
       "/like": "likes",
       "/wishlist": "wishlist",
@@ -298,11 +298,11 @@ const Sidebar: React.FC = () => {
               {/* Navigation Button - Discover */}
               <li>
                 <Link
-                  href="/dashboard"
+                  href="/discover"
                   className={`active-down-effect ${
                     activePage === "discover" ? "active" : ""
                   }`}
-                  onClick={(e) => handleNavClick("discover", "/dashboard", e)}
+                  onClick={(e) => handleNavClick("discover", "/discover", e)}
                 >
                   <div>
                     <svg
