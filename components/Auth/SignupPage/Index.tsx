@@ -115,7 +115,7 @@ const SignupPage = () => {
   return (
     <div className="container login_wrap">
       <div className="img_wrap">
-        <img src="/images/loginflowimg.png" className="login_imgwrap"  />
+        <img src="/images/loginflowimg.png" className="login_imgwrap" />
         <div className="backicons">
           <button className="btn-txt-gradient btn-outline" onClick={() => router.push('/feed')}><IoArrowBackOutline className="icons"/></button>
         </div>

@@ -4,10 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { useDecryptedSession } from "@/libs/useDecryptedSession";
 import "./header.css";
+import { signOut } from "next-auth/react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { session } = useDecryptedSession();
+
+
+   const handleLogout = (e: React.MouseEvent) => {
+      e.preventDefault();
+      signOut({ callbackUrl: "/" });
+    };
 
   return (
     <>
@@ -1148,7 +1155,7 @@ const Header = () => {
                           />
                         </svg>
                       </a>
-                      <a href="#" className="menu-link sign-out-link">
+                      <a href="#" className="menu-link sign-out-link" onClick={handleLogout}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="24"
