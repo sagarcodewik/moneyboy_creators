@@ -74,7 +74,6 @@ const Header = () => {
                       <ul>
                         <li className="message-btn">
                           <a href="#" className="icon-link">
-                            {/* SVG for messages */}
                             <svg
                               className="svg-icon"
                               xmlns="http://www.w3.org/2000/svg"
@@ -190,7 +189,7 @@ const Header = () => {
         <div className="floating-menu-container" data-floating-menu-main>
           <div className="menu-content-wrapper">
             <div className="menu-content-container">
-              <div className="menu-close-btn" data-floating-menu-close-btn>
+              <div className="menu-close-btn" data-floating-menu-close-btn onClick={() => setIsOpen(false)}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="31"

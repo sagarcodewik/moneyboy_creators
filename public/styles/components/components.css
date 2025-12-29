@@ -160,7 +160,7 @@
    background: #000000B8;
    z-index: 999;
    backdrop-filter: blur(2px);
-   display: none;
+   /* display: none; */
 
    .menu-content-wrapper {
       width: 340px;
