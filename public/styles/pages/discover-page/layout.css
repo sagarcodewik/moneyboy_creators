@@ -1,3 +1,6 @@
+/* Responsive Styles */
+@import url('./responsive.css');
+
 .discovery-page-container {
     .discovery-page-content-container {
         .discover-page-filters-container {}
