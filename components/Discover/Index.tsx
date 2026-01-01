@@ -1,24 +1,31 @@
 "use client";
 import { getDecryptedSession } from "@/libs/getDecryptedSession";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Dashboard = () => {
   const [session, setSession] = useState(null);
+  type FilterType =
+    | "category"
+    | "feature"
+    | "country"
+    | "city"
+    | "bodyType"
+    | "sexualOrientation"
+    | "age"
+    | "eyeColor"
+    | "hairColor"
+    | "ethnicity"
+    | "height"
+    | "style"
+    | "size"
+    | "popularity"
+    | null;
+
   const [adavanceFilter, setAdavanceFilter] = useState(false);
-  const [categoryFilter, setCategoryFilter] = useState(false);
-  const [featureFilter, setFeatureFilter] = useState(false);
-  const [countryFilter, setCountryFilter] = useState(false);
-  const [cityFilter, setCityFilter] = useState(false);
-  const [bodyTypeFilter, setBodyTypeFilter] = useState(false);
-  const [sexualOrientationFilter, setSexualOrientationFilter] = useState(false);
-  const [ageFilter, setAgeFilter] = useState(false);
-  const [eyeColorFilter, setEyeColorFilter] = useState(false);
-  const [hairColorFilter, setHairColorFilter] = useState(false);
-  const [ethnicityFilter, setEthnicityFilter] = useState(false);
-  const [heightFilter, setHeightFilter] = useState(false);
-  const [styleFilter, setStyleFilter] = useState(false);
-  const [sizeFilter, setSizeFilter] = useState(false);
-  const [popularityFilter, setPopularityFilter] = useState(false);
+  const [activeFilter, setActiveFilter] = useState<FilterType>(null);
+  const dropdownRefs = useRef<{
+    [key in Exclude<FilterType, null>]?: HTMLDivElement | null;
+  }>({});
   const getData = async () => {
     const get = await getDecryptedSession();
     return get;
@@ -28,25 +35,55 @@ const Dashboard = () => {
     getData();
   }, []);
 
-    useEffect(() => {
-      const likeButtons = document.querySelectorAll("[data-like-button]");
-  
-      const handleClick = (event: Event) => {
-        const button = event.currentTarget as HTMLElement;
-        button.classList.toggle("liked");
-      };
-  
+  useEffect(() => {
+    const likeButtons = document.querySelectorAll("[data-like-button]");
+
+    const handleClick = (event: Event) => {
+      const button = event.currentTarget as HTMLElement;
+      button.classList.toggle("liked");
+    };
+
+    likeButtons.forEach((button) => {
+      button.addEventListener("click", handleClick);
+    });
+
+    // Cleanup function
+    return () => {
       likeButtons.forEach((button) => {
-        button.addEventListener("click", handleClick);
+        button.removeEventListener("click", handleClick);
       });
-  
-      // Cleanup function
-      return () => {
-        likeButtons.forEach((button) => {
-          button.removeEventListener("click", handleClick);
-        });
-      };
-    }, []);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const isClickInsideDropdown = Object.values(dropdownRefs.current).some(
+        (ref) => ref && ref.contains(event.target as Node)
+      );
+
+      const target = event.target as HTMLElement;
+      const isDropdownTrigger = target.closest("[data-custom-select-triger]");
+
+      if (!isClickInsideDropdown && !isDropdownTrigger) {
+        setActiveFilter(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleFilterClick = (filter: FilterType) => {
+    setActiveFilter((current) => (current === filter ? null : filter));
+  };
+
+  const closeAllFilters = () => {
+    setActiveFilter(null);
+  };
+
+
   return (
     <div className="moneyboy-2x-1x-layout-container">
       <div className="discovery-page-container">
@@ -112,9 +149,7 @@ const Dashboard = () => {
                           <div
                             className="custom-select-label-wrapper"
                             data-custom-select-triger
-                            onClick={() => setCategoryFilter((prev) => !prev)
-                            }
-
+                            onClick={() => handleFilterClick("category")}
                           >
                             <div className="custom-select-icon-txt">
                               <svg
@@ -176,7 +211,7 @@ const Dashboard = () => {
                               </svg>
                             </div>
                           </div>
-                          {categoryFilter && (
+                          {activeFilter === "category" && (
                             <div
                               className="custom-select-options-dropdown-wrapper"
                               data-custom-select-dropdown
@@ -282,7 +317,7 @@ const Dashboard = () => {
                           <div
                             className="custom-select-label-wrapper"
                             data-custom-select-triger
-                            onClick={() => setFeatureFilter((prev) => !prev)}
+                            onClick={() => handleFilterClick("feature")}
                           >
                             <div className="custom-select-icon-txt">
                               <svg
@@ -323,7 +358,7 @@ const Dashboard = () => {
                               </svg>
                             </div>
                           </div>
-                          {featureFilter && (
+                          {activeFilter === "feature" && (
                             <div
                               className="custom-select-options-dropdown-wrapper"
                               data-custom-select-dropdown
@@ -473,7 +508,7 @@ const Dashboard = () => {
                           <div
                             className="custom-select-label-wrapper"
                             data-custom-select-triger
-                             onClick={() => setCountryFilter((prev) => !prev)}
+                            onClick={() => handleFilterClick("country")}
                           >
                             <div className="custom-select-icon-txt">
                               <span className="custom-select-label-txt">
@@ -499,98 +534,98 @@ const Dashboard = () => {
                               </svg>
                             </div>
                           </div>
-                           {countryFilter && (
-                          <div
-                            className="custom-select-options-dropdown-wrapper"
-                            data-custom-select-dropdown
-                          >
-                            <div className="custom-select-options-dropdown-container">
-                              <div
-                                className="custom-select-options-search"
-                                data-custom-select-options-search
-                              >
-                                <div className="label-input">
-                                  <div className="input-placeholder-icon">
-                                    <svg
-                                      className="svg-icon"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                    >
-                                      <path
-                                        d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 5H20"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 8H17"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                    </svg>
+                          {activeFilter === "country" && (
+                            <div
+                              className="custom-select-options-dropdown-wrapper"
+                              data-custom-select-dropdown
+                            >
+                              <div className="custom-select-options-dropdown-container">
+                                <div
+                                  className="custom-select-options-search"
+                                  data-custom-select-options-search
+                                >
+                                  <div className="label-input">
+                                    <div className="input-placeholder-icon">
+                                      <svg
+                                        className="svg-icon"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 5H20"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 8H17"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                      </svg>
+                                    </div>
+                                    <input
+                                      type="text"
+                                      placeholder="Search here"
+                                    />
                                   </div>
-                                  <input
-                                    type="text"
-                                    placeholder="Search here"
-                                  />
+                                </div>
+                                <div className="custom-select-options-lists-container">
+                                  <ul
+                                    className="custom-select-options-list"
+                                    data-custom-select-options-list
+                                  >
+                                    <li className="custom-select-option">
+                                      <span>Option 1</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 2</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 3</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 4</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 5</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 6</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 7</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 8</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 9</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 10</span>
+                                    </li>
+                                  </ul>
                                 </div>
                               </div>
-                              <div className="custom-select-options-lists-container">
-                                <ul
-                                  className="custom-select-options-list"
-                                  data-custom-select-options-list
-                                >
-                                  <li className="custom-select-option">
-                                    <span>Option 1</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 2</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 3</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 4</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 5</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 6</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 7</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 8</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 9</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 10</span>
-                                  </li>
-                                </ul>
-                              </div>
                             </div>
-                          </div>
-                           )}
+                          )}
                         </div>
                       </div>
                     </div>
@@ -605,7 +640,7 @@ const Dashboard = () => {
                           <div
                             className="custom-select-label-wrapper"
                             data-custom-select-triger
-                            onClick={() => setCityFilter((prev) => !prev)}
+                            onClick={() => handleFilterClick("city")}
                           >
                             <div className="custom-select-icon-txt">
                               <span className="custom-select-label-txt">
@@ -631,98 +666,98 @@ const Dashboard = () => {
                               </svg>
                             </div>
                           </div>
-                            {cityFilter && (
-                          <div
-                            className="custom-select-options-dropdown-wrapper"
-                            data-custom-select-dropdown
-                          >
-                            <div className="custom-select-options-dropdown-container">
-                              <div
-                                className="custom-select-options-search"
-                                data-custom-select-options-search
-                              >
-                                <div className="label-input">
-                                  <div className="input-placeholder-icon">
-                                    <svg
-                                      className="svg-icon"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                    >
-                                      <path
-                                        d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 5H20"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 8H17"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                    </svg>
+                          {activeFilter === "city" && (
+                            <div
+                              className="custom-select-options-dropdown-wrapper"
+                              data-custom-select-dropdown
+                            >
+                              <div className="custom-select-options-dropdown-container">
+                                <div
+                                  className="custom-select-options-search"
+                                  data-custom-select-options-search
+                                >
+                                  <div className="label-input">
+                                    <div className="input-placeholder-icon">
+                                      <svg
+                                        className="svg-icon"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 5H20"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 8H17"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                      </svg>
+                                    </div>
+                                    <input
+                                      type="text"
+                                      placeholder="Search here"
+                                    />
                                   </div>
-                                  <input
-                                    type="text"
-                                    placeholder="Search here"
-                                  />
+                                </div>
+                                <div className="custom-select-options-lists-container">
+                                  <ul
+                                    className="custom-select-options-list"
+                                    data-custom-select-options-list
+                                  >
+                                    <li className="custom-select-option">
+                                      <span>Option 1</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 2</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 3</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 4</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 5</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 6</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 7</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 8</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 9</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 10</span>
+                                    </li>
+                                  </ul>
                                 </div>
                               </div>
-                              <div className="custom-select-options-lists-container">
-                                <ul
-                                  className="custom-select-options-list"
-                                  data-custom-select-options-list
-                                >
-                                  <li className="custom-select-option">
-                                    <span>Option 1</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 2</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 3</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 4</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 5</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 6</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 7</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 8</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 9</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 10</span>
-                                  </li>
-                                </ul>
-                              </div>
                             </div>
-                          </div>
-                            )}
+                          )}
                         </div>
                       </div>
                     </div>
@@ -737,7 +772,7 @@ const Dashboard = () => {
                           <div
                             className="custom-select-label-wrapper"
                             data-custom-select-triger
-                             onClick={() => setBodyTypeFilter((prev) => !prev)}
+                            onClick={() => handleFilterClick("bodyType")}
                           >
                             <div className="custom-select-icon-txt">
                               <span className="custom-select-label-txt">
@@ -763,98 +798,98 @@ const Dashboard = () => {
                               </svg>
                             </div>
                           </div>
-                             {bodyTypeFilter && (
-                          <div
-                            className="custom-select-options-dropdown-wrapper"
-                            data-custom-select-dropdown
-                          >
-                            <div className="custom-select-options-dropdown-container">
-                              <div
-                                className="custom-select-options-search"
-                                data-custom-select-options-search
-                              >
-                                <div className="label-input">
-                                  <div className="input-placeholder-icon">
-                                    <svg
-                                      className="svg-icon"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                    >
-                                      <path
-                                        d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 5H20"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 8H17"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                    </svg>
+                          {activeFilter === "bodyType" && (
+                            <div
+                              className="custom-select-options-dropdown-wrapper"
+                              data-custom-select-dropdown
+                            >
+                              <div className="custom-select-options-dropdown-container">
+                                <div
+                                  className="custom-select-options-search"
+                                  data-custom-select-options-search
+                                >
+                                  <div className="label-input">
+                                    <div className="input-placeholder-icon">
+                                      <svg
+                                        className="svg-icon"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 5H20"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 8H17"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                      </svg>
+                                    </div>
+                                    <input
+                                      type="text"
+                                      placeholder="Search here"
+                                    />
                                   </div>
-                                  <input
-                                    type="text"
-                                    placeholder="Search here"
-                                  />
+                                </div>
+                                <div className="custom-select-options-lists-container">
+                                  <ul
+                                    className="custom-select-options-list"
+                                    data-custom-select-options-list
+                                  >
+                                    <li className="custom-select-option">
+                                      <span>Option 1</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 2</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 3</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 4</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 5</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 6</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 7</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 8</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 9</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 10</span>
+                                    </li>
+                                  </ul>
                                 </div>
                               </div>
-                              <div className="custom-select-options-lists-container">
-                                <ul
-                                  className="custom-select-options-list"
-                                  data-custom-select-options-list
-                                >
-                                  <li className="custom-select-option">
-                                    <span>Option 1</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 2</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 3</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 4</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 5</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 6</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 7</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 8</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 9</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 10</span>
-                                  </li>
-                                </ul>
-                              </div>
                             </div>
-                          </div>
-                             )}
+                          )}
                         </div>
                       </div>
                     </div>
@@ -869,7 +904,9 @@ const Dashboard = () => {
                           <div
                             className="custom-select-label-wrapper"
                             data-custom-select-triger
-                            onClick={() => setSexualOrientationFilter((prev) => !prev)}
+                            onClick={() =>
+                              handleFilterClick("sexualOrientation")
+                            }
                           >
                             <div className="custom-select-icon-txt">
                               <span className="custom-select-label-txt">
@@ -895,98 +932,98 @@ const Dashboard = () => {
                               </svg>
                             </div>
                           </div>
-                           {sexualOrientationFilter && (
-                          <div
-                            className="custom-select-options-dropdown-wrapper"
-                            data-custom-select-dropdown
-                          >
-                            <div className="custom-select-options-dropdown-container">
-                              <div
-                                className="custom-select-options-search"
-                                data-custom-select-options-search
-                              >
-                                <div className="label-input">
-                                  <div className="input-placeholder-icon">
-                                    <svg
-                                      className="svg-icon"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                    >
-                                      <path
-                                        d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 5H20"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 8H17"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                    </svg>
+                          {activeFilter === "sexualOrientation" && (
+                            <div
+                              className="custom-select-options-dropdown-wrapper"
+                              data-custom-select-dropdown
+                            >
+                              <div className="custom-select-options-dropdown-container">
+                                <div
+                                  className="custom-select-options-search"
+                                  data-custom-select-options-search
+                                >
+                                  <div className="label-input">
+                                    <div className="input-placeholder-icon">
+                                      <svg
+                                        className="svg-icon"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 5H20"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 8H17"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                      </svg>
+                                    </div>
+                                    <input
+                                      type="text"
+                                      placeholder="Search here"
+                                    />
                                   </div>
-                                  <input
-                                    type="text"
-                                    placeholder="Search here"
-                                  />
+                                </div>
+                                <div className="custom-select-options-lists-container">
+                                  <ul
+                                    className="custom-select-options-list"
+                                    data-custom-select-options-list
+                                  >
+                                    <li className="custom-select-option">
+                                      <span>Option 1</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 2</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 3</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 4</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 5</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 6</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 7</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 8</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 9</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 10</span>
+                                    </li>
+                                  </ul>
                                 </div>
                               </div>
-                              <div className="custom-select-options-lists-container">
-                                <ul
-                                  className="custom-select-options-list"
-                                  data-custom-select-options-list
-                                >
-                                  <li className="custom-select-option">
-                                    <span>Option 1</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 2</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 3</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 4</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 5</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 6</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 7</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 8</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 9</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 10</span>
-                                  </li>
-                                </ul>
-                              </div>
                             </div>
-                          </div>
-                           )}
+                          )}
                         </div>
                       </div>
                     </div>
@@ -1001,7 +1038,7 @@ const Dashboard = () => {
                           <div
                             className="custom-select-label-wrapper"
                             data-custom-select-triger
-                            onClick={() => setAgeFilter((prev) => !prev)}
+                            onClick={() => handleFilterClick("age")}
                           >
                             <div className="custom-select-icon-txt">
                               <span className="custom-select-label-txt">
@@ -1027,98 +1064,98 @@ const Dashboard = () => {
                               </svg>
                             </div>
                           </div>
-                           {ageFilter && (
-                          <div
-                            className="custom-select-options-dropdown-wrapper"
-                            data-custom-select-dropdown
-                          >
-                            <div className="custom-select-options-dropdown-container">
-                              <div
-                                className="custom-select-options-search"
-                                data-custom-select-options-search
-                              >
-                                <div className="label-input">
-                                  <div className="input-placeholder-icon">
-                                    <svg
-                                      className="svg-icon"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                    >
-                                      <path
-                                        d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 5H20"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 8H17"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                    </svg>
+                          {activeFilter === "age" && (
+                            <div
+                              className="custom-select-options-dropdown-wrapper"
+                              data-custom-select-dropdown
+                            >
+                              <div className="custom-select-options-dropdown-container">
+                                <div
+                                  className="custom-select-options-search"
+                                  data-custom-select-options-search
+                                >
+                                  <div className="label-input">
+                                    <div className="input-placeholder-icon">
+                                      <svg
+                                        className="svg-icon"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 5H20"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 8H17"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                      </svg>
+                                    </div>
+                                    <input
+                                      type="text"
+                                      placeholder="Search here"
+                                    />
                                   </div>
-                                  <input
-                                    type="text"
-                                    placeholder="Search here"
-                                  />
+                                </div>
+                                <div className="custom-select-options-lists-container">
+                                  <ul
+                                    className="custom-select-options-list"
+                                    data-custom-select-options-list
+                                  >
+                                    <li className="custom-select-option">
+                                      <span>Option 1</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 2</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 3</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 4</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 5</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 6</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 7</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 8</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 9</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 10</span>
+                                    </li>
+                                  </ul>
                                 </div>
                               </div>
-                              <div className="custom-select-options-lists-container">
-                                <ul
-                                  className="custom-select-options-list"
-                                  data-custom-select-options-list
-                                >
-                                  <li className="custom-select-option">
-                                    <span>Option 1</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 2</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 3</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 4</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 5</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 6</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 7</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 8</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 9</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 10</span>
-                                  </li>
-                                </ul>
-                              </div>
                             </div>
-                          </div>
-                           )}
+                          )}
                         </div>
                       </div>
                     </div>
@@ -1133,7 +1170,7 @@ const Dashboard = () => {
                           <div
                             className="custom-select-label-wrapper"
                             data-custom-select-triger
-                            onClick={() => setEyeColorFilter((prev) => !prev)}
+                            onClick={() => handleFilterClick("eyeColor")}
                           >
                             <div className="custom-select-icon-txt">
                               <span className="custom-select-label-txt">
@@ -1159,98 +1196,98 @@ const Dashboard = () => {
                               </svg>
                             </div>
                           </div>
-                           {eyeColorFilter && (
-                          <div
-                            className="custom-select-options-dropdown-wrapper"
-                            data-custom-select-dropdown
-                          >
-                            <div className="custom-select-options-dropdown-container">
-                              <div
-                                className="custom-select-options-search"
-                                data-custom-select-options-search
-                              >
-                                <div className="label-input">
-                                  <div className="input-placeholder-icon">
-                                    <svg
-                                      className="svg-icon"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                    >
-                                      <path
-                                        d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 5H20"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 8H17"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                    </svg>
+                          {activeFilter === "eyeColor" && (
+                            <div
+                              className="custom-select-options-dropdown-wrapper"
+                              data-custom-select-dropdown
+                            >
+                              <div className="custom-select-options-dropdown-container">
+                                <div
+                                  className="custom-select-options-search"
+                                  data-custom-select-options-search
+                                >
+                                  <div className="label-input">
+                                    <div className="input-placeholder-icon">
+                                      <svg
+                                        className="svg-icon"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 5H20"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 8H17"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                      </svg>
+                                    </div>
+                                    <input
+                                      type="text"
+                                      placeholder="Search here"
+                                    />
                                   </div>
-                                  <input
-                                    type="text"
-                                    placeholder="Search here"
-                                  />
+                                </div>
+                                <div className="custom-select-options-lists-container">
+                                  <ul
+                                    className="custom-select-options-list"
+                                    data-custom-select-options-list
+                                  >
+                                    <li className="custom-select-option">
+                                      <span>Option 1</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 2</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 3</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 4</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 5</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 6</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 7</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 8</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 9</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 10</span>
+                                    </li>
+                                  </ul>
                                 </div>
                               </div>
-                              <div className="custom-select-options-lists-container">
-                                <ul
-                                  className="custom-select-options-list"
-                                  data-custom-select-options-list
-                                >
-                                  <li className="custom-select-option">
-                                    <span>Option 1</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 2</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 3</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 4</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 5</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 6</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 7</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 8</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 9</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 10</span>
-                                  </li>
-                                </ul>
-                              </div>
                             </div>
-                          </div>
-                           )}
+                          )}
                         </div>
                       </div>
                     </div>
@@ -1265,7 +1302,7 @@ const Dashboard = () => {
                           <div
                             className="custom-select-label-wrapper"
                             data-custom-select-triger
-                            onClick={() => setHairColorFilter((prev) => !prev)}
+                            onClick={() => handleFilterClick("hairColor")}
                           >
                             <div className="custom-select-icon-txt">
                               <span className="custom-select-label-txt">
@@ -1291,98 +1328,98 @@ const Dashboard = () => {
                               </svg>
                             </div>
                           </div>
-                             {hairColorFilter && (
-                          <div
-                            className="custom-select-options-dropdown-wrapper"
-                            data-custom-select-dropdown
-                          >
-                            <div className="custom-select-options-dropdown-container">
-                              <div
-                                className="custom-select-options-search"
-                                data-custom-select-options-search
-                              >
-                                <div className="label-input">
-                                  <div className="input-placeholder-icon">
-                                    <svg
-                                      className="svg-icon"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                    >
-                                      <path
-                                        d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 5H20"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 8H17"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                    </svg>
+                          {activeFilter === "hairColor" && (
+                            <div
+                              className="custom-select-options-dropdown-wrapper"
+                              data-custom-select-dropdown
+                            >
+                              <div className="custom-select-options-dropdown-container">
+                                <div
+                                  className="custom-select-options-search"
+                                  data-custom-select-options-search
+                                >
+                                  <div className="label-input">
+                                    <div className="input-placeholder-icon">
+                                      <svg
+                                        className="svg-icon"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 5H20"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 8H17"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                      </svg>
+                                    </div>
+                                    <input
+                                      type="text"
+                                      placeholder="Search here"
+                                    />
                                   </div>
-                                  <input
-                                    type="text"
-                                    placeholder="Search here"
-                                  />
+                                </div>
+                                <div className="custom-select-options-lists-container">
+                                  <ul
+                                    className="custom-select-options-list"
+                                    data-custom-select-options-list
+                                  >
+                                    <li className="custom-select-option">
+                                      <span>Option 1</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 2</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 3</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 4</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 5</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 6</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 7</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 8</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 9</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 10</span>
+                                    </li>
+                                  </ul>
                                 </div>
                               </div>
-                              <div className="custom-select-options-lists-container">
-                                <ul
-                                  className="custom-select-options-list"
-                                  data-custom-select-options-list
-                                >
-                                  <li className="custom-select-option">
-                                    <span>Option 1</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 2</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 3</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 4</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 5</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 6</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 7</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 8</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 9</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 10</span>
-                                  </li>
-                                </ul>
-                              </div>
                             </div>
-                          </div>
-                             )}
+                          )}
                         </div>
                       </div>
                     </div>
@@ -1397,7 +1434,7 @@ const Dashboard = () => {
                           <div
                             className="custom-select-label-wrapper"
                             data-custom-select-triger
-                            onClick={() => setEthnicityFilter((prev) => !prev)}
+                            onClick={() => handleFilterClick("ethnicity")}
                           >
                             <div className="custom-select-icon-txt">
                               <span className="custom-select-label-txt">
@@ -1423,98 +1460,98 @@ const Dashboard = () => {
                               </svg>
                             </div>
                           </div>
-                           {ethnicityFilter && (
-                          <div
-                            className="custom-select-options-dropdown-wrapper"
-                            data-custom-select-dropdown
-                          >
-                            <div className="custom-select-options-dropdown-container">
-                              <div
-                                className="custom-select-options-search"
-                                data-custom-select-options-search
-                              >
-                                <div className="label-input">
-                                  <div className="input-placeholder-icon">
-                                    <svg
-                                      className="svg-icon"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                    >
-                                      <path
-                                        d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 5H20"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 8H17"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                    </svg>
+                          {activeFilter === "ethnicity" && (
+                            <div
+                              className="custom-select-options-dropdown-wrapper"
+                              data-custom-select-dropdown
+                            >
+                              <div className="custom-select-options-dropdown-container">
+                                <div
+                                  className="custom-select-options-search"
+                                  data-custom-select-options-search
+                                >
+                                  <div className="label-input">
+                                    <div className="input-placeholder-icon">
+                                      <svg
+                                        className="svg-icon"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 5H20"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 8H17"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                      </svg>
+                                    </div>
+                                    <input
+                                      type="text"
+                                      placeholder="Search here"
+                                    />
                                   </div>
-                                  <input
-                                    type="text"
-                                    placeholder="Search here"
-                                  />
+                                </div>
+                                <div className="custom-select-options-lists-container">
+                                  <ul
+                                    className="custom-select-options-list"
+                                    data-custom-select-options-list
+                                  >
+                                    <li className="custom-select-option">
+                                      <span>Option 1</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 2</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 3</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 4</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 5</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 6</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 7</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 8</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 9</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 10</span>
+                                    </li>
+                                  </ul>
                                 </div>
                               </div>
-                              <div className="custom-select-options-lists-container">
-                                <ul
-                                  className="custom-select-options-list"
-                                  data-custom-select-options-list
-                                >
-                                  <li className="custom-select-option">
-                                    <span>Option 1</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 2</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 3</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 4</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 5</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 6</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 7</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 8</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 9</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 10</span>
-                                  </li>
-                                </ul>
-                              </div>
                             </div>
-                          </div>
-                           )}
+                          )}
                         </div>
                       </div>
                     </div>
@@ -1529,7 +1566,7 @@ const Dashboard = () => {
                           <div
                             className="custom-select-label-wrapper"
                             data-custom-select-triger
-                             onClick={() => setHeightFilter((prev) => !prev)}
+                            onClick={() => handleFilterClick("height")}
                           >
                             <div className="custom-select-icon-txt">
                               <span className="custom-select-label-txt">
@@ -1555,97 +1592,97 @@ const Dashboard = () => {
                               </svg>
                             </div>
                           </div>
-                          {heightFilter && (
-                          <div
-                            className="custom-select-options-dropdown-wrapper"
-                            data-custom-select-dropdown
-                          >
-                            <div className="custom-select-options-dropdown-container">
-                              <div
-                                className="custom-select-options-search"
-                                data-custom-select-options-search
-                              >
-                                <div className="label-input">
-                                  <div className="input-placeholder-icon">
-                                    <svg
-                                      className="svg-icon"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                    >
-                                      <path
-                                        d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 5H20"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 8H17"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                    </svg>
+                          {activeFilter === "height" && (
+                            <div
+                              className="custom-select-options-dropdown-wrapper"
+                              data-custom-select-dropdown
+                            >
+                              <div className="custom-select-options-dropdown-container">
+                                <div
+                                  className="custom-select-options-search"
+                                  data-custom-select-options-search
+                                >
+                                  <div className="label-input">
+                                    <div className="input-placeholder-icon">
+                                      <svg
+                                        className="svg-icon"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 5H20"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 8H17"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                      </svg>
+                                    </div>
+                                    <input
+                                      type="text"
+                                      placeholder="Search here"
+                                    />
                                   </div>
-                                  <input
-                                    type="text"
-                                    placeholder="Search here"
-                                  />
+                                </div>
+                                <div className="custom-select-options-lists-container">
+                                  <ul
+                                    className="custom-select-options-list"
+                                    data-custom-select-options-list
+                                  >
+                                    <li className="custom-select-option">
+                                      <span>Option 1</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 2</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 3</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 4</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 5</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 6</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 7</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 8</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 9</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 10</span>
+                                    </li>
+                                  </ul>
                                 </div>
                               </div>
-                              <div className="custom-select-options-lists-container">
-                                <ul
-                                  className="custom-select-options-list"
-                                  data-custom-select-options-list
-                                >
-                                  <li className="custom-select-option">
-                                    <span>Option 1</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 2</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 3</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 4</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 5</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 6</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 7</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 8</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 9</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 10</span>
-                                  </li>
-                                </ul>
-                              </div>
                             </div>
-                          </div>
                           )}
                         </div>
                       </div>
@@ -1661,7 +1698,7 @@ const Dashboard = () => {
                           <div
                             className="custom-select-label-wrapper"
                             data-custom-select-triger
-                            onClick={() => setStyleFilter((prev) => !prev)}
+                            onClick={() => handleFilterClick("style")}
                           >
                             <div className="custom-select-icon-txt">
                               <span className="custom-select-label-txt">
@@ -1687,98 +1724,98 @@ const Dashboard = () => {
                               </svg>
                             </div>
                           </div>
-                           {styleFilter && (
-                          <div
-                            className="custom-select-options-dropdown-wrapper"
-                            data-custom-select-dropdown
-                          >
-                            <div className="custom-select-options-dropdown-container">
-                              <div
-                                className="custom-select-options-search"
-                                data-custom-select-options-search
-                              >
-                                <div className="label-input">
-                                  <div className="input-placeholder-icon">
-                                    <svg
-                                      className="svg-icon"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                    >
-                                      <path
-                                        d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 5H20"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 8H17"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                    </svg>
+                          {activeFilter === "style" && (
+                            <div
+                              className="custom-select-options-dropdown-wrapper"
+                              data-custom-select-dropdown
+                            >
+                              <div className="custom-select-options-dropdown-container">
+                                <div
+                                  className="custom-select-options-search"
+                                  data-custom-select-options-search
+                                >
+                                  <div className="label-input">
+                                    <div className="input-placeholder-icon">
+                                      <svg
+                                        className="svg-icon"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 5H20"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 8H17"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                      </svg>
+                                    </div>
+                                    <input
+                                      type="text"
+                                      placeholder="Search here"
+                                    />
                                   </div>
-                                  <input
-                                    type="text"
-                                    placeholder="Search here"
-                                  />
+                                </div>
+                                <div className="custom-select-options-lists-container">
+                                  <ul
+                                    className="custom-select-options-list"
+                                    data-custom-select-options-list
+                                  >
+                                    <li className="custom-select-option">
+                                      <span>Option 1</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 2</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 3</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 4</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 5</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 6</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 7</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 8</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 9</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 10</span>
+                                    </li>
+                                  </ul>
                                 </div>
                               </div>
-                              <div className="custom-select-options-lists-container">
-                                <ul
-                                  className="custom-select-options-list"
-                                  data-custom-select-options-list
-                                >
-                                  <li className="custom-select-option">
-                                    <span>Option 1</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 2</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 3</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 4</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 5</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 6</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 7</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 8</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 9</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 10</span>
-                                  </li>
-                                </ul>
-                              </div>
                             </div>
-                          </div>
-                           )}
+                          )}
                         </div>
                       </div>
                     </div>
@@ -1793,7 +1830,7 @@ const Dashboard = () => {
                           <div
                             className="custom-select-label-wrapper"
                             data-custom-select-triger
-                             onClick={() => setSizeFilter((prev) => !prev)}
+                            onClick={() => handleFilterClick("size")}
                           >
                             <div className="custom-select-icon-txt">
                               <span className="custom-select-label-txt">
@@ -1819,97 +1856,97 @@ const Dashboard = () => {
                               </svg>
                             </div>
                           </div>
-                          {sizeFilter && (
-                          <div
-                            className="custom-select-options-dropdown-wrapper"
-                            data-custom-select-dropdown
-                          >
-                            <div className="custom-select-options-dropdown-container">
-                              <div
-                                className="custom-select-options-search"
-                                data-custom-select-options-search
-                              >
-                                <div className="label-input">
-                                  <div className="input-placeholder-icon">
-                                    <svg
-                                      className="svg-icon"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                    >
-                                      <path
-                                        d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 5H20"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 8H17"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                    </svg>
+                          {activeFilter === "size" && (
+                            <div
+                              className="custom-select-options-dropdown-wrapper"
+                              data-custom-select-dropdown
+                            >
+                              <div className="custom-select-options-dropdown-container">
+                                <div
+                                  className="custom-select-options-search"
+                                  data-custom-select-options-search
+                                >
+                                  <div className="label-input">
+                                    <div className="input-placeholder-icon">
+                                      <svg
+                                        className="svg-icon"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 5H20"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 8H17"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                      </svg>
+                                    </div>
+                                    <input
+                                      type="text"
+                                      placeholder="Search here"
+                                    />
                                   </div>
-                                  <input
-                                    type="text"
-                                    placeholder="Search here"
-                                  />
+                                </div>
+                                <div className="custom-select-options-lists-container">
+                                  <ul
+                                    className="custom-select-options-list"
+                                    data-custom-select-options-list
+                                  >
+                                    <li className="custom-select-option">
+                                      <span>Option 1</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 2</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 3</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 4</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 5</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 6</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 7</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 8</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 9</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 10</span>
+                                    </li>
+                                  </ul>
                                 </div>
                               </div>
-                              <div className="custom-select-options-lists-container">
-                                <ul
-                                  className="custom-select-options-list"
-                                  data-custom-select-options-list
-                                >
-                                  <li className="custom-select-option">
-                                    <span>Option 1</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 2</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 3</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 4</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 5</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 6</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 7</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 8</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 9</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 10</span>
-                                  </li>
-                                </ul>
-                              </div>
                             </div>
-                          </div>
                           )}
                         </div>
                       </div>
@@ -1925,7 +1962,7 @@ const Dashboard = () => {
                           <div
                             className="custom-select-label-wrapper"
                             data-custom-select-triger
-                            onClick={() => setPopularityFilter((prev) => !prev)}
+                            onClick={() => handleFilterClick("popularity")}
                           >
                             <div className="custom-select-icon-txt">
                               <span className="custom-select-label-txt">
@@ -1951,97 +1988,97 @@ const Dashboard = () => {
                               </svg>
                             </div>
                           </div>
-                          {popularityFilter && (
-                          <div
-                            className="custom-select-options-dropdown-wrapper"
-                            data-custom-select-dropdown
-                          >
-                            <div className="custom-select-options-dropdown-container">
-                              <div
-                                className="custom-select-options-search"
-                                data-custom-select-options-search
-                              >
-                                <div className="label-input">
-                                  <div className="input-placeholder-icon">
-                                    <svg
-                                      className="svg-icon"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                    >
-                                      <path
-                                        d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 5H20"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                      <path
-                                        d="M14 8H17"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      ></path>
-                                    </svg>
+                          {activeFilter === "popularity" && (
+                            <div
+                              className="custom-select-options-dropdown-wrapper"
+                              data-custom-select-dropdown
+                            >
+                              <div className="custom-select-options-dropdown-container">
+                                <div
+                                  className="custom-select-options-search"
+                                  data-custom-select-options-search
+                                >
+                                  <div className="label-input">
+                                    <div className="input-placeholder-icon">
+                                      <svg
+                                        className="svg-icon"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 5H20"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                        <path
+                                          d="M14 8H17"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        ></path>
+                                      </svg>
+                                    </div>
+                                    <input
+                                      type="text"
+                                      placeholder="Search here"
+                                    />
                                   </div>
-                                  <input
-                                    type="text"
-                                    placeholder="Search here"
-                                  />
+                                </div>
+                                <div className="custom-select-options-lists-container">
+                                  <ul
+                                    className="custom-select-options-list"
+                                    data-custom-select-options-list
+                                  >
+                                    <li className="custom-select-option">
+                                      <span>Option 1</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 2</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 3</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 4</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 5</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 6</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 7</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 8</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 9</span>
+                                    </li>
+                                    <li className="custom-select-option">
+                                      <span>Option 10</span>
+                                    </li>
+                                  </ul>
                                 </div>
                               </div>
-                              <div className="custom-select-options-lists-container">
-                                <ul
-                                  className="custom-select-options-list"
-                                  data-custom-select-options-list
-                                >
-                                  <li className="custom-select-option">
-                                    <span>Option 1</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 2</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 3</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 4</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 5</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 6</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 7</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 8</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 9</span>
-                                  </li>
-                                  <li className="custom-select-option">
-                                    <span>Option 10</span>
-                                  </li>
-                                </ul>
-                              </div>
                             </div>
-                          </div>
                           )}
                         </div>
                       </div>
