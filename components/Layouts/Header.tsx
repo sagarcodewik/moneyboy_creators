@@ -6,6 +6,8 @@ import { useRouter, usePathname } from "next/navigation";
 import { useDecryptedSession } from "@/libs/useDecryptedSession";
 import "./header.css";
 import { signOut } from "next-auth/react";
+import { getApiWithOutQuery } from "@/utils/endpoints/common";
+import { API_CREATOR_PROFILE, API_USER_PROFILE } from "@/utils/api/APIConstant";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +17,8 @@ const Header = () => {
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
+  const [userProfile, setUserProfile] = useState<any>(null);
+  const [profileLoading, setProfileLoading] = useState(true);
 
   const handleLogout = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -40,7 +44,6 @@ const Header = () => {
 
       const target = event.target as Node;
 
-      // if click is NOT inside menu panel AND NOT on avatar button
       if (
         menuRef.current &&
         !menuRef.current.contains(target) &&
@@ -57,6 +60,66 @@ const Header = () => {
 
   const isNotificationsPage = pathname === "/notifications";
   const isMessagePage = pathname === "/message";
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      if (!session?.isAuthenticated) {
+        setProfileLoading(false);
+        return;
+      }
+
+      try {
+        setProfileLoading(true);
+        let apiUrl = API_USER_PROFILE;
+
+        if (session?.user?.role === 2) {
+          apiUrl = API_CREATOR_PROFILE;
+        }
+
+        const response = await getApiWithOutQuery({ url: apiUrl });
+
+        console.log("Profile API Response:", response); // Debug log
+
+        if (response) {
+          // Handle different response structures
+          let userData;
+
+          if (session?.user?.role === 2) {
+            // Creator profile: response has { user, creator } objects
+            if (response.user) {
+              userData = {
+                displayName: response.user.displayName,
+                username: response.user.userName,
+                firstName: response.user.firstName,
+                lastName: response.user.lastName,
+                email: response.user.email,
+              };
+            }
+          } else {
+            // User profile: response has { success, message, data } structure
+            if (response.success && response.data) {
+              userData = {
+                displayName: response.data.displayName,
+                username: response.data.userName,
+                firstName: response.data.firstName,
+                lastName: response.data.lastName,
+                email: response.data.email,
+              };
+            }
+          }
+
+          if (userData) {
+            setUserProfile(userData);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching profile:", error);
+      } finally {
+        setProfileLoading(false);
+      }
+    };
+
+    fetchUserProfile();
+  }, [session?.isAuthenticated, session?.user?.role]);
 
   return (
     <>
@@ -227,7 +290,11 @@ const Header = () => {
                     >
                       <div className="profile-avatar">
                         <Image
-                          src="/images/profile-avatars/profile-avatar-1.png"
+                          src={
+                            session?.user?.role === 2
+                              ? "/images/profile-avatars/profile-avatar-1.png"
+                              : "/images/profile-avatars/profile-avatar-3.jpg"
+                          }
                           alt="User Images"
                           width={40}
                           height={40}
@@ -291,7 +358,11 @@ const Header = () => {
                       <div className="profile-card__avatar-settings">
                         <div className="profile-card__avatar">
                           <img
-                            src="/images/profile-avatars/profile-avatar-1.png"
+                            src={
+                              session?.user?.role === 2
+                                ? "/images/profile-avatars/profile-avatar-1.png"
+                                : "/images/profile-avatars/profile-avatar-3.jpg"
+                            }
                             alt="MoneyBoy Social Profile Avatar"
                           />
                         </div>
@@ -299,8 +370,12 @@ const Header = () => {
                       <div className="profile-card__info">
                         <div className="profile-card__name-badge">
                           <div className="profile-card__name">
-                            {" "}
-                            Corey Bergson{" "}
+                            {profileLoading
+                              ? "Loading..."
+                              : userProfile?.displayName ||
+                                userProfile?.name ||
+                                session?.user?.name ||
+                                "Corey Bergson"}
                           </div>
                           <div className="profile-card__badge">
                             <img
@@ -310,8 +385,13 @@ const Header = () => {
                           </div>
                         </div>
                         <div className="profile-card__username">
-                          {" "}
-                          @coreybergson{" "}
+                          {profileLoading
+                            ? "@loading"
+                            : `@${
+                                userProfile?.username ||
+                                session?.user?.username ||
+                                "coreybergson"
+                              }`}
                         </div>
                       </div>
                     </div>

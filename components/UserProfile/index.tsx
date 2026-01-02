@@ -1,10 +1,29 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import ShowToast from "../common/ShowToast";
+import { API_USER_PROFILE } from "@/utils/api/APIConstant";
+import { getApiWithOutQuery } from "@/utils/endpoints/common";
 
+interface UserProfile {
+  id: number;
+  userName: string;
+  displayName: string;
+  avatarUrl: string;
+  bannerUrl: string;
+  location: string;
+  joinDate: string;
+  followersCount: number;
+  followingCount: number;
+  bio: string;
+  isFollowing?: boolean;
+}
 const UserProfilepage = () => {
   const [openMenuId, setOpenMenuId] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState<string>("feed");
 
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     const likeButtons = document.querySelectorAll("[data-like-button]");
 
@@ -31,6 +50,36 @@ const UserProfilepage = () => {
   const handleTabClick = (tabName: string) => {
     setActiveTab(tabName);
   };
+
+  // Fetch user profile data
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        // Call the API
+        const response = await getApiWithOutQuery({
+          url: API_USER_PROFILE,
+        });
+
+        if (response && response.success) {
+          setUserProfile(response.data);
+        } else {
+          setError(response?.message || "Failed to load profile");
+          ShowToast(response?.message || "Failed to load profile", "error");
+        }
+      } catch (err: any) {
+        setError("An error occurred while fetching profile");
+        ShowToast("An error occurred while fetching profile", "error");
+        console.error("Error fetching user profile:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserProfile();
+  }, []);
   return (
     <div className="moneyboy-page-content-container">
       <main className="moneyboy-dynamic-content-layout">
@@ -55,7 +104,7 @@ const UserProfilepage = () => {
                         <div className="profile-card__avatar-settings">
                           <div className="profile-card__avatar">
                             <img
-                              src="/images/profile-avatars/profile-avatar-13.jpg"
+                              src="/images/profile-avatars/profile-avatar-3.jpg"
                               alt="MoneyBoy Social Profile Avatar"
                             />
                           </div>
@@ -63,11 +112,11 @@ const UserProfilepage = () => {
                         <div className="profile-card__info">
                           <div className="profile-card__name-badge">
                             <div className="profile-card__name">
-                              Charlie Mango
+                              {userProfile?.displayName || "Charlie Mango"}
                             </div>
                           </div>
                           <div className="profile-card__username">
-                            @charliemango
+                            @{userProfile?.userName || "charliemango"}
                           </div>
                         </div>
                       </div>

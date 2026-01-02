@@ -4,9 +4,13 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useDecryptedSession } from "@/libs/useDecryptedSession";
 import { signOut } from "next-auth/react";
+import { getApiWithOutQuery } from "@/utils/endpoints/common";
+import { API_CREATOR_PROFILE, API_USER_PROFILE } from "@/utils/api/APIConstant";
 
 const Sidebar: React.FC = () => {
   const [activePage, setActivePage] = useState<string>("feed");
+  const [userProfile, setUserProfile] = useState<any>(null);
+  const [profileLoading, setProfileLoading] = useState(true);
   const { session } = useDecryptedSession();
   const pathname = usePathname();
   const router = useRouter();
@@ -56,6 +60,63 @@ const Sidebar: React.FC = () => {
     signOut({ callbackUrl: "/" });
   };
 
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      if (!session?.isAuthenticated) {
+        setProfileLoading(false);
+        return;
+      }
+
+      try {
+        setProfileLoading(true);
+        let apiUrl = API_USER_PROFILE;
+
+        if (session?.user?.role === 2) {
+          apiUrl = API_CREATOR_PROFILE;
+        }
+
+        const response = await getApiWithOutQuery({ url: apiUrl });
+
+        console.log("Profile===========", response); 
+
+        if (response) {
+          let userData;
+
+          if (session?.user?.role === 2) {
+            if (response.user) {
+              userData = {
+                displayName: response.user.displayName,
+                username: response.user.userName,
+                firstName: response.user.firstName,
+                lastName: response.user.lastName,
+                email: response.user.email,
+              };
+            }
+          } else {
+            if (response.success && response.data) {
+              userData = {
+                displayName: response.data.displayName,
+                username: response.data.userName,
+                firstName: response.data.firstName,
+                lastName: response.data.lastName,
+                email: response.data.email,
+              };
+            }
+          }
+
+          if (userData) {
+            setUserProfile(userData);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching profile:", error);
+      } finally {
+        setProfileLoading(false);
+      }
+    };
+
+    fetchUserProfile();
+  }, [session?.isAuthenticated, session?.user?.role]);
   return (
     <div className="moneyboy-global-sidebar-wrapper" id="leftSidebar">
       <aside className="global-sidebar-container">
@@ -66,10 +127,15 @@ const Sidebar: React.FC = () => {
                 <a href="#" className="profile-card__main">
                   <div className="profile-card__avatar-settings">
                     <div className="profile-card__avatar">
-                      <img
-                        src="/images/profile-avatars/profile-avatar-1.png"
-                        alt="MoneyBoy Social Profile Avatar"
-                      />
+                    
+<img
+  src={
+    session?.user?.role === 2
+      ? "/images/profile-avatars/profile-avatar-1.png"
+      : "/images/profile-avatars/profile-avatar-3.jpg"
+  }
+  alt="MoneyBoy Social Profile Avatar"
+/>
                     </div>
                     <div className="profile-card__settings active-down-effect-2x">
                       <svg
@@ -99,7 +165,14 @@ const Sidebar: React.FC = () => {
                   </div>
                   <div className="profile-card__info">
                     <div className="profile-card__name-badge">
-                      <div className="profile-card__name">Corey Bergson</div>
+                      <div className="profile-card__name">
+                        {profileLoading
+                          ? "Loading..."
+                          : userProfile?.displayName ||
+                            userProfile?.name ||
+                            session?.user?.name ||
+                            "Corey Bergson"}
+                      </div>
                       <div className="profile-card__badge">
                         <img
                           src="/images/logo/profile-badge.png"
@@ -107,55 +180,63 @@ const Sidebar: React.FC = () => {
                         />
                       </div>
                     </div>
-                    <div className="profile-card__username">@coreybergson</div>
-                  </div>
-                </a>
-                
-                <div className="profile-card__stats">
-                    {session?.user?.role === 2 && (
-                  <div className="profile-card__stats-item posts-stats">
-                    <div className="profile-card__stats-num">2,880</div>
-                    <div className="profile-card__stats-label">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="25"
-                        viewBox="0 0 24 25"
-                        fill="none"
-                      >
-                        <path
-                          d="M22 10.4286V15.4286C22 20.4286 20 22.4286 15 22.4286H9C4 22.4286 2 20.4286 2 15.4286V9.42856C2 4.42856 4 2.42856 9 2.42856H14"
-                          stroke="none"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M22 10.4286H18C15 10.4286 14 9.42856 14 6.42856V2.42856L22 10.4286Z"
-                          stroke="none"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M7 13.4286H13"
-                          stroke="none"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M7 17.4286H11"
-                          stroke="none"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                      <span>Posts</span>
+                    <div className="profile-card__username">
+                      {profileLoading
+                        ? "@loading"
+                        : `@${
+                            userProfile?.username ||
+                            session?.user?.username ||
+                            "coreybergson"
+                          }`}
                     </div>
                   </div>
-                    )}
+                </a>
+
+                <div className="profile-card__stats">
+                  {session?.user?.role === 2 && (
+                    <div className="profile-card__stats-item posts-stats">
+                      <div className="profile-card__stats-num">2,880</div>
+                      <div className="profile-card__stats-label">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="25"
+                          viewBox="0 0 24 25"
+                          fill="none"
+                        >
+                          <path
+                            d="M22 10.4286V15.4286C22 20.4286 20 22.4286 15 22.4286H9C4 22.4286 2 20.4286 2 15.4286V9.42856C2 4.42856 4 2.42856 9 2.42856H14"
+                            stroke="none"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M22 10.4286H18C15 10.4286 14 9.42856 14 6.42856V2.42856L22 10.4286Z"
+                            stroke="none"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M7 13.4286H13"
+                            stroke="none"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M7 17.4286H11"
+                            stroke="none"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <span>Posts</span>
+                      </div>
+                    </div>
+                  )}
                   <div className="profile-card__stats-item followers-stats">
                     <div className="profile-card__stats-num">253</div>
                     <div className="profile-card__stats-label">
@@ -519,64 +600,64 @@ const Sidebar: React.FC = () => {
                   </li>
 
                   {/* Navigation Button - Store */}
-                    {session?.user?.role === 2 && (
-                  <li>
-                    <Link
-                      href="/store"
-                      className={`active-down-effect ${
-                        activePage === "store" ? "active" : ""
-                      }`}
-                      onClick={(e) => handleNavClick("store", "/store", e)}
-                    >
-                      <div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="32"
-                          height="32"
-                          viewBox="0 0 32 32"
-                          fill="none"
-                        >
-                          <path
-                            d="M4.01334 14.96V20.9467C4.01334 26.9334 6.41334 29.3334 12.4 29.3334H19.5867C25.5733 29.3334 27.9733 26.9334 27.9733 20.9467V14.96"
-                            stroke="none"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                          <path
-                            d="M16 16C18.44 16 20.24 14.0134 20 11.5734L19.12 2.66669H12.8933L12 11.5734C11.76 14.0134 13.56 16 16 16Z"
-                            stroke="none"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                          <path
-                            d="M24.4133 16C27.1067 16 29.08 13.8134 28.8133 11.1334L28.44 7.46669C27.96 4.00002 26.6267 2.66669 23.1333 2.66669H19.0667L20 12.0134C20.2267 14.2134 22.2133 16 24.4133 16Z"
-                            stroke="none"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                          <path
-                            d="M7.52 16C9.72 16 11.7067 14.2134 11.92 12.0134L12.2133 9.06669L12.8533 2.66669H8.78666C5.29333 2.66669 3.96 4.00002 3.48 7.46669L3.12 11.1334C2.85333 13.8134 4.82666 16 7.52 16Z"
-                            stroke="none"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                          <path
-                            d="M16 22.6667C13.7733 22.6667 12.6667 23.7734 12.6667 26V29.3334H19.3333V26C19.3333 23.7734 18.2267 22.6667 16 22.6667Z"
-                            stroke="none"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <span>Store</span>
-                      </div>
-                    </Link>
-                  </li>
-                    )}
+                  {session?.user?.role === 2 && (
+                    <li>
+                      <Link
+                        href="/store"
+                        className={`active-down-effect ${
+                          activePage === "store" ? "active" : ""
+                        }`}
+                        onClick={(e) => handleNavClick("store", "/store", e)}
+                      >
+                        <div>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            viewBox="0 0 32 32"
+                            fill="none"
+                          >
+                            <path
+                              d="M4.01334 14.96V20.9467C4.01334 26.9334 6.41334 29.3334 12.4 29.3334H19.5867C25.5733 29.3334 27.9733 26.9334 27.9733 20.9467V14.96"
+                              stroke="none"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              d="M16 16C18.44 16 20.24 14.0134 20 11.5734L19.12 2.66669H12.8933L12 11.5734C11.76 14.0134 13.56 16 16 16Z"
+                              stroke="none"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              d="M24.4133 16C27.1067 16 29.08 13.8134 28.8133 11.1334L28.44 7.46669C27.96 4.00002 26.6267 2.66669 23.1333 2.66669H19.0667L20 12.0134C20.2267 14.2134 22.2133 16 24.4133 16Z"
+                              stroke="none"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              d="M7.52 16C9.72 16 11.7067 14.2134 11.92 12.0134L12.2133 9.06669L12.8533 2.66669H8.78666C5.29333 2.66669 3.96 4.00002 3.48 7.46669L3.12 11.1334C2.85333 13.8134 4.82666 16 7.52 16Z"
+                              stroke="none"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              d="M16 22.6667C13.7733 22.6667 12.6667 23.7734 12.6667 26V29.3334H19.3333V26C19.3333 23.7734 18.2267 22.6667 16 22.6667Z"
+                              stroke="none"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                          <span>Store</span>
+                        </div>
+                      </Link>
+                    </li>
+                  )}
                   <li>
                     <Link
                       href="/"
