@@ -1,12 +1,20 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Likepage = () => {
-  const [like, setlike] = useState(false);
-  const [video, setVideo] = useState(false);
-  const [photos, setPhotos] = useState(false);
+  type FilterType = "like" | "video" | "photos" | null;
+  const [activeFilter, setActiveFilter] = useState<FilterType>(null);
+  const dropdownRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const [openMenuId, setOpenMenuId] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState<string>("posts");
+
+  const [gridLayoutMode, setGridLayoutMode] = useState<{
+    videos: "grid" | "list";
+    photos: "grid" | "list";
+  }>({
+    videos: "grid",
+    photos: "grid",
+  });
   useEffect(() => {
     const likeButtons = document.querySelectorAll("[data-like-button]");
 
@@ -32,6 +40,65 @@ const Likepage = () => {
   const handleTabClick = (tabName: string) => {
     setActiveTab(tabName);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const isClickInsideDropdown = Object.values(dropdownRefs.current).some(
+        (ref) => ref && ref.contains(event.target as Node)
+      );
+
+      const target = event.target as HTMLElement;
+      const isDropdownTrigger = target.closest("[data-custom-select-triger]");
+
+      if (!isClickInsideDropdown && !isDropdownTrigger) {
+        setActiveFilter(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleFilterClick = (filter: FilterType) => {
+    setActiveFilter((current) => (current === filter ? null : filter));
+  };
+
+  const closeAllFilters = () => {
+    setActiveFilter(null);
+  };
+  const handleGridLayoutChange = (
+    tab: "videos" | "photos",
+    mode: "grid" | "list"
+  ) => {
+    setGridLayoutMode((prev) => ({
+      ...prev,
+      [tab]: mode,
+    }));
+  };
+
+  const renderDropdownContent = () => (
+    <div className="custom-select-options-lists-container">
+      <ul
+        className="custom-select-options-list"
+        data-custom-select-options-list
+      >
+        <li className="custom-select-option" onClick={closeAllFilters}>
+          <span>Option 1</span>
+        </li>
+        <li className="custom-select-option" onClick={closeAllFilters}>
+          <span>Option 2</span>
+        </li>
+        <li className="custom-select-option" onClick={closeAllFilters}>
+          <span>Option 3</span>
+        </li>
+        <li className="custom-select-option" onClick={closeAllFilters}>
+          <span>Option 4</span>
+        </li>
+      </ul>
+    </div>
+  );
   return (
     <div className="moneyboy-page-content-container">
       <main className="moneyboy-dynamic-content-layout">
@@ -133,7 +200,7 @@ const Likepage = () => {
                               <div
                                 className="custom-select-label-wrapper"
                                 data-custom-select-triger
-                                onClick={() => setlike((prev) => !prev)}
+                                onClick={() => handleFilterClick("like")}
                               >
                                 <div className="custom-select-icon-txt">
                                   <span className="custom-select-label-txt">
@@ -159,7 +226,7 @@ const Likepage = () => {
                                   </svg>
                                 </div>
                               </div>
-                              {like && (
+                              {activeFilter === "like" && (
                                 <div
                                   className="custom-select-options-dropdown-wrapper"
                                   data-custom-select-dropdown
@@ -1128,7 +1195,7 @@ const Likepage = () => {
                                     <div
                                       className="custom-select-label-wrapper"
                                       data-custom-select-triger
-                                      onClick={() => setVideo((prev) => !prev)}
+                                      onClick={() => handleFilterClick("video")}
                                     >
                                       <div className="custom-select-icon-txt">
                                         <span className="custom-select-label-txt">
@@ -1154,33 +1221,33 @@ const Likepage = () => {
                                         </svg>
                                       </div>
                                     </div>
-                                    {video && (
-                                    <div
-                                      className="custom-select-options-dropdown-wrapper"
-                                      data-custom-select-dropdown
-                                    >
-                                      <div className="custom-select-options-dropdown-container">
-                                        <div className="custom-select-options-lists-container">
-                                          <ul
-                                            className="custom-select-options-list"
-                                            data-custom-select-options-list
-                                          >
-                                            <li className="custom-select-option">
-                                              <span> Option 1</span>
-                                            </li>
-                                            <li className="custom-select-option">
-                                              <span> Option 2</span>
-                                            </li>
-                                            <li className="custom-select-option">
-                                              <span> Option 3</span>
-                                            </li>
-                                            <li className="custom-select-option">
-                                              <span> Option 4</span>
-                                            </li>
-                                          </ul>
+                                    {activeFilter === "video" && (
+                                      <div
+                                        className="custom-select-options-dropdown-wrapper"
+                                        data-custom-select-dropdown
+                                      >
+                                        <div className="custom-select-options-dropdown-container">
+                                          <div className="custom-select-options-lists-container">
+                                            <ul
+                                              className="custom-select-options-list"
+                                              data-custom-select-options-list
+                                            >
+                                              <li className="custom-select-option">
+                                                <span> Option 1</span>
+                                              </li>
+                                              <li className="custom-select-option">
+                                                <span> Option 2</span>
+                                              </li>
+                                              <li className="custom-select-option">
+                                                <span> Option 3</span>
+                                              </li>
+                                              <li className="custom-select-option">
+                                                <span> Option 4</span>
+                                              </li>
+                                            </ul>
+                                          </div>
                                         </div>
                                       </div>
-                                    </div>
                                     )}
                                   </div>
                                 </div>
@@ -1189,7 +1256,16 @@ const Likepage = () => {
                                   data-multi-dem-cards-layout-btns
                                 >
                                   {/* data__active */}
-                                  <button className="creator-content-grid-layout-btn">
+                                  <button
+                                    className={`creator-content-grid-layout-btn ${
+                                      gridLayoutMode.videos === "grid"
+                                        ? "data__active"
+                                        : ""
+                                    }`}
+                                    onClick={() =>
+                                      handleGridLayoutChange("videos", "grid")
+                                    }
+                                  >
                                     <svg
                                       xmlns="http://www.w3.org/2000/svg"
                                       width="24"
@@ -1215,7 +1291,16 @@ const Likepage = () => {
                                       />
                                     </svg>
                                   </button>
-                                  <button className="creator-content-grid-layout-btn">
+                                  <button
+                                    className={`creator-content-grid-layout-btn ${
+                                      gridLayoutMode.videos === "list"
+                                        ? "data__active"
+                                        : ""
+                                    }`}
+                                    onClick={() =>
+                                      handleGridLayoutChange("videos", "list")
+                                    }
+                                  >
                                     <svg
                                       xmlns="http://www.w3.org/2000/svg"
                                       width="24"
@@ -1242,7 +1327,11 @@ const Likepage = () => {
                             </div>
                           </div>
                           <div
-                            className="creator-content-cards-wrapper multi-dem-cards-wrapper-layout"
+                            className={`creator-content-cards-wrapper multi-dem-cards-wrapper-layout ${
+                              gridLayoutMode.videos === "list"
+                                ? "list-view-layout"
+                                : ""
+                            }`}
                             data-multi-child-grid-layout-wishlist
                             data-2-cols
                           >
@@ -1904,7 +1993,9 @@ const Likepage = () => {
                                     <div
                                       className="custom-select-label-wrapper"
                                       data-custom-select-triger
-                                      onClick={() => setPhotos((prev) => !prev)}
+                                      onClick={() =>
+                                        handleFilterClick("photos")
+                                      }
                                     >
                                       <div className="custom-select-icon-txt">
                                         <span className="custom-select-label-txt">
@@ -1930,33 +2021,33 @@ const Likepage = () => {
                                         </svg>
                                       </div>
                                     </div>
-                                    {photos && (
-                                    <div
-                                      className="custom-select-options-dropdown-wrapper"
-                                      data-custom-select-dropdown
-                                    >
-                                      <div className="custom-select-options-dropdown-container">
-                                        <div className="custom-select-options-lists-container">
-                                          <ul
-                                            className="custom-select-options-list"
-                                            data-custom-select-options-list
-                                          >
-                                            <li className="custom-select-option">
-                                              <span> Option 1</span>
-                                            </li>
-                                            <li className="custom-select-option">
-                                              <span> Option 2</span>
-                                            </li>
-                                            <li className="custom-select-option">
-                                              <span> Option 3</span>
-                                            </li>
-                                            <li className="custom-select-option">
-                                              <span> Option 4</span>
-                                            </li>
-                                          </ul>
+                                    {activeFilter === "photos" && (
+                                      <div
+                                        className="custom-select-options-dropdown-wrapper"
+                                        data-custom-select-dropdown
+                                      >
+                                        <div className="custom-select-options-dropdown-container">
+                                          <div className="custom-select-options-lists-container">
+                                            <ul
+                                              className="custom-select-options-list"
+                                              data-custom-select-options-list
+                                            >
+                                              <li className="custom-select-option">
+                                                <span> Option 1</span>
+                                              </li>
+                                              <li className="custom-select-option">
+                                                <span> Option 2</span>
+                                              </li>
+                                              <li className="custom-select-option">
+                                                <span> Option 3</span>
+                                              </li>
+                                              <li className="custom-select-option">
+                                                <span> Option 4</span>
+                                              </li>
+                                            </ul>
+                                          </div>
                                         </div>
                                       </div>
-                                    </div>
                                     )}
                                   </div>
                                 </div>
@@ -1965,7 +2056,16 @@ const Likepage = () => {
                                   data-multi-dem-cards-layout-btns
                                 >
                                   {/* data__active */}
-                                  <button className="creator-content-grid-layout-btn">
+                                  <button
+                                    className={`creator-content-grid-layout-btn ${
+                                      gridLayoutMode.photos === "grid"
+                                        ? "data__active"
+                                        : ""
+                                    }`}
+                                    onClick={() =>
+                                      handleGridLayoutChange("photos", "grid")
+                                    }
+                                  >
                                     <svg
                                       xmlns="http://www.w3.org/2000/svg"
                                       width="24"
@@ -1991,7 +2091,16 @@ const Likepage = () => {
                                       />
                                     </svg>
                                   </button>
-                                  <button className="creator-content-grid-layout-btn">
+                                  <button
+                                    className={`creator-content-grid-layout-btn ${
+                                      gridLayoutMode.photos === "list"
+                                        ? "data__active"
+                                        : ""
+                                    }`}
+                                    onClick={() =>
+                                      handleGridLayoutChange("photos", "list")
+                                    }
+                                  >
                                     <svg
                                       xmlns="http://www.w3.org/2000/svg"
                                       width="24"
@@ -2018,7 +2127,11 @@ const Likepage = () => {
                             </div>
                           </div>
                           <div
-                            className="creator-content-cards-wrapper multi-dem-cards-wrapper-layout"
+                            className={`creator-content-cards-wrapper multi-dem-cards-wrapper-layout ${
+                              gridLayoutMode.photos === "list"
+                                ? "list-view-layout"
+                                : ""
+                            }`}
                             data-multi-child-grid-layout-wishlist
                             data-2-cols
                           >
